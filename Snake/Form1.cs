@@ -10,11 +10,20 @@ using System.Windows.Forms;
 
 namespace Snake
 {
-    public partial class Form1 : Form
+    public class Form1 : Form
     {
-        public Form1()
+        public Form1() : base()
         {
-            InitializeComponent();
+            Text = "";
+            AutoSize = true;
+            DoubleBuffered = true;
+            BackColor = System.Drawing.Color.White;
+
+            FlowLayoutPanel flow = new FlowLayoutPanel();
+            flow.Size = new Size(this.Size.Width, this.Size.Height);
+            flow.AutoSize = true;
+            flow.BackColor = System.Drawing.Color.Blue;
+            Controls.Add(flow);
         }
     }
 }
