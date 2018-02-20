@@ -29,6 +29,7 @@ namespace Snake
         private Label label10;
         private Label label11;
         private FlowLayoutPanel flowLayoutPanel6;
+        private Label label12;
         private FlowLayoutPanel flowLayoutPanel1;
 
         public Form1() : base()
@@ -60,11 +61,13 @@ namespace Snake
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label12 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
+            this.flowLayoutPanel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -250,11 +253,22 @@ namespace Snake
             // flowLayoutPanel6
             // 
             this.flowLayoutPanel6.BackColor = System.Drawing.Color.Cornsilk;
+            this.flowLayoutPanel6.Controls.Add(this.label12);
             this.flowLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Right;
             this.flowLayoutPanel6.Location = new System.Drawing.Point(321, 3);
             this.flowLayoutPanel6.Name = "flowLayoutPanel6";
-            this.flowLayoutPanel6.Size = new System.Drawing.Size(243, 65);
+            this.flowLayoutPanel6.Size = new System.Drawing.Size(241, 65);
             this.flowLayoutPanel6.TabIndex = 3;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Mistral", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(3, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(213, 65);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Snek Game";
             // 
             // Form1
             // 
@@ -272,6 +286,8 @@ namespace Snake
             this.flowLayoutPanel4.PerformLayout();
             this.flowLayoutPanel5.ResumeLayout(false);
             this.flowLayoutPanel5.PerformLayout();
+            this.flowLayoutPanel6.ResumeLayout(false);
+            this.flowLayoutPanel6.PerformLayout();
             this.ResumeLayout(false);
 
         }
