@@ -18,19 +18,9 @@ namespace Snake
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            food = new Food(new System.Drawing.PointF((float)5.5, (float)4.5));
-            Form1 form = new Form1();
-            Application.Run(form);
-
-            form.Paint += Form_Paint;
-
-            new Music();
-        }
-
-        private static void Form_Paint(object sender, PaintEventArgs e)
-        {
-            food.Draw(e.Graphics);
+            
+            GameInitializer game = new GameInitializer();
+            Application.Run(game);
         }
     }
 }
