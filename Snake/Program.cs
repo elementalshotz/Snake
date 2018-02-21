@@ -24,6 +24,8 @@ namespace Snake
             Application.Run(form);
 
             form.Paint += Form_Paint;
+
+            new Music();
         }
 
         private static void Form_Paint(object sender, PaintEventArgs e)
