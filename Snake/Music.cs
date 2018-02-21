@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Snake
+namespace Snake 
 {
     class Music
     {
@@ -12,7 +12,7 @@ namespace Snake
         
         public Music()
         {
-            soundPlayer.SoundLocation = "shootingstars.mp3";
+            soundPlayer.SoundLocation = "shootingstars.wav";
             soundPlayer.Play();
         }
     }
