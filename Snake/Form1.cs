@@ -37,7 +37,6 @@ namespace Snake
             Text = "";
             AutoSize = true;
             DoubleBuffered = true;
-            BackColor = System.Drawing.Color.White;
             InitializeComponent();
         }
 
@@ -252,12 +251,15 @@ namespace Snake
             // 
             // flowLayoutPanel6
             // 
+            this.flowLayoutPanel6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel6.AutoSize = true;
             this.flowLayoutPanel6.BackColor = System.Drawing.Color.Cornsilk;
             this.flowLayoutPanel6.Controls.Add(this.label12);
-            this.flowLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Right;
             this.flowLayoutPanel6.Location = new System.Drawing.Point(321, 3);
             this.flowLayoutPanel6.Name = "flowLayoutPanel6";
-            this.flowLayoutPanel6.Size = new System.Drawing.Size(241, 65);
+            this.flowLayoutPanel6.Size = new System.Drawing.Size(219, 65);
             this.flowLayoutPanel6.TabIndex = 3;
             // 
             // label12
