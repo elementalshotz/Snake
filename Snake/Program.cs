@@ -18,6 +18,9 @@ namespace Snake
             Application.SetCompatibleTextRenderingDefault(false);
 
             Form1 form = new Form1();
+
+            new Music();
+
             Application.Run(form);
         }
     }

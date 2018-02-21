@@ -51,6 +51,7 @@
     <Compile Include="Food.cs" />
     <Compile Include="ICollidable.cs" />
     <Compile Include="IDrawable.cs" />
+    <Compile Include="Music.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
