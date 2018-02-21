@@ -293,6 +293,7 @@ namespace Snake
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(567, 414);
             this.panel2.TabIndex = 1;
+            this.panel2.Paint += Panel2_Paint;
             // 
             // Form1
             // 
@@ -313,6 +314,11 @@ namespace Snake
             this.flowLayoutPanel6.ResumeLayout(false);
             this.flowLayoutPanel6.PerformLayout();
             this.ResumeLayout(false);
+
+        }
+
+        private void Panel2_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }
