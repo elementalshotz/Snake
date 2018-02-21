@@ -12,7 +12,7 @@ namespace Snake
         
         public Music()
         {
-            soundPlayer.SoundLocation = "C:\\Users\\ek33\\Music\\shootingstars.mp3";
+            soundPlayer.SoundLocation = "shootingstars.mp3";
             soundPlayer.Play();
         }
     }
