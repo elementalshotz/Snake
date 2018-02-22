@@ -40,12 +40,16 @@ namespace Snake
 
         private void twoPlayers_Click(object sender, EventArgs e)
         {
-
+            music.ShuffleMusic();
+            music.Play();
+            form.ShowDialog();
         }
 
         private void threePlayers_Click(object sender, EventArgs e)
         {
-
+            music.ShuffleMusic();
+            music.Play();
+            form.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
