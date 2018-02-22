@@ -58,7 +58,9 @@
     </Compile>
     <Compile Include="ICollidable.cs" />
     <Compile Include="IDrawable.cs" />
+    <Compile Include="MagicMushroom.cs" />
     <Compile Include="Music.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
