@@ -7,18 +7,11 @@ using System.Drawing;
 
 namespace Snake
 {
-    public abstract class Food : IDrawable
+    class MagicMushroom : Food
     {
-        PointF Pos;
-
-        public Food(PointF pos)
+        public MagicMushroom(PointF point) : base(point)
         {
-            Pos = pos;
-        }
 
-        public void Draw(Graphics g)
-        {
-            
         }
     }
 }
