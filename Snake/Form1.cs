@@ -33,7 +33,7 @@ namespace Snake
 
             KeyPreview = true;
             KeyDown += Form1_KeyDown;
-            mushroom = new MagicMushroom(new Point(50,50));
+            mushroomList.Add(new MagicMushroom(new Point(50, 50)));
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -160,7 +160,10 @@ namespace Snake
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
-            mushroom.Draw(e.Graphics);
+            foreach (var mushroom in mushroomList)
+            {
+                mushroom.Draw(e.Graphics);
+            }
         }
     }
 }

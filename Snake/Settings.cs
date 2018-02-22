@@ -27,6 +27,5 @@ namespace Snake
         {
             Keys.I, Keys.J, Keys.K, Keys.L
         };
-
     }
 }

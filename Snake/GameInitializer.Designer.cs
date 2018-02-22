@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.threePlayers = new System.Windows.Forms.Button();
             this.twoPlayers = new System.Windows.Forms.Button();
             this.onePlayer = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,9 +49,19 @@
             this.panel1.Size = new System.Drawing.Size(284, 261);
             this.panel1.TabIndex = 1;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(96, 212);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(89, 39);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Exit";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // threePlayers
             // 
-            this.threePlayers.Location = new System.Drawing.Point(61, 118);
+            this.threePlayers.Location = new System.Drawing.Point(67, 118);
             this.threePlayers.Name = "threePlayers";
             this.threePlayers.Size = new System.Drawing.Size(145, 47);
             this.threePlayers.TabIndex = 2;
@@ -61,7 +71,7 @@
             // 
             // twoPlayers
             // 
-            this.twoPlayers.Location = new System.Drawing.Point(61, 65);
+            this.twoPlayers.Location = new System.Drawing.Point(67, 65);
             this.twoPlayers.Name = "twoPlayers";
             this.twoPlayers.Size = new System.Drawing.Size(145, 47);
             this.twoPlayers.TabIndex = 1;
@@ -71,23 +81,13 @@
             // 
             // onePlayer
             // 
-            this.onePlayer.Location = new System.Drawing.Point(61, 12);
+            this.onePlayer.Location = new System.Drawing.Point(67, 12);
             this.onePlayer.Name = "onePlayer";
             this.onePlayer.Size = new System.Drawing.Size(145, 47);
             this.onePlayer.TabIndex = 0;
             this.onePlayer.Text = "1 Player(s)";
             this.onePlayer.UseVisualStyleBackColor = true;
             this.onePlayer.Click += new System.EventHandler(this.onePlayer_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(90, 212);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(89, 39);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Exit";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // GameInitializer
             // 
@@ -96,7 +96,7 @@
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.panel1);
             this.Name = "GameInitializer";
-            this.Text = "GamInitializer";
+            this.Text = "GameInitializer";
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
