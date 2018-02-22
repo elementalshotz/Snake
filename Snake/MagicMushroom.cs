@@ -9,17 +9,17 @@ namespace Snake
 {
     class MagicMushroom : Food, ICollidable
     {
-        Image image;
         Point point;
 
         public MagicMushroom(Point point) : base(point)
         {
             this.point = point;
+            
         }
 
         new public void Draw(Graphics g)
         {
-            g.DrawIcon(new Icon("Mushroom.jpg"), new Rectangle(point, new Size(100, 100)));
+            g.DrawIcon(new Icon("Apple.ico"), 50, 50);
         }
 
         public void Hit(Food food)
