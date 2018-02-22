@@ -96,7 +96,7 @@
     <Content Include="Apple.png" />
     <Content Include="ChoclateBar.png" />
     <Content Include="CoffieCup.png" />
-    <Content Include="Mushroom.jpg" />
+    <Content Include="Mushroom.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
