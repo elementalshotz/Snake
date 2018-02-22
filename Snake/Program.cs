@@ -8,6 +8,8 @@ namespace Snake
 {
     static class Program
     {
+        static Food food;
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -16,10 +18,9 @@ namespace Snake
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            Form1 form = new Form1();
-
-            Application.Run(form);
+            
+            GameInitializer game = new GameInitializer();
+            Application.Run(game);
         }
     }
 }

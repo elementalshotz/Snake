@@ -64,6 +64,7 @@ namespace Snake
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
@@ -81,7 +82,6 @@ namespace Snake
             this.label9 = new System.Windows.Forms.Label();
             this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
             this.label12 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
@@ -98,8 +98,19 @@ namespace Snake
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(567, 489);
+            this.panel1.Size = new System.Drawing.Size(547, 489);
             this.panel1.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.AutoSize = true;
+            this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel2.BackColor = System.Drawing.Color.Coral;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(547, 414);
+            this.panel2.TabIndex = 1;
             // 
             // flowLayoutPanel1
             // 
@@ -111,7 +122,7 @@ namespace Snake
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 414);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(567, 75);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(547, 75);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // flowLayoutPanel3
@@ -119,11 +130,12 @@ namespace Snake
             this.flowLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.flowLayoutPanel3.AutoSize = true;
-            this.flowLayoutPanel3.BackColor = System.Drawing.Color.Cyan;
+            this.flowLayoutPanel3.BackColor = System.Drawing.Color.Transparent;
             this.flowLayoutPanel3.Controls.Add(this.label2);
             this.flowLayoutPanel3.Controls.Add(this.label3);
             this.flowLayoutPanel3.Controls.Add(this.label4);
             this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel3.ForeColor = System.Drawing.Color.White;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(108, 65);
@@ -161,13 +173,14 @@ namespace Snake
             this.flowLayoutPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.flowLayoutPanel4.AutoSize = true;
-            this.flowLayoutPanel4.BackColor = System.Drawing.Color.Cyan;
+            this.flowLayoutPanel4.BackColor = System.Drawing.Color.Transparent;
             this.flowLayoutPanel4.Controls.Add(this.label1);
             this.flowLayoutPanel4.Controls.Add(this.label5);
             this.flowLayoutPanel4.Controls.Add(this.label10);
             this.flowLayoutPanel4.Controls.Add(this.label6);
             this.flowLayoutPanel4.Controls.Add(this.label11);
             this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel4.ForeColor = System.Drawing.Color.White;
             this.flowLayoutPanel4.Location = new System.Drawing.Point(117, 3);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
             this.flowLayoutPanel4.Size = new System.Drawing.Size(105, 65);
@@ -223,11 +236,12 @@ namespace Snake
             this.flowLayoutPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.flowLayoutPanel5.AutoSize = true;
-            this.flowLayoutPanel5.BackColor = System.Drawing.Color.Cyan;
+            this.flowLayoutPanel5.BackColor = System.Drawing.Color.Transparent;
             this.flowLayoutPanel5.Controls.Add(this.label7);
             this.flowLayoutPanel5.Controls.Add(this.label8);
             this.flowLayoutPanel5.Controls.Add(this.label9);
             this.flowLayoutPanel5.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel5.ForeColor = System.Drawing.Color.White;
             this.flowLayoutPanel5.Location = new System.Drawing.Point(228, 3);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
             this.flowLayoutPanel5.Size = new System.Drawing.Size(87, 65);
@@ -262,12 +276,10 @@ namespace Snake
             // 
             // flowLayoutPanel6
             // 
-            this.flowLayoutPanel6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel6.AutoSize = true;
             this.flowLayoutPanel6.BackColor = System.Drawing.Color.Cornsilk;
             this.flowLayoutPanel6.Controls.Add(this.label12);
+            this.flowLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Right;
             this.flowLayoutPanel6.Location = new System.Drawing.Point(321, 3);
             this.flowLayoutPanel6.Name = "flowLayoutPanel6";
             this.flowLayoutPanel6.Size = new System.Drawing.Size(219, 65);
@@ -283,23 +295,13 @@ namespace Snake
             this.label12.TabIndex = 0;
             this.label12.Text = "Snek Game";
             // 
-            // panel2
-            // 
-            this.panel2.AutoSize = true;
-            this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel2.BackColor = System.Drawing.Color.Coral;
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(567, 414);
-            this.panel2.TabIndex = 1;
-            // 
             // Form1
             // 
-            this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(567, 489);
+            this.ClientSize = new System.Drawing.Size(547, 489);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -313,6 +315,16 @@ namespace Snake
             this.flowLayoutPanel6.ResumeLayout(false);
             this.flowLayoutPanel6.PerformLayout();
             this.ResumeLayout(false);
+
+        }
+
+        private void Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
 
         }
     }
