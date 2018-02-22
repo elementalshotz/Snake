@@ -20,12 +20,22 @@ namespace Snake
             InitializeComponent();
             music = new Music();
             form = new Form1();
+            form.FormClosed += Form_FormClosed;
+        }
+
+        private void Form_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (music.IsPlaying)
+            {
+                music.Stop();
+            }
         }
 
         private void onePlayer_Click(object sender, EventArgs e)
         {
             music.ShuffleMusic();
             music.Play();
+            form.ShowDialog();
         }
 
         private void twoPlayers_Click(object sender, EventArgs e)

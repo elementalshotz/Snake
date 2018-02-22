@@ -11,6 +11,13 @@ namespace Snake
         System.Media.SoundPlayer soundPlayer;
         string[] songs = new string[2] { "Lasse.wav", "shootingstars.wav" };
         Random random;
+
+        private bool playing;
+        public bool IsPlaying
+        {
+            get { return playing; }
+            set { playing = value; }
+        }
         
         public Music()
         {
@@ -20,6 +27,7 @@ namespace Snake
 
         public void Play()
         {
+            IsPlaying = true;
             soundPlayer.Play();
         }
 
@@ -30,12 +38,13 @@ namespace Snake
 
         public void Stop()
         {
+            IsPlaying = false;
             soundPlayer.Stop();
         }
 
         public bool isPlaying()
         {
-            return false;
+            return IsPlaying;
         }
     }
 }
