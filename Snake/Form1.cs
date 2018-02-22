@@ -22,7 +22,7 @@ namespace Snake
         Font font = new Font("Verdana", 10);
         Brush brush = new SolidBrush(Color.GhostWhite);
 
-        MagicMushroom mushroom;
+        List<MagicMushroom> mushroomList = new List<MagicMushroom>();
 
         public Form1() : base()
         {
