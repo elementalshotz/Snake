@@ -20,7 +20,7 @@ namespace Snake
         private FlowLayoutPanel flowLayoutPanel1;
 
         Font font = new Font("Verdana", 10);
-        Brush brush = new SolidBrush(Color.Orange);
+        Brush brush = new SolidBrush(Color.GhostWhite);
 
         public Form1() : base()
         {
