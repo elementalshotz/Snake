@@ -22,5 +22,10 @@ namespace Snake
         {
             soundPlayer.SoundLocation = Source;
         }
+
+        public void Play()
+        {
+            soundPlayer.Play();
+        }
     }
 }
