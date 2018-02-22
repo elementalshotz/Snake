@@ -19,7 +19,7 @@ namespace Snake
         private Panel panel2;
         private FlowLayoutPanel flowLayoutPanel1;
 
-        Font font = new Font("Verdana", 16);
+        Font font = new Font("Verdana", 10);
         Brush brush = new SolidBrush(Color.Orange);
 
         public Form1() : base()
@@ -92,7 +92,7 @@ namespace Snake
             // 
             // flowLayoutPanel3
             // 
-            this.flowLayoutPanel3.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel3.BackColor = System.Drawing.Color.Transparent;
             this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
@@ -102,7 +102,7 @@ namespace Snake
             // 
             // flowLayoutPanel4
             // 
-            this.flowLayoutPanel4.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel4.BackColor = System.Drawing.Color.Transparent;
             this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel4.Location = new System.Drawing.Point(159, 3);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
@@ -112,7 +112,7 @@ namespace Snake
             // 
             // flowLayoutPanel5
             // 
-            this.flowLayoutPanel5.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel5.BackColor = System.Drawing.Color.Transparent;
             this.flowLayoutPanel5.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel5.Location = new System.Drawing.Point(315, 3);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
@@ -137,17 +137,21 @@ namespace Snake
         {
             var g = e.Graphics; //Get the graphics object
 
-            g.DrawString("Player 1: \nScore: 15\n", font, brush, new PointF(0, 0));
+            g.DrawString("Player 1: \nScore: 15\nControls: W, A, S, D", font, brush, new PointF(0, 0));
         }
 
         private void flowLayoutPanel4_Paint(object sender, PaintEventArgs e)
         {
+            var g = e.Graphics; //Get the graphics object
 
+            g.DrawString("Player 2: \nScore: 15\nControls: Up, Down\nLeft, Right", font, brush, new PointF(0, 0));
         }
 
         private void flowLayoutPanel5_Paint(object sender, PaintEventArgs e)
         {
+            var g = e.Graphics; //Get the graphics object
 
+            g.DrawString("Player 3: \nScore: 15\nControls: I, J, K, L", font, brush, new PointF(0, 0));
         }
     }
 }
