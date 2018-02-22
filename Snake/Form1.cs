@@ -22,6 +22,8 @@ namespace Snake
         Font font = new Font("Verdana", 10);
         Brush brush = new SolidBrush(Color.GhostWhite);
 
+        MagicMushroom mushroom;
+
         public Form1() : base()
         {
             Text = "";
@@ -31,6 +33,7 @@ namespace Snake
 
             KeyPreview = true;
             KeyDown += Form1_KeyDown;
+            mushroom = new MagicMushroom(new Point(50,50));
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -77,6 +80,7 @@ namespace Snake
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(547, 408);
             this.panel2.TabIndex = 1;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // flowLayoutPanel1
             // 
@@ -152,6 +156,11 @@ namespace Snake
             var g = e.Graphics; //Get the graphics object
 
             g.DrawString("Player 3: \nScore: 15\nControls: I, J, K, L", font, brush, new PointF(0, 0));
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+            mushroom.Draw(e.Graphics);
         }
     }
 }
