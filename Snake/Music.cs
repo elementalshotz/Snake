@@ -8,11 +8,11 @@ namespace Snake
 {
     class Music
     {
-        System.Media.SoundPlayer soundPlayer;
-        
+        System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer();
+
         public Music()
         {
-            soundPlayer = new System.Media.SoundPlayer("shootingstars.wav");
+            ShuffleMusic();
             Play();
         }
 
@@ -24,6 +24,7 @@ namespace Snake
         public void ShuffleMusic()
         {
             soundPlayer.SoundLocation = "shootingstars.wav";
+            
         }
 
         public void Stop()
