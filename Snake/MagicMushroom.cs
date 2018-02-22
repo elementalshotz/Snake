@@ -7,11 +7,29 @@ using System.Drawing;
 
 namespace Snake
 {
-    class MagicMushroom : Food
+    class MagicMushroom : Food, ICollidable
     {
-        public MagicMushroom(PointF point) : base(point)
-        {
+        Image image;
+        Point point;
 
+        public MagicMushroom(Point point) : base(point)
+        {
+            this.point = point;
+        }
+
+        new public void Draw(Graphics g)
+        {
+            g.DrawIcon(new Icon("Mushroom.jpg"), new Rectangle(point, new Size(100, 100)));
+        }
+
+        public void Hit(Food food)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Remove(Food food)
+        {
+            throw new NotImplementedException();
         }
     }
 }
