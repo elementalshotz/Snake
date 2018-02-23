@@ -11,6 +11,7 @@ namespace Snake
     {
         Keys[] playerKeys;
         int score;
+
         public int Score
         {
             get => score;
