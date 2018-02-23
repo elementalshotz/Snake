@@ -37,7 +37,7 @@ namespace Snake
         private void onePlayer_Click(object sender, EventArgs e)
         {
             music.ShuffleMusic();
-            music.Play();
+            //music.Play();
             form.activatePlayers(1);
             form.ShowDialog();
         }
@@ -45,7 +45,7 @@ namespace Snake
         private void twoPlayers_Click(object sender, EventArgs e)
         {
             music.ShuffleMusic();
-            music.Play();
+            //music.Play();
             form.activatePlayers(2);
             form.ShowDialog();
         }
@@ -53,7 +53,7 @@ namespace Snake
         private void threePlayers_Click(object sender, EventArgs e)
         {
             music.ShuffleMusic();
-            music.Play();
+            //music.Play();
             form.activatePlayers(3);
             form.ShowDialog();
         }

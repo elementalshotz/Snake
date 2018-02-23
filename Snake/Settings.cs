@@ -9,7 +9,7 @@ namespace Snake
 {
     static class Settings
     {
-        public static int FPS = 60;
+        public static int FPS = 1;
         public static int EffectLength = 3000;
 
         public static int standardFood = 1;
