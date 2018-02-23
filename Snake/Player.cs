@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Snake
 {
-    class Player
+    public class Player
     {
         Keys[] playerKeys;
         int score;
@@ -15,6 +15,7 @@ namespace Snake
         public int Score
         {
             get => score;
+            set => score = value;
         }
 
         public Player(Keys[] keys)

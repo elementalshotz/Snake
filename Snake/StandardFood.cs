@@ -7,9 +7,15 @@ using System.Drawing;
 
 namespace Snake
 {
-    class CoffeFood : Food, ICollidable
+    class StandardFood : Food, ICollidable
     {
-        public CoffeFood(Point point) : base(point) => Pos = point;
+        Random random;
+
+        public StandardFood(Point point) : base(point)
+        {
+            Pos = point;
+            random = new Random();
+        }
 
         public override void AddEffect(ref List<Player> playerList, ref Player player)
         {
@@ -18,7 +24,7 @@ namespace Snake
 
         public void Draw(Graphics g)
         {
-            g.DrawIcon(new Icon("CoffieCup.ico"), 50, 50);
+            g.DrawIcon(new Icon("Apple.ico"), 50, 50);
         }
 
         public void Hit(Food food)
@@ -33,7 +39,7 @@ namespace Snake
 
         public override void IncreaseScore(ref Player player)
         {
-            throw new NotImplementedException();
+            player.Score += Settings.standardFood;
         }
 
         public void Remove(Food food)

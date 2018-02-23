@@ -16,6 +16,10 @@ namespace Snake
         public static int valueableFood = 5;
         public static int magicMushroom = 10;
 
+        public static int standardLength = 1;
+        public static int valuableLength = 2;
+        public static int mushroomLength = 5;
+
         static Keys[] PlayerOne = new Keys[4]
         {
             Keys.W, Keys.A, Keys.S, Keys.D
