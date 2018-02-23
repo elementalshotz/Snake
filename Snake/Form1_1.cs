@@ -20,6 +20,7 @@ namespace Snake
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
+            this.DoubleBuffered = true;
             timer = new System.Windows.Forms.Timer();
             // 
             // panel1
