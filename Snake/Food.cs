@@ -7,18 +7,13 @@ using System.Drawing;
 
 namespace Snake
 {
-    public abstract class Food : IDrawable
+    public abstract class Food
     {
-        PointF Pos;
+        protected Point Pos;
 
-        public Food(PointF pos)
+        public Food(Point pos)
         {
             Pos = pos;
-        }
-
-        public void Draw(Graphics g)
-        {
-            
         }
     }
 }

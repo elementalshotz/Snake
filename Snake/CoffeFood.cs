@@ -7,19 +7,13 @@ using System.Drawing;
 
 namespace Snake
 {
-    class MagicMushroom : Food, ICollidable
+    class CoffeFood : Food, ICollidable
     {
-        public MagicMushroom(Point point) : base(point) => Pos = point;
+        public CoffeFood(Point point) : base(point) => Pos = point;
 
         public void Draw(Graphics g)
         {
             g.DrawIcon(new Icon("Mushroom.ico"), 50, 50);
-        }
-
-        public Point Position
-        {
-            get => Pos;
-            set => Pos = value;
         }
 
         public void Hit(Food food)

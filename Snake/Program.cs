@@ -8,8 +8,6 @@ namespace Snake
 {
     static class Program
     {
-        static Food food;
-
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

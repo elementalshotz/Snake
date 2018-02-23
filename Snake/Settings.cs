@@ -9,9 +9,9 @@ namespace Snake
 {
     static class Settings
     {
-        static int standardFood = 1;
-        static int valueableFood = 5;
-        static int magicMushroom = 10;
+        public static int standardFood = 1;
+        public static int valueableFood = 5;
+        public static int magicMushroom = 10;
 
         static Keys[] PlayerOne = new Keys[4]
         {
@@ -20,12 +20,14 @@ namespace Snake
 
         static Keys[] PlayerTwo = new Keys[4]
         {
-            Keys.Up, Keys.Down, Keys.Left, Keys.Right
+            Keys.Up, Keys.Left, Keys.Down, Keys.Right
         };
 
         static Keys[] PlayerThree = new Keys[4]
         {
             Keys.I, Keys.J, Keys.K, Keys.L
         };
+
+        public static Keys[][] playerKeys = new Keys[3][] { PlayerOne, PlayerTwo, PlayerThree };
     }
 }

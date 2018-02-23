@@ -21,6 +21,7 @@ namespace Snake
             music = new Music();
             form = new Form1();
             form.FormClosed += Form_FormClosed;
+            DoubleBuffered = true;
         }
 
         private void Form_FormClosed(object sender, FormClosedEventArgs e)
@@ -29,12 +30,15 @@ namespace Snake
             {
                 music.Stop();
             }
+
+            form.ResetComponents();
         }
 
         private void onePlayer_Click(object sender, EventArgs e)
         {
             music.ShuffleMusic();
             music.Play();
+            form.activatePlayers(1);
             form.ShowDialog();
         }
 
@@ -42,6 +46,7 @@ namespace Snake
         {
             music.ShuffleMusic();
             music.Play();
+            form.activatePlayers(2);
             form.ShowDialog();
         }
 
@@ -49,6 +54,7 @@ namespace Snake
         {
             music.ShuffleMusic();
             music.Play();
+            form.activatePlayers(3);
             form.ShowDialog();
         }
 
