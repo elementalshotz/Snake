@@ -10,7 +10,7 @@ namespace Snake
     public class Player
     {
         Keys[] playerKeys;
-        int score;
+        protected int score;
 
         public int Score
         {
