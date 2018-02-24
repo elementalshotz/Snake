@@ -18,6 +18,6 @@ namespace Snake
 
         public abstract void IncreaseScore(ref Player player);
         public abstract void IncreaseLength(ref Player player);
-        public abstract void AddEffect(ref List<Player> playerList, ref Player player);
+        public abstract void AddEffect(ref List<Player> playerList);
     }
 }

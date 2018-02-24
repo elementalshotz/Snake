@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CoffeFood.cs" />
+    <Compile Include="Collider.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

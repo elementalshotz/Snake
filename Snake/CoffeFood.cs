@@ -9,11 +9,14 @@ namespace Snake
 {
     class CoffeFood : Food, ICollidable
     {
-        public CoffeFood(Point point) : base(point) => Pos = point;
+        Random random;
 
-        public override void AddEffect(ref List<Player> playerList, ref Player player)
+        public CoffeFood(Point point) : base(point) => random = new Random();
+
+        public override void AddEffect(ref List<Player> playerList)
         {
-            throw new NotImplementedException();
+            int snakeToGiveEffect = random.Next(playerList.Count);
+            playerList[snakeToGiveEffect]?.ToString();
         }
 
         public void Draw(Graphics g)
@@ -23,7 +26,7 @@ namespace Snake
 
         public void Hit(Food food)
         {
-            throw new NotImplementedException();
+            //food.collider.Remove(this);
         }
 
         public override void IncreaseLength(ref Player player)

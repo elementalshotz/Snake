@@ -42,9 +42,9 @@ namespace Snake
             throw new NotImplementedException();
         }
 
-        public override void AddEffect(ref List<Player> playerList, ref Player player)
+        public override void AddEffect(ref List<Player> playerList)
         {
-            throw new NotImplementedException();
+
         }
     }
 }
