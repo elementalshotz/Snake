@@ -6,4 +6,4 @@
 	1. Vilka färger ska vi ha?
 4. Ska vi ha någon annan bakgrundsfärg än vit?
 5. Ska vi ha en food factory så som han programmerade 2018-02-26?
-6. 
+6. Ska varje spelares färg på text vara i motsvarande snakes färg?
