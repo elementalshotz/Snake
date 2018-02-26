@@ -7,11 +7,14 @@ using System.Drawing;
 
 namespace Snake
 {
-    class CoffeFood : Food, IFoodCollidable
+    public class CoffeeFood : Food, IFoodCollidable
     {
         Random random;
 
-        public CoffeFood(Point point) : base(point) => random = new Random();
+        public CoffeeFood(Point point) : base(point) {
+            random = new Random();
+            icon = new Icon("CoffieCup.ico");
+        }
 
         internal override void AddEffect(ref List<Player> playerList)
         {
@@ -21,7 +24,7 @@ namespace Snake
 
         internal override void Draw(Graphics g)
         {
-            g.DrawIcon(new Icon("CoffieCup.ico"), Pos.X, Pos.Y);
+            g.DrawIcon(icon, Pos.X, Pos.Y);
         }
 
         internal override void Hit(Collider collider)

@@ -8,9 +8,10 @@ using Snake;
 
 namespace Snake
 {
-    abstract class Food : IFoodCollidable
+    public abstract class Food : IFoodCollidable
     {
         protected Point Pos;
+        protected Icon icon;
 
         public Food(Point pos)
         {
@@ -18,13 +19,13 @@ namespace Snake
         }
 
         private static Random random = new Random();
-        private enum Type { Standard, Valuable, Coffe, MagicMushroom }
+        private enum Type { Standard, Valuable, Coffee, MagicMushroom }
 
         private static Dictionary<Type, Food> foodDict = new Dictionary<Type, Food>()
         {
             { Type.Standard, new StandardFood(new Point(random.Next(447), random.Next(389))) },
             { Type.Valuable, new ValuableFood(new Point(random.Next(447), random.Next(389))) },
-            { Type.Coffe, new CoffeFood(new Point(random.Next(447), random.Next(389))) },
+            { Type.Coffee, new CoffeeFood(new Point(random.Next(447), random.Next(389))) },
             { Type.MagicMushroom, new MagicMushroom(new Point(random.Next(447), random.Next(389))) }
         };
 
@@ -66,7 +67,7 @@ namespace Snake
             food.IncreaseScore(ref player);
         }
 
-        public Point Position { get; internal set; }
+        public Point Position { get => Pos; internal set => Pos = value; }
 
         internal abstract void Draw(Graphics g);
         internal abstract void Hit(Collider collider);

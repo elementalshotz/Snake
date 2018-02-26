@@ -35,17 +35,17 @@ namespace Snake
             }
             else if (e.KeyCode == playerKeys[1])
             {
-                score += Settings.valueableFood;
+                score += Settings.magicMushroom;
                 //Code to go left
             }
             else if (e.KeyCode == playerKeys[2])
             {
-                score += Settings.standardFood;
+                score += Settings.valueableFood;
                 //Code to go down
             }
             else if (e.KeyCode == playerKeys[3])
             {
-                score += Settings.magicMushroom;
+                score += Settings.standardFood;
                 //Code to go right
             }
         }

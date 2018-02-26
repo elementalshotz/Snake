@@ -99,7 +99,7 @@ namespace Snake
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
-            timer.Interval = 1000/Settings.FPS;
+            timer.Interval = Settings.EffectLength/Settings.FPS;
             timer.Tick += Timer_Tick;
             timer.Start();
         }

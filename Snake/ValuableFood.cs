@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Snake
 {
-    class ValuableFood : Food, IFoodCollidable
+    public class ValuableFood : Food, IFoodCollidable
     {
         public ValuableFood(Point pos) : base(pos)
         {

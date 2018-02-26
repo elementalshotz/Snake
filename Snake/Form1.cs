@@ -79,8 +79,12 @@ namespace Snake
         private void Timer_Tick(object sender, EventArgs e)
         {
             if (foodList.Count < 5) foodList.Add(Food.Create());
-            Invalidate();
-            Update();
+
+            foreach (var food in foodList)
+            {
+                food.Position = new Point(random.Next(447), random.Next(389));
+            }
+            Refresh();
         }
 
         private void flowLayoutPanel3_Paint(object sender, PaintEventArgs e)

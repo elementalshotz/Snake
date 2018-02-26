@@ -7,13 +7,16 @@ using System.Drawing;
 
 namespace Snake
 {
-    class MagicMushroom : Food, IFoodCollidable
+    public class MagicMushroom : Food, IFoodCollidable
     {
-        public MagicMushroom(Point point) : base(point) => Pos = point;
+        public MagicMushroom(Point point) : base(point)
+        {
+            icon = new Icon("Mushroom.ico");
+        }
 
         internal override void Draw(Graphics g)
         {
-            g.DrawIcon(new Icon("Mushroom.ico"), Pos.X, Pos.Y);
+            g.DrawIcon(icon, Pos.X, Pos.Y);
         }
 
         internal override void Hit(Collider collider)
@@ -39,12 +42,6 @@ namespace Snake
         internal override void IncreaseScore(ref Player player)
         {
             throw new NotImplementedException();
-        }
-
-        public Point Position
-        {
-            get => Pos;
-            set => Pos = value;
         }
     }
 }
