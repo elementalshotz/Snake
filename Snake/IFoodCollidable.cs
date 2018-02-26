@@ -3,11 +3,13 @@ using System.Drawing;
 
 namespace Snake
 {
-    interface IFoodCollidable : ICollidable
+    internal interface IFoodCollidable
     {
-        void AddEffect(ref List<Player> playerList);
-        void IncreaseLength(ref Player player);
-        void IncreaseScore(ref Player player);
+        void Hit(Collider collider, Food food);
+        void Remove(Collider collider, Food food);
+        void AddEffect(ref List<Player> playerList, Food food);
+        void IncreaseLength(ref Player player, Food food);
+        void IncreaseScore(ref Player player, Food food);
         void Draw(Graphics g, Food food);
     }
 }

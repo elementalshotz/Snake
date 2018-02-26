@@ -13,32 +13,33 @@ namespace Snake
         {
         }
 
-        public void AddEffect(ref List<Player> playerList)
+        internal override void AddEffect(ref List<Player> playerList)
         {
             throw new NotImplementedException();
         }
 
-        public void Draw(Graphics g)
+        internal override void Draw(Graphics g)
         {
             g.DrawIcon(new Icon("CoffieCup.ico"), Pos.X, Pos.Y);
         }
 
-        public void Hit(Collider collider)
+        internal override void Hit(Collider collider)
+        {
+            //collider.Collide(this);
+            throw new NotImplementedException();
+        }
+
+        internal override void IncreaseLength(ref Player player)
         {
             throw new NotImplementedException();
         }
 
-        public void IncreaseLength(ref Player player)
+        internal override void IncreaseScore(ref Player player)
         {
             throw new NotImplementedException();
         }
 
-        public void IncreaseScore(ref Player player)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Remove(Collider collider)
+        internal override void Remove(Food food)
         {
             throw new NotImplementedException();
         }

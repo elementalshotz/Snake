@@ -7,44 +7,44 @@ using System.Drawing;
 
 namespace Snake
 {
-    class MagicMushroom : Food, ICollidable
+    class MagicMushroom : Food, IFoodCollidable
     {
         public MagicMushroom(Point point) : base(point) => Pos = point;
 
-        public void Draw(Graphics g)
+        internal override void Draw(Graphics g)
         {
             g.DrawIcon(new Icon("Mushroom.ico"), Pos.X, Pos.Y);
+        }
+
+        internal override void Hit(Collider collider)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal override void Remove(Food food)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal override void AddEffect(ref List<Player> playerList)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal override void IncreaseLength(ref Player player)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal override void IncreaseScore(ref Player player)
+        {
+            throw new NotImplementedException();
         }
 
         public Point Position
         {
             get => Pos;
             set => Pos = value;
-        }
-
-        public void Hit(Collider collider)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Remove(Collider collider)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void IncreaseScore(ref Player player)
-        {
-            player.Score += Settings.magicMushroom;
-        }
-
-        public void IncreaseLength(ref Player player)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void AddEffect(ref List<Player> playerList)
-        {
-
         }
     }
 }

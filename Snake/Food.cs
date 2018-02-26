@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using Snake;
 
 namespace Snake
 {
@@ -21,10 +22,10 @@ namespace Snake
 
         private static Dictionary<Type, Food> foodDict = new Dictionary<Type, Food>()
         {
-            { Type.Standard, new StandardFood(new Point(random.Next(), random.Next())) },
-            { Type.Valuable, new ValuableFood(new Point(random.Next(), random.Next())) },
-            { Type.Coffe, new CoffeFood(new Point(random.Next(), random.Next())) },
-            { Type.MagicMushroom, new MagicMushroom(new Point(random.Next(), random.Next())) }
+            { Type.Standard, new StandardFood(new Point(random.Next(547), random.Next(489))) },
+            { Type.Valuable, new ValuableFood(new Point(random.Next(547), random.Next(489))) },
+            { Type.Coffe, new CoffeFood(new Point(random.Next(547), random.Next(489))) },
+            { Type.MagicMushroom, new MagicMushroom(new Point(random.Next(547), random.Next(489))) }
         };
 
         public static Food Create()
@@ -36,42 +37,42 @@ namespace Snake
         {
             return foodDict.ElementAt(random.Next(foodDict.Count)).Value;
         }
+        
+        public void Draw(Graphics g, Food food) => food.Draw(g);
 
-        public void AddEffect(ref List<Player> playerList)
+        public void Hit(Collider collider, Food food)
         {
-            throw new NotImplementedException();
+            food.Hit(collider);
         }
 
-        public void IncreaseLength(ref Player player)
+        public void Remove(Collider collider, Food food)
         {
-            throw new NotImplementedException();
+            collider.Remove(food);
+            food.Remove(food);
         }
 
-        public void IncreaseScore(ref Player player)
+        public void AddEffect(ref List<Player> playerList, Food food)
         {
-            throw new NotImplementedException();
+            food.AddEffect(ref playerList);
         }
 
-        public void Hit(Collider collider)
+        public void IncreaseLength(ref Player player, Food food)
         {
-            throw new NotImplementedException();
+            food.IncreaseLength(ref player);
         }
 
-        public void Remove(Collider collider)
+        public void IncreaseScore(ref Player player, Food food)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Draw(Graphics g)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Draw(Graphics g, Food food)
-        {
-            food.Draw(g);
+            food.IncreaseScore(ref player);
         }
 
         public Point Position { get; internal set; }
+
+        internal abstract void Draw(Graphics g);
+        internal abstract void Hit(Collider collider);
+        internal abstract void Remove(Food food);
+        internal abstract void AddEffect(ref List<Player> playerList);
+        internal abstract void IncreaseLength(ref Player player);
+        internal abstract void IncreaseScore(ref Player player);
     }
 }
