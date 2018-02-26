@@ -7,42 +7,41 @@ using System.Drawing;
 
 namespace Snake
 {
-    class StandardFood : Food, ICollidable
+    class StandardFood : Food, IFoodCollidable
     {
         Random random;
 
         public StandardFood(Point point) : base(point)
         {
-            Pos = point;
             random = new Random();
         }
 
-        public override void AddEffect(ref List<Player> playerList)
+        internal override void AddEffect(ref List<Player> playerList)
         {
             throw new NotImplementedException();
         }
 
-        public void Draw(Graphics g)
+        internal override void Draw(Graphics g)
         {
-            g.DrawIcon(new Icon("Apple.ico"), 50, 50);
+            g.DrawIcon(new Icon("Apple.ico"), Pos.X, Pos.Y);
         }
 
-        public void Hit(Collider collider)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void IncreaseLength(ref Player player)
+        internal override void Hit(Collider collider)
         {
             throw new NotImplementedException();
         }
 
-        public override void IncreaseScore(ref Player player)
+        internal override void IncreaseLength(ref Player player)
         {
-            player.Score += Settings.standardFood;
+            throw new NotImplementedException();
         }
 
-        public void Remove(Collider collider)
+        internal override void IncreaseScore(ref Player player)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal override void Remove(Food food)
         {
             throw new NotImplementedException();
         }
