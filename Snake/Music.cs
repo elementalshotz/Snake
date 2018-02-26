@@ -9,7 +9,7 @@ namespace Snake
     class Music
     {
         System.Media.SoundPlayer soundPlayer;
-        string[] songs = new string[2] { "Lasse.wav", "shootingstars.wav" };
+        string[] songs = new string[4] { "Lasse.wav", "shootingstars.wav", "Derezzed.wav","Onemoretime.wav" };
         Random random;
 
         private bool playing;
@@ -33,7 +33,7 @@ namespace Snake
 
         public void ShuffleMusic()
         {
-            soundPlayer.SoundLocation = songs[random.Next(2)];
+            soundPlayer.SoundLocation = songs[random.Next(4)];
         }
 
         public void Stop()
