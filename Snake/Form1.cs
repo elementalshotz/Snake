@@ -78,8 +78,7 @@ namespace Snake
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            foodList[0].Position = new Point(random.Next(1000), random.Next(1000));
-            foodList.Add(Food.Create());
+            if (foodList.Count < 5) foodList.Add(Food.Create());
             Invalidate();
             Update();
         }

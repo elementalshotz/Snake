@@ -22,10 +22,10 @@ namespace Snake
 
         private static Dictionary<Type, Food> foodDict = new Dictionary<Type, Food>()
         {
-            { Type.Standard, new StandardFood(new Point(random.Next(547), random.Next(489))) },
-            { Type.Valuable, new ValuableFood(new Point(random.Next(547), random.Next(489))) },
-            { Type.Coffe, new CoffeFood(new Point(random.Next(547), random.Next(489))) },
-            { Type.MagicMushroom, new MagicMushroom(new Point(random.Next(547), random.Next(489))) }
+            { Type.Standard, new StandardFood(new Point(random.Next(447), random.Next(389))) },
+            { Type.Valuable, new ValuableFood(new Point(random.Next(447), random.Next(389))) },
+            { Type.Coffe, new CoffeFood(new Point(random.Next(447), random.Next(389))) },
+            { Type.MagicMushroom, new MagicMushroom(new Point(random.Next(447), random.Next(389))) }
         };
 
         public static Food Create()
@@ -47,7 +47,7 @@ namespace Snake
 
         public void Remove(Collider collider, Food food)
         {
-            collider.Remove(food);
+            //collider.Remove(food);
             food.Remove(food);
         }
 
