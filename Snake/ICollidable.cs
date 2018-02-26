@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Snake
 {
-    public interface ICollidable : IDrawable
+    public interface ICollidable
     {
         void Hit(Collider collider);
         void Remove(Collider collider);
