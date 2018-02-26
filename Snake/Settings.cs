@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace Snake
 {
@@ -36,5 +37,7 @@ namespace Snake
         };
 
         public static Keys[][] playerKeys = new Keys[3][] { PlayerOne, PlayerTwo, PlayerThree };
+
+        public static Color[] playerColor = new Color[3] { Color.Red, Color.Green, Color.Blue };
     }
 }

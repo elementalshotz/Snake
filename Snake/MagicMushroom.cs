@@ -13,7 +13,7 @@ namespace Snake
 
         public void Draw(Graphics g)
         {
-            g.DrawIcon(new Icon("Mushroom.ico"), 50, 50);
+            g.DrawIcon(new Icon("Mushroom.ico"), Pos.X, Pos.Y);
         }
 
         public Point Position
@@ -32,17 +32,17 @@ namespace Snake
             throw new NotImplementedException();
         }
 
-        public override void IncreaseScore(ref Player player)
+        public void IncreaseScore(ref Player player)
         {
             player.Score += Settings.magicMushroom;
         }
 
-        public override void IncreaseLength(ref Player player)
+        public void IncreaseLength(ref Player player)
         {
             throw new NotImplementedException();
         }
 
-        public override void AddEffect(ref List<Player> playerList)
+        public void AddEffect(ref List<Player> playerList)
         {
 
         }

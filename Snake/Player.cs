@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace Snake
 {
@@ -11,6 +12,7 @@ namespace Snake
     {
         Keys[] playerKeys;
         protected int score;
+        Color color;
 
         public int Score
         {
@@ -18,9 +20,10 @@ namespace Snake
             set => score = value;
         }
 
-        public Player(Keys[] keys)
+        public Player(Keys[] keys, Color color)
         {
             playerKeys = keys;
+            this.color = color;
         }
 
         public void Player_KeyDown(object sender, KeyEventArgs e)

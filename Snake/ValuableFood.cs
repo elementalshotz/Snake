@@ -1,22 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Drawing;
 
 namespace Snake
 {
-    class CoffeFood : Food, ICollidable
+    class ValuableFood : Food, IFoodCollidable
     {
-        Random random;
-
-        public CoffeFood(Point point) : base(point) => random = new Random();
+        public ValuableFood(Point pos) : base(pos)
+        {
+        }
 
         public void AddEffect(ref List<Player> playerList)
         {
-            int snakeToGiveEffect = random.Next(playerList.Count);
-            playerList[snakeToGiveEffect]?.ToString();
+            throw new NotImplementedException();
         }
 
         public void Draw(Graphics g)
@@ -26,7 +25,7 @@ namespace Snake
 
         public void Hit(Collider collider)
         {
-            //food.collider.Remove(this);
+            throw new NotImplementedException();
         }
 
         public void IncreaseLength(ref Player player)

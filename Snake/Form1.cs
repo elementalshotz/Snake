@@ -23,7 +23,7 @@ namespace Snake
         Font font = new Font("Verdana", 10);
         Brush brush = new SolidBrush(Color.GhostWhite);
 
-        List<MagicMushroom> mushroomList = new List<MagicMushroom>();
+        List<Food> foodList = new List<Food>();
         List<Player> playerList = new List<Player>();
 
         System.Windows.Forms.Timer timer;
@@ -38,12 +38,12 @@ namespace Snake
 
             KeyPreview = true;
             KeyDown += Form1_KeyDown;
-            mushroomList.Add(new MagicMushroom(new Point(50, 50)));
+            foodList.Add(new MagicMushroom(new Point(50, 50)));
         }
         
         internal void ResetComponents()
         {
-            mushroomList.Clear();
+            foodList.Clear();
             playerList.Clear();
             Invalidate();
             timer.Stop();
@@ -55,14 +55,14 @@ namespace Snake
 
             KeyPreview = true;
             KeyDown += Form1_KeyDown;
-            mushroomList.Add(new MagicMushroom(new Point(50, 50)));
+            foodList.Add(new MagicMushroom(new Point(50, 50)));
         }
 
         internal void activatePlayers(int v)
         {
             for (int i = 0; i < v; i++)
             {
-                playerList.Add(new Player(Settings.playerKeys[i]));
+                playerList.Add(new Player(Settings.playerKeys[i], Settings.playerColor[i]));
             }
 
             Text = $"Snek - Players: {this.playerList.Count}";
@@ -78,7 +78,8 @@ namespace Snake
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            mushroomList[0].Position = new Point(random.Next(1000), random.Next(1000));
+            foodList[0].Position = new Point(random.Next(1000), random.Next(1000));
+            foodList.Add(Food.Create());
             Invalidate();
             Update();
         }
@@ -102,9 +103,9 @@ namespace Snake
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
-            foreach (var mushroom in mushroomList)
+            foreach (var food in foodList)
             {
-                mushroom.Draw(e.Graphics);
+                food.Draw(e.Graphics, food);
             }
         }
     }
