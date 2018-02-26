@@ -1,10 +1,9 @@
-﻿1. Hur stor ska maten egentligen vara?
-2. Hur ska vi collida saker?
+﻿1. Hur stor ska maten egentligen vara? 
+2. Hur ska vi collida saker? : är snekens huvud på samma koordinat som le food så har vi en kollision
 	1. Med mittpunkt på objekt?
-	2. Med en matris som representerar spelbrädet?
+	2. Med en matris som representerar spelbrädet? : Pelle tycker ja!
 3. Ska vi ha varje snake i sin egna färg så att man vet vem som är vem?
 	1. Vilka färger ska vi ha?
 4. Ska vi ha någon annan bakgrundsfärg än vit?
 5. Ska vi ha en food factory så som han programmerade 2018-02-26?
-6. Ska varje spelares färg på text vara i motsvarande snakes färg?
-7.
+6. 
