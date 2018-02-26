@@ -102,6 +102,7 @@
     <Content Include="Apple.ico" />
     <Content Include="ChoclateBar.ico" />
     <Content Include="CoffieCup.ico" />
+    <Content Include="Ideas.txt" />
     <Content Include="Mushroom.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
