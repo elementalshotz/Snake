@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace Snake
 {
-    public abstract class Food
+    abstract class Food
     {
         protected Point Pos;
 

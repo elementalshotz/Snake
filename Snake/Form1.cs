@@ -78,8 +78,9 @@ namespace Snake
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            mushroomList[0].Position = new Point(random.Next(50), random.Next(50));
-            Refresh();
+            mushroomList[0].Position = new Point(random.Next(1000), random.Next(1000));
+            Invalidate();
+            Update();
         }
 
         private void flowLayoutPanel3_Paint(object sender, PaintEventArgs e)

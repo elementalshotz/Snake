@@ -22,12 +22,12 @@ namespace Snake
             set => Pos = value;
         }
 
-        public void Hit(Food food)
+        public void Hit(Collider collider)
         {
             throw new NotImplementedException();
         }
 
-        public void Remove(Food food)
+        public void Remove(Collider collider)
         {
             throw new NotImplementedException();
         }

@@ -24,7 +24,7 @@ namespace Snake
             g.DrawIcon(new Icon("CoffieCup.ico"), 50, 50);
         }
 
-        public void Hit(Food food)
+        public void Hit(Collider collider)
         {
             //food.collider.Remove(this);
         }
@@ -39,7 +39,7 @@ namespace Snake
             throw new NotImplementedException();
         }
 
-        public void Remove(Food food)
+        public void Remove(Collider collider)
         {
             throw new NotImplementedException();
         }

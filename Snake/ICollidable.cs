@@ -8,7 +8,7 @@ namespace Snake
 {
     public interface ICollidable : IDrawable
     {
-        void Hit(Food food);
-        void Remove(Food food);
+        void Hit(Collider collider);
+        void Remove(Collider collider);
     }
 }

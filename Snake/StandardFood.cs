@@ -27,7 +27,7 @@ namespace Snake
             g.DrawIcon(new Icon("Apple.ico"), 50, 50);
         }
 
-        public void Hit(Food food)
+        public void Hit(Collider collider)
         {
             throw new NotImplementedException();
         }
@@ -42,7 +42,7 @@ namespace Snake
             player.Score += Settings.standardFood;
         }
 
-        public void Remove(Food food)
+        public void Remove(Collider collider)
         {
             throw new NotImplementedException();
         }
