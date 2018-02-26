@@ -25,8 +25,7 @@ namespace Snake
 
         internal override void Hit(Collider collider)
         {
-            //collider.Collide(this);
-            throw new NotImplementedException();
+            collider.Collide(this);
         }
 
         internal override void IncreaseLength(ref Player player)

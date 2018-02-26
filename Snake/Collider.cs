@@ -22,7 +22,7 @@ namespace Snake
         {
             //Some if statement
             //Remove code
-            food.Remove(this, food);
+            //foodList.Remove(food);
         }
     }
 }

@@ -8,7 +8,7 @@ using System.Drawing;
 
 namespace Snake
 {
-    public class Player
+    public class Player : ICollidable
     {
         Keys[] playerKeys;
         protected int score;
@@ -48,6 +48,21 @@ namespace Snake
                 score += Settings.standardFood;
                 //Code to go right
             }
+        }
+
+        public void Hit(Collider collider)
+        {
+            collider.Collide(this);
+        }
+
+        public void Remove(Collider collider)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Draw(Graphics g)
+        {
+            throw new NotImplementedException();
         }
     }
 }
