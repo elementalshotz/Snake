@@ -85,7 +85,6 @@ namespace Snake
                 player.MoveSnake(this.panel2.Width, this.panel2.Height);
 
                 if (player.snakeBody.Count < 3) player.snakeBody.Add(player.snakeBody.Last());
-                else if (player.snakeBody.Count < 8) player.Remove(new Collider());
             }
 
             Refresh();
