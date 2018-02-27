@@ -56,13 +56,17 @@ namespace Snake
 
         public void Remove(Collider collider)
         {
-            throw new NotImplementedException();
+            for(int i = 0; i < 5; i++)
+            {
+                snakeBody.Add(snakeBody.Last());
+            }
         }
 
         public void Draw(Graphics g)
         {
             foreach (var rectangle in snakeBody)
             {
+                //g.FillRectangle(new Brush(), rectangle);
                 g.DrawRectangle(pen, rectangle);
             }
         }
