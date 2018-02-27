@@ -42,9 +42,6 @@ namespace Snake
             }
         }
 
-        internal override void IncreaseScore(ref Player player)
-        {
-            throw new NotImplementedException();
-        }
+        internal override void IncreaseScore(ref Player player) => player.Score += Settings.magicMushroom;
     }
 }

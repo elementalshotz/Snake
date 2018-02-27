@@ -13,7 +13,6 @@ namespace Snake
         Keys[] playerKeys;
         protected int score;
         Brush brush;
-        Pen pen;
         public List<Timer> timerList;
 
         public int Score
