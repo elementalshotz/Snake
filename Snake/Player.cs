@@ -8,11 +8,12 @@ using System.Drawing;
 
 namespace Snake
 {
-    public class Player : ICollidable
+    public class Player : Snake, ICollidable
     {
         Keys[] playerKeys;
         protected int score;
         Color color;
+        public List<Timer> timerList;
 
         public int Score
         {
@@ -63,6 +64,11 @@ namespace Snake
         public void Draw(Graphics g)
         {
             throw new NotImplementedException();
+        }
+
+        public void Player_TimerEvent(object sender, EventArgs e)
+        {
+            timer.Stop();
         }
     }
 }
