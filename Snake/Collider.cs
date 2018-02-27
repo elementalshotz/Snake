@@ -8,6 +8,9 @@ namespace Snake
 {
     public class Collider
     {
+        List<Player> Players;
+        List<Food> Eatables;
+
         public Collider()
         {
             //Any constructor that we can use to initialize the collider class with
