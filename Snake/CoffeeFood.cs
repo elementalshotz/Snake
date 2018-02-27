@@ -18,8 +18,7 @@ namespace Snake
 
         internal override void AddEffect(ref List<Player> playerList)
         {
-            int snakeToGiveEffect = random.Next(playerList.Count);
-            playerList[snakeToGiveEffect]?.ToString();
+            Settings.AddEffect(ref playerList);
         }
 
         internal override void Draw(Graphics g)
