@@ -13,6 +13,7 @@ namespace Snake
         Keys[] playerKeys;
         protected int score;
         Color color;
+        Pen pen;
         public List<Timer> timerList;
 
         public int Score
@@ -21,33 +22,30 @@ namespace Snake
             set => score = value;
         }
 
-        public Player(Keys[] keys, Color color)
+        public Player(Keys[] keys, Color color) : base()
         {
             playerKeys = keys;
             this.color = color;
+            pen = new Pen(color);
         }
 
         public void Player_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == playerKeys[0])
             {
-                score += 100;
-                //Code to go up
+                moveDirection = Direction.Up;
             }
             else if (e.KeyCode == playerKeys[1])
             {
-                score += Settings.magicMushroom;
-                //Code to go left
+                moveDirection = Direction.Left;
             }
             else if (e.KeyCode == playerKeys[2])
             {
-                score += Settings.valueableFood;
-                //Code to go down
+                moveDirection = Direction.Down;
             }
             else if (e.KeyCode == playerKeys[3])
             {
-                score += Settings.standardFood;
-                //Code to go right
+                moveDirection = Direction.Right;
             }
         }
 
@@ -63,12 +61,15 @@ namespace Snake
 
         public void Draw(Graphics g)
         {
-            throw new NotImplementedException();
+            foreach (var rectangle in snakeBody)
+            {
+                g.DrawRectangle(pen, rectangle);
+            }
         }
 
         public void Player_TimerEvent(object sender, EventArgs e)
         {
-            timer.Stop();
+            //timer.Stop();
         }
     }
 }

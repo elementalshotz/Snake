@@ -11,7 +11,7 @@ namespace Snake
     static class Settings
     {
         static Random random = new Random();
-        public static int FPS = 1;
+        public static int FPS = 20;
         public static int EffectLength = 3000;
 
         public static int standardFood = 1;

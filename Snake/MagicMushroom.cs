@@ -31,7 +31,7 @@ namespace Snake
 
         internal override void AddEffect(ref List<Player> playerList)
         {
-            Settings.AddEffect(ref playerList);
+            //Settings.AddEffect(ref playerList);
         }
 
         internal override void IncreaseLength(ref Player player)

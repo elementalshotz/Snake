@@ -23,7 +23,7 @@ namespace Snake
         Font font = new Font("Verdana", 10);
         Brush brush = new SolidBrush(Color.GhostWhite);
 
-        List<Food> foodList = new List<Food>();
+        //List<Food> foodList = new List<Food>();
         List<Player> playerList = new List<Player>();
 
         System.Windows.Forms.Timer timer;
@@ -38,12 +38,12 @@ namespace Snake
 
             KeyPreview = true;
             KeyDown += Form1_KeyDown;
-            foodList.Add(new MagicMushroom(new Point(50, 50)));
+            //foodList.Add(new MagicMushroom(new Point(50, 50)));
         }
         
         internal void ResetComponents()
         {
-            foodList.Clear();
+            //foodList.Clear();
             playerList.Clear();
             Invalidate();
             timer.Stop();
@@ -55,7 +55,7 @@ namespace Snake
 
             KeyPreview = true;
             KeyDown += Form1_KeyDown;
-            foodList.Add(new MagicMushroom(new Point(50, 50)));
+            //foodList.Add(new MagicMushroom(new Point(50, 50)));
         }
 
         internal void activatePlayers(int v)
@@ -78,7 +78,13 @@ namespace Snake
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            if (foodList.Count < 5) foodList.Add(Food.Create());
+            //if (foodList.Count < 5) foodList.Add(Food.Create());
+
+            foreach (var player in playerList)
+            {
+                player.MoveSnake();
+            }
+
             Refresh();
         }
 
@@ -101,9 +107,9 @@ namespace Snake
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
-            foreach (var food in foodList)
+            foreach (var player in playerList)
             {
-                food.Draw(e.Graphics, food);
+                player.Draw(e.Graphics);
             }
         }
     }
