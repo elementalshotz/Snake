@@ -48,45 +48,53 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(284, 261);
             this.panel1.TabIndex = 1;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.Turquoise;
             this.button1.Location = new System.Drawing.Point(96, 212);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(89, 39);
             this.button1.TabIndex = 3;
             this.button1.Text = "Exit";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // threePlayers
             // 
+            this.threePlayers.BackColor = System.Drawing.Color.Aqua;
+            this.threePlayers.Font = new System.Drawing.Font("Showcard Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.threePlayers.Location = new System.Drawing.Point(67, 118);
             this.threePlayers.Name = "threePlayers";
             this.threePlayers.Size = new System.Drawing.Size(145, 47);
             this.threePlayers.TabIndex = 2;
             this.threePlayers.Text = "3 Player(s)";
-            this.threePlayers.UseVisualStyleBackColor = true;
+            this.threePlayers.UseVisualStyleBackColor = false;
             this.threePlayers.Click += new System.EventHandler(this.threePlayers_Click);
             // 
             // twoPlayers
             // 
+            this.twoPlayers.BackColor = System.Drawing.Color.Aqua;
+            this.twoPlayers.Font = new System.Drawing.Font("Showcard Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.twoPlayers.Location = new System.Drawing.Point(67, 65);
             this.twoPlayers.Name = "twoPlayers";
             this.twoPlayers.Size = new System.Drawing.Size(145, 47);
             this.twoPlayers.TabIndex = 1;
             this.twoPlayers.Text = "2 Player(s)";
-            this.twoPlayers.UseVisualStyleBackColor = true;
+            this.twoPlayers.UseVisualStyleBackColor = false;
             this.twoPlayers.Click += new System.EventHandler(this.twoPlayers_Click);
             // 
             // onePlayer
             // 
+            this.onePlayer.BackColor = System.Drawing.Color.Aqua;
+            this.onePlayer.Font = new System.Drawing.Font("Showcard Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.onePlayer.Location = new System.Drawing.Point(67, 12);
             this.onePlayer.Name = "onePlayer";
             this.onePlayer.Size = new System.Drawing.Size(145, 47);
             this.onePlayer.TabIndex = 0;
             this.onePlayer.Text = "1 Player(s)";
-            this.onePlayer.UseVisualStyleBackColor = true;
+            this.onePlayer.UseVisualStyleBackColor = false;
             this.onePlayer.Click += new System.EventHandler(this.onePlayer_Click);
             // 
             // GameInitializer
