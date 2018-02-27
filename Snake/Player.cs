@@ -12,7 +12,7 @@ namespace Snake
     {
         Keys[] playerKeys;
         protected int score;
-        Color color;
+        Brush brush;
         Pen pen;
         public List<Timer> timerList;
 
@@ -22,11 +22,10 @@ namespace Snake
             set => score = value;
         }
 
-        public Player(Keys[] keys, Color color) : base()
+        public Player(Keys[] keys, Brush brush) : base()
         {
             playerKeys = keys;
-            this.color = color;
-            pen = new Pen(color);
+            this.brush = brush;
         }
 
         public void Player_KeyDown(object sender, KeyEventArgs e)
@@ -66,8 +65,7 @@ namespace Snake
         {
             foreach (var rectangle in snakeBody)
             {
-                //g.FillRectangle(new Brush(), rectangle);
-                g.DrawRectangle(pen, rectangle);
+                g.FillRectangle(brush, rectangle);
             }
         }
 

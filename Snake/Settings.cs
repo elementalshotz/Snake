@@ -56,6 +56,6 @@ namespace Snake
 
         public static Keys[][] playerKeysInvert = new Keys[3][] { PlayerOneInvert, PlayerTwoInvert, PlayerThreeInvert };
 
-        public static Color[] playerColor = new Color[3] { Color.Red, Color.Green, Color.Blue };
+        public static Brush[] playerColor = new Brush[3] { new SolidBrush(Color.Red), new SolidBrush(Color.Green), new SolidBrush(Color.Blue) };
     }
 }
