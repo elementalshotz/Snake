@@ -33,7 +33,10 @@ namespace Snake
 
         internal override void IncreaseLength(ref Player player)
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < Settings.standardLength; i++)
+            {
+                player.snakeBody.Add(player.snakeBody.Last());
+            }
         }
 
         internal override void IncreaseScore(ref Player player)
