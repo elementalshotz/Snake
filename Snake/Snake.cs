@@ -9,16 +9,16 @@ namespace Snake
 {
     public class Snake
     {
-        public List<Rectangle> snakeBody;
+        public List<BodyPart> snakeBody;
         protected enum Direction { Up, Left, Down, Right }
         protected Direction moveDirection { get; set; }
 
         public Snake()
         {
-            snakeBody = new List<Rectangle>();
+            snakeBody = new List<BodyPart>();
             snakeBody.Clear();
 
-            snakeBody.Add(new Rectangle(new Point(50, 50), new Size(10, 10)));
+            snakeBody.Add(new BodyPart(new Point(50,50)));
 
             moveDirection = Direction.Right;
         }
@@ -30,7 +30,7 @@ namespace Snake
 
             for (int i = snakeBody.Count-1; i >= 0; i--)
             {
-                part = snakeBody[i];
+                part = snakeBody[i].Part;
 
                 if (i == 0)
                 {
@@ -51,12 +51,12 @@ namespace Snake
                     }
                 } else
                 {
-                    secondPart = snakeBody[i - 1];
+                    secondPart = snakeBody[i - 1].Part;
 
                     part.X = secondPart.X;
                     part.Y = secondPart.Y;
 
-                    snakeBody[i - 1] = secondPart;
+                    snakeBody[i - 1].Part = secondPart;
                 }
 
                 if (part.X > Settings.Width)
@@ -73,7 +73,7 @@ namespace Snake
                     part.Y = Settings.Height;
                 }
 
-                snakeBody[i] = part;
+                snakeBody[i].Part = part;
             }
         }
     }

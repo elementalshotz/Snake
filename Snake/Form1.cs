@@ -99,7 +99,7 @@ namespace Snake
             {
                 player.MoveSnake();
 
-                if (player.snakeBody.Count < 8) player.snakeBody.Add(player.snakeBody.Last());
+                if (player.snakeBody.Count < 8) player.snakeBody.Add(new BodyPart(player.snakeBody.Last().Part.Location));
             }
 
             Refresh();

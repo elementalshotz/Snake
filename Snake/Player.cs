@@ -68,9 +68,9 @@ namespace Snake
 
         public void Draw(Graphics g)
         {
-            foreach (var rectangle in snakeBody)
+            foreach (var bodyPart in snakeBody)
             {
-                g.FillRectangle(brush, rectangle);
+                g.FillRectangle(brush, bodyPart.Part);
             }
         }
 
