@@ -29,21 +29,27 @@ namespace Snake
 
         public void Player_KeyDown(object sender, KeyEventArgs e)
         {
+            Direction oldDirection = moveDirection;
+
             if (e.KeyCode == playerKeys[0])
             {
-                moveDirection = Direction.Up;
+                if (oldDirection != Direction.Down)
+                    moveDirection = Direction.Up;
             }
             else if (e.KeyCode == playerKeys[1])
             {
-                moveDirection = Direction.Left;
+                if (oldDirection != Direction.Right)
+                    moveDirection = Direction.Left;
             }
             else if (e.KeyCode == playerKeys[2])
             {
-                moveDirection = Direction.Down;
+                if (oldDirection != Direction.Up)
+                    moveDirection = Direction.Down;
             }
             else if (e.KeyCode == playerKeys[3])
             {
-                moveDirection = Direction.Right;
+                if (oldDirection != Direction.Left)
+                    moveDirection = Direction.Right;
             }
         }
 

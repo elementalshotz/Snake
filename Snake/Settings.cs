@@ -10,6 +10,9 @@ namespace Snake
 {
     static class Settings
     {
+        public static int Width { get; set; }
+        public static int Height { get; set; }
+
         static Random random = new Random();
         public static int FPS = 20;
         public static int EffectLength = 3000;
@@ -24,17 +27,17 @@ namespace Snake
 
         static Keys[] PlayerOne = new Keys[4]
         {
-            Keys.W, Keys.A, Keys.S, Keys.D
+            Keys.W, Keys.A, Keys.S, Keys.D  //Player 3
         };
 
         static Keys[] PlayerTwo = new Keys[4]
         {
-            Keys.Up, Keys.Left, Keys.Down, Keys.Right
+            Keys.Up, Keys.Left, Keys.Down, Keys.Right //Player 1
         };
 
         static Keys[] PlayerThree = new Keys[4]
         {
-            Keys.I, Keys.J, Keys.K, Keys.L
+            Keys.I, Keys.J, Keys.K, Keys.L //Player 2
         };
 
         public static Keys[][] playerKeys = new Keys[3][] { PlayerOne, PlayerTwo, PlayerThree };

@@ -38,9 +38,16 @@ namespace Snake
 
             KeyPreview = true;
             KeyDown += Form1_KeyDown;
+            Resize += Form1_Resize;
             //foodList.Add(new MagicMushroom(new Point(50, 50)));
         }
-        
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            Settings.Width = panel2.Width;
+            Settings.Height = panel2.Height;
+        }
+
         internal void ResetComponents()
         {
             //foodList.Clear();
@@ -55,6 +62,7 @@ namespace Snake
 
             KeyPreview = true;
             KeyDown += Form1_KeyDown;
+            Resize += Form1_Resize;
             //foodList.Add(new MagicMushroom(new Point(50, 50)));
         }
 
