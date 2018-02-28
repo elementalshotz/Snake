@@ -39,6 +39,9 @@ namespace Snake
             KeyPreview = true;
             KeyDown += Form1_KeyDown;
             Resize += Form1_Resize;
+
+            Settings.Width = panel2.Width;
+            Settings.Height = panel2.Height;
             //foodList.Add(new MagicMushroom(new Point(50, 50)));
         }
 
@@ -63,6 +66,10 @@ namespace Snake
             KeyPreview = true;
             KeyDown += Form1_KeyDown;
             Resize += Form1_Resize;
+
+
+            Settings.Width = panel2.Width;
+            Settings.Height = panel2.Height;
             //foodList.Add(new MagicMushroom(new Point(50, 50)));
         }
 
@@ -90,9 +97,9 @@ namespace Snake
 
             foreach (var player in playerList)
             {
-                player.MoveSnake(this.panel2.Width, this.panel2.Height);
+                player.MoveSnake();
 
-                if (player.snakeBody.Count < 3) player.snakeBody.Add(player.snakeBody.Last());
+                if (player.snakeBody.Count < 8) player.snakeBody.Add(player.snakeBody.Last());
             }
 
             Refresh();

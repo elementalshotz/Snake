@@ -23,7 +23,7 @@ namespace Snake
             moveDirection = Direction.Right;
         }
 
-        public void MoveSnake(int Width, int Height)
+        public void MoveSnake()
         {
             Rectangle part;
             Rectangle secondPart;
@@ -59,9 +59,18 @@ namespace Snake
                     snakeBody[i - 1] = secondPart;
                 }
 
-                if (part.X == Width || part.Y == Height || part.X == 0 || part.Y == 0)
+                if (part.X > Settings.Width)
                 {
-                    //GameOver();
+                    part.X = 0;
+                } else if (part.X < 0)
+                {
+                    part.X = Settings.Width;
+                } else if (part.Y > Settings.Height)
+                {
+                    part.Y = 0;
+                } else if (part.Y < 0)
+                {
+                    part.Y = Settings.Height;
                 }
 
                 snakeBody[i] = part;
