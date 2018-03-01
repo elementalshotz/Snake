@@ -33,7 +33,7 @@ namespace Snake
 
         public void ShuffleMusic()
         {
-            soundPlayer.SoundLocation = songs[random.Next(4)];
+            soundPlayer.SoundLocation = songs[random.Next(songs.Length)];
         }
 
         public void Stop()

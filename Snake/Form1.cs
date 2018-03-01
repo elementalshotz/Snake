@@ -119,7 +119,7 @@ namespace Snake
                 if (player.snakeBody.Count < 8) player.snakeBody.Add(new BodyPart(player.snakeBody.Last().PartPoint));
             }
 
-            panel2.Refresh();
+            Refresh();
         }
 
         private void flowLayoutPanel3_Paint(object sender, PaintEventArgs e)

@@ -62,6 +62,6 @@ namespace Snake
 
         public static Brush[] playerColor = new Brush[3] { new SolidBrush(Color.Red), new SolidBrush(Color.Green), new SolidBrush(Color.Blue) };
 
-        public static Point[] startLocations = new Point[3] { new Point(50, 30), new Point(50, 90), new Point(50, 210) };
+        public static Point[] startLocations = new Point[3] { new Point(50, 30), new Point(50, 90), new Point(50, 150) };
     }
 }
