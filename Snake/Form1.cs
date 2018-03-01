@@ -77,7 +77,7 @@ namespace Snake
         {
             for (int i = 0; i < v; i++)
             {
-                playerList.Add(new Player(Settings.playerKeys[i], Settings.playerColor[i]));
+                playerList.Add(new Player(Settings.playerKeys[i], Settings.playerColor[i], Settings.startLocations[i]));
             }
 
             Text = $"Snek - Players: {this.playerList.Count}";
@@ -99,7 +99,7 @@ namespace Snake
             {
                 player.MoveSnake();
 
-                if (player.snakeBody.Count < 8) player.snakeBody.Add(new BodyPart(player.snakeBody.Last().Part.Location));
+                if (player.snakeBody.Count < 8) player.snakeBody.Add(new BodyPart(player.snakeBody.Last().PartPoint));
             }
 
             Refresh();

@@ -12,13 +12,15 @@ namespace Snake
         public List<BodyPart> snakeBody;
         protected enum Direction { Up, Left, Down, Right }
         protected Direction moveDirection { get; set; }
+        protected Point startPoint;
 
-        public Snake()
+        public Snake(Point point)
         {
             snakeBody = new List<BodyPart>();
             snakeBody.Clear();
 
-            snakeBody.Add(new BodyPart(new Point(50,50)));
+            startPoint = point;
+            snakeBody.Add(new BodyPart(startPoint));
 
             moveDirection = Direction.Right;
         }

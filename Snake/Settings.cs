@@ -14,7 +14,7 @@ namespace Snake
         public static int Height { get; set; }
 
         static Random random = new Random();
-        public static int FPS = 20;
+        public static int FPS = 10;
         public static int EffectLength = 3000;
 
         public static int standardFood = 1;
@@ -42,6 +42,7 @@ namespace Snake
 
         public static Keys[][] playerKeys = new Keys[3][] { PlayerOne, PlayerTwo, PlayerThree };
 
+
         static Keys[] PlayerOneInvert = new Keys[4]
         {
             PlayerOne[2], PlayerOne[3], PlayerOne[0], PlayerOne[1]
@@ -60,5 +61,7 @@ namespace Snake
         public static Keys[][] playerKeysInvert = new Keys[3][] { PlayerOneInvert, PlayerTwoInvert, PlayerThreeInvert };
 
         public static Brush[] playerColor = new Brush[3] { new SolidBrush(Color.Red), new SolidBrush(Color.Green), new SolidBrush(Color.Blue) };
+
+        public static Point[] startLocations = new Point[3] { new Point(50, 30), new Point(50, 90), new Point(50, 210) };
     }
 }

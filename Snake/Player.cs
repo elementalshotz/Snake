@@ -21,7 +21,7 @@ namespace Snake
             set => score = value;
         }
 
-        public Player(Keys[] keys, Brush brush) : base()
+        public Player(Keys[] keys, Brush brush, Point startPoint) : base(startPoint)
         {
             playerKeys = keys;
             this.brush = brush;

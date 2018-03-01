@@ -10,18 +10,23 @@ namespace Snake
     public class BodyPart
     {
         Rectangle rectangle;
-        Point PartPoint;
+        Point point;
 
         public Rectangle Part
         {
             get => rectangle;
             set => rectangle = value;
         }
+
+        public Point PartPoint
+        {
+            get => point;
+        }
         
         public BodyPart(Point point)
         {
-            PartPoint = point;
-            rectangle = new Rectangle(PartPoint, new Size(10, 10));
+            this.point = point;
+            rectangle = new Rectangle(PartPoint, new Size(15, 15));
         }
     }
 }
