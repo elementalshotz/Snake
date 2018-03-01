@@ -25,6 +25,7 @@ namespace Snake
 
         //List<Food> foodList = new List<Food>();
         List<Player> playerList = new List<Player>();
+        List<FlowLayoutPanel> flowPanels = new List<FlowLayoutPanel>();
 
         System.Windows.Forms.Timer timer;
         Random random = new Random();
@@ -42,6 +43,10 @@ namespace Snake
 
             Settings.Width = panel2.Width;
             Settings.Height = panel2.Height;
+
+            flowPanels.Add(flowLayoutPanel3);
+            flowPanels.Add(flowLayoutPanel4);
+            flowPanels.Add(flowLayoutPanel5);
             //foodList.Add(new MagicMushroom(new Point(50, 50)));
         }
 
@@ -80,7 +85,19 @@ namespace Snake
                 playerList.Add(new Player(Settings.playerKeys[i], Settings.playerColor[i], Settings.startLocations[i]));
             }
 
+            foreach (var player in playerList)
+            {
+                player.scoreChangeEvent += Player_scoreChangeEvent;
+            }
+
             Text = $"Snek - Players: {this.playerList.Count}";
+        }
+
+        private void Player_scoreChangeEvent()
+        {
+            flowLayoutPanel3.Refresh();
+            flowLayoutPanel4.Refresh();
+            flowLayoutPanel4.Refresh();
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -102,7 +119,7 @@ namespace Snake
                 if (player.snakeBody.Count < 8) player.snakeBody.Add(new BodyPart(player.snakeBody.Last().PartPoint));
             }
 
-            Refresh();
+            panel2.Refresh();
         }
 
         private void flowLayoutPanel3_Paint(object sender, PaintEventArgs e)

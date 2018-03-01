@@ -15,10 +15,16 @@ namespace Snake
         Brush brush;
         public List<Timer> timerList;
 
+        public delegate void ScoreChangeDelegate();
+        public event ScoreChangeDelegate scoreChangeEvent;
+
         public int Score
         {
             get => score;
-            set => score = value;
+            set {
+                score = value;
+                scoreChangeEvent.Invoke();
+            }
         }
 
         public Player(Keys[] keys, Brush brush, Point startPoint) : base(startPoint)
