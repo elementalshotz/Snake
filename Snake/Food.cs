@@ -36,7 +36,7 @@ namespace Snake
 
         private static Food CreateFood()
         {
-            return foodDict.ElementAt(random.Next(foodDict.Count)).Value;
+            return foodDict[(Type)random.Next(foodDict.Count)];
         }
         
         public void Draw(Graphics g, Food food) => food.Draw(g);
