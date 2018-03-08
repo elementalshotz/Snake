@@ -84,19 +84,14 @@ namespace Snake
 
         public void activateEffect(MagicMushroom mushroom)
         {
-            switch (playerID)
-            {
-                case 1: playerKeys = Settings.playerKeysInvert[0]; break;
-                case 2: playerKeys = Settings.playerKeysInvert[1]; break;
-                case 3: playerKeys = Settings.playerKeysInvert[2]; break;
-            }
+            playerKeys = Settings.playerKeysInvert[playerID];
 
             addTimer(mushroom);     //Used to create a timer with a reasonable length that removes itself and reverts the effect on timer end
         }
 
         public void activateEffect(CoffeeFood coffee)
         {
-
+            multiplier = Settings.SpeedChange;
 
             addTimer(coffee);
         }
@@ -121,12 +116,7 @@ namespace Snake
 
         public void mushroom_TimerEvent(object sender, EventArgs e)
         {
-            switch (playerID)
-            {
-                case 1: playerKeys = Settings.playerKeys[0]; break;
-                case 2: playerKeys = Settings.playerKeys[1]; break;
-                case 3: playerKeys = Settings.playerKeys[2]; break;
-            }
+            playerKeys = Settings.playerKeys[playerID];
 
             Timer t = (Timer)sender;
             t.Stop();
@@ -135,7 +125,7 @@ namespace Snake
 
         public void coffee_TimerEvent(object sender, EventArgs e)
         {
-
+            multiplier = 1;
 
             Timer t = (Timer)sender;
             t.Stop();

@@ -9,7 +9,33 @@ namespace Snake
 {
     public class StandardFood : Food, IFoodCollidable
     {
-        public StandardFood() : base() { }
+
+        Random random;
+
+        public StandardFood() : base()
+        {
+            random = new Random();
+            Position = GeneratePosition(Settings.size);
+        }
+
+        private Point GeneratePosition(int multipleOf)
+        {
+            int x = random.Next(Settings.Width - Settings.size);
+
+            while (x % multipleOf != 0)
+            {
+                x = random.Next(Settings.Width - multipleOf);
+            }
+
+            int y = random.Next(Settings.Height - Settings.size);
+
+            while (y % multipleOf != 0)
+            {
+                y = random.Next(Settings.Height - Settings.size);
+            }
+
+            return new Point(x, y);
+        }
 
         internal override void AddEffect(ref List<Player> playerList)
         {
@@ -36,10 +62,5 @@ namespace Snake
         }
 
         internal override void IncreaseScore(ref Player player) => player.Score += Settings.standardFood;
-
-        internal override void Remove(Food food)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

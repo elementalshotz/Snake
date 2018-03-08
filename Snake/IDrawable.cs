@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace Snake
 {
-    public interface  IDrawable
+    public interface IDrawable
     {
         void Draw(Graphics g); 
     }

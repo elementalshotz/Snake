@@ -11,16 +11,7 @@ namespace Snake
     public abstract class Food : IFoodCollidable
     {
         protected Point Pos;
-        //protected Icon icon;
 
-        public Food()
-        {
-            int xCoor = Settings.Width - Settings.size;
-            int yCoor = Settings.Height - Settings.size;
-            Pos = new Point(random.Next(xCoor), random.Next(yCoor));
-        }
-
-        protected Random random = new Random();
         private static Random foodRandom = new Random();
         private enum Type { Standard, Valuable, Coffee, MagicMushroom }
 
@@ -52,7 +43,6 @@ namespace Snake
         public void Remove(Collider collider, Food food)
         {
             //collider.Remove(food);
-            food.Remove(food);
         }
 
         public void AddEffect(ref List<Player> playerList, Food food)
@@ -74,7 +64,6 @@ namespace Snake
 
         internal abstract void Draw(Graphics g);
         internal abstract void Hit(Collider collider);
-        internal abstract void Remove(Food food);
         internal abstract void AddEffect(ref List<Player> playerList);
         internal abstract void IncreaseLength(ref Player player);
         internal abstract void IncreaseScore(ref Player player);

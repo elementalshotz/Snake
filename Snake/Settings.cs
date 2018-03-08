@@ -12,12 +12,12 @@ namespace Snake
     {
         public static int Width { get; set; }
         public static int Height { get; set; }
-
-        static Random random = new Random();
+        
         public static int FPS = 10;
 
         public static int EffectLengthCoffeeFood = 5000;
         public static int EffectLengthMagicMushroom = 3000;
+        public static int SpeedChange = 2;
 
         public static int standardFood = 1;
         public static int valueableFood = 5;
@@ -66,6 +66,6 @@ namespace Snake
 
         public static Brush[] playerColor = new Brush[3] { new SolidBrush(Color.Red), new SolidBrush(Color.Green), new SolidBrush(Color.Blue) };
 
-        public static Point[] startLocations = new Point[3] { new Point(50, 30), new Point(50, 90), new Point(50, 150) };
+        public static Point[] startLocations = new Point[3] { new Point(0, 30), new Point(0, 90), new Point(0, 150) };
     }
 }
