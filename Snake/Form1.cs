@@ -35,6 +35,7 @@ namespace Snake
         List<Food> foodList = new List<Food>();
         List<Player> playerList = new List<Player>();
         List<FlowLayoutPanel> flowPanels = new List<FlowLayoutPanel>();
+        Collider collider;
 
         System.Windows.Forms.Timer timer;
         Random random = new Random();
@@ -56,6 +57,7 @@ namespace Snake
             flowPanels.Add(flowLayoutPanel3);
             flowPanels.Add(flowLayoutPanel4);
             flowPanels.Add(flowLayoutPanel5);
+            collider = new Collider(foodList, playerList);
         }
 
         private void Form1_Resize(object sender, EventArgs e)
@@ -80,7 +82,6 @@ namespace Snake
             KeyDown += Form1_KeyDown;
             Resize += Form1_Resize;
 
-
             Settings.Width = panel2.Width;
             Settings.Height = panel2.Height;
         }
@@ -89,7 +90,7 @@ namespace Snake
         {
             for (int i = 0; i < v; i++)
             {
-                playerList.Add(new Player(Settings.playerKeys[i], Settings.playerColor[i], Settings.startLocations[i]));
+                playerList.Add(new Player(Settings.playerKeys[i], Settings.playerColor[i], Settings.startLocations[i], i));
                 flowPanels[i].Visible = true;
             }
 
@@ -129,6 +130,13 @@ namespace Snake
                 player.MoveSnake();
 
                 if (player.snakeBody.Count < 8) player.snakeBody.Add(new BodyPart(player.snakeBody.Last().PartPoint));
+
+                collider.Collide(player);
+            }
+
+            foreach (var food in foodList)
+            {
+                food.Hit(collider);
             }
 
             Refresh();
@@ -139,6 +147,7 @@ namespace Snake
             foreach (var player in playerList)
             {
                 player.Draw(e.Graphics);
+                player.activateEffect(new MagicMushroom());
             }
 
             foreach (var food in foodList)

@@ -26,5 +26,10 @@ namespace Snake
 
             return xEquals && yEquals;
         }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

@@ -13,7 +13,7 @@ namespace Snake
         Keys[] playerKeys;
         protected int score;
         Brush brush;
-        public List<Timer> timerList;
+        public List<Timer> timerList = new List<Timer>();
         int playerID;
 
         public delegate void ScoreChangeDelegate();
@@ -28,10 +28,11 @@ namespace Snake
             }
         }
 
-        public Player(Keys[] keys, Brush brush, Point startPoint) : base(startPoint)
+        public Player(Keys[] keys, Brush brush, Point startPoint, int ID) : base(startPoint)
         {
             playerKeys = keys;
             this.brush = brush;
+            playerID = ID;
         }
 
         public void Player_KeyDown(object sender, KeyEventArgs e)
@@ -81,7 +82,7 @@ namespace Snake
             }
         }
 
-        public void activateEffect(MagicMushroom mushroom)      //The variable that is going in here is only used to separate the code of what the two functions do.
+        public void activateEffect(MagicMushroom mushroom)
         {
             switch (playerID)
             {
@@ -90,7 +91,7 @@ namespace Snake
                 case 3: playerKeys = Settings.playerKeysInvert[2]; break;
             }
 
-            addTimer(mushroom);
+            addTimer(mushroom);     //Used to create a timer with a reasonable length that removes itself and reverts the effect on timer end
         }
 
         public void activateEffect(CoffeeFood coffee)
