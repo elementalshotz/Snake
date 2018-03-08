@@ -83,12 +83,7 @@ namespace Snake
 
         public void activateEffect(MagicMushroom mushroom)      //The variable that is going in here is only used to separate the code of what the two functions do.
         {
-            switch (playerID)
-            {
-                case 1: playerKeys = Settings.playerKeysInvert[0]; break;
-                case 2: playerKeys = Settings.playerKeysInvert[1]; break;
-                case 3: playerKeys = Settings.playerKeysInvert[2]; break;
-            }
+            playerKeys = Settings.playerKeysInvert[playerID];
 
             addTimer(mushroom);
         }
@@ -120,12 +115,7 @@ namespace Snake
 
         public void mushroom_TimerEvent(object sender, EventArgs e)
         {
-            switch (playerID)
-            {
-                case 1: playerKeys = Settings.playerKeys[0]; break;
-                case 2: playerKeys = Settings.playerKeys[1]; break;
-                case 3: playerKeys = Settings.playerKeys[2]; break;
-            }
+            playerKeys = Settings.playerKeys[playerID];
 
             Timer t = (Timer)sender;
             t.Stop();

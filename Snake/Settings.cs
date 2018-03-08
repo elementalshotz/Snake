@@ -12,8 +12,7 @@ namespace Snake
     {
         public static int Width { get; set; }
         public static int Height { get; set; }
-
-        static Random random = new Random();
+        
         public static int FPS = 10;
 
         public static int EffectLengthCoffeeFood = 5000;
