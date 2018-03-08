@@ -32,7 +32,7 @@ namespace Snake
         Font font = new Font("Verdana", 10);
         Brush brush = new SolidBrush(Color.GhostWhite);
 
-        //List<Food> foodList = new List<Food>();
+        List<Food> foodList = new List<Food>();
         List<Player> playerList = new List<Player>();
         List<FlowLayoutPanel> flowPanels = new List<FlowLayoutPanel>();
 
@@ -56,7 +56,6 @@ namespace Snake
             flowPanels.Add(flowLayoutPanel3);
             flowPanels.Add(flowLayoutPanel4);
             flowPanels.Add(flowLayoutPanel5);
-            //foodList.Add(new MagicMushroom(new Point(50, 50)));
         }
 
         private void Form1_Resize(object sender, EventArgs e)
@@ -67,7 +66,7 @@ namespace Snake
 
         internal void ResetComponents()
         {
-            //foodList.Clear();
+            foodList.Clear();
             playerList.Clear();
             Invalidate();
             timer.Stop();
@@ -84,7 +83,6 @@ namespace Snake
 
             Settings.Width = panel2.Width;
             Settings.Height = panel2.Height;
-            //foodList.Add(new MagicMushroom(new Point(50, 50)));
         }
 
         internal void activatePlayers(int v)
@@ -92,6 +90,7 @@ namespace Snake
             for (int i = 0; i < v; i++)
             {
                 playerList.Add(new Player(Settings.playerKeys[i], Settings.playerColor[i], Settings.startLocations[i]));
+                flowPanels[i].Visible = true;
             }
 
             foreach (var player in playerList)
@@ -123,7 +122,7 @@ namespace Snake
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            //if (foodList.Count < 5) foodList.Add(Food.Create());
+            if (foodList.Count < 5) foodList.Add(Food.Create());
 
             foreach (var player in playerList)
             {
@@ -140,6 +139,11 @@ namespace Snake
             foreach (var player in playerList)
             {
                 player.Draw(e.Graphics);
+            }
+
+            foreach (var food in foodList)
+            {
+                food.Draw(e.Graphics);
             }
         }
     }

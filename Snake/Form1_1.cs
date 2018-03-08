@@ -79,6 +79,7 @@ namespace Snake
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(98, 69);
             this.flowLayoutPanel3.TabIndex = 0;
+            this.flowLayoutPanel3.Visible = false;
             // 
             // flowLayoutPanel4
             // 
@@ -91,6 +92,7 @@ namespace Snake
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
             this.flowLayoutPanel4.Size = new System.Drawing.Size(89, 69);
             this.flowLayoutPanel4.TabIndex = 1;
+            this.flowLayoutPanel4.Visible = false;
             // 
             // flowLayoutPanel5
             // 
@@ -103,6 +105,7 @@ namespace Snake
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
             this.flowLayoutPanel5.Size = new System.Drawing.Size(100, 69);
             this.flowLayoutPanel5.TabIndex = 2;
+            this.flowLayoutPanel5.Visible = false;
             // 
             // label1
             // 
