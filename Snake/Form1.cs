@@ -19,15 +19,6 @@ namespace Snake
         private FlowLayoutPanel flowLayoutPanel5;
         private Panel panel2;
         private FlowLayoutPanel flowLayoutPanel1;
-
-        Font font = new Font("Verdana", 10);
-        Brush brush = new SolidBrush(Color.GhostWhite);
-
-        //List<Food> foodList = new List<Food>();
-        List<Player> playerList = new List<Player>();
-        List<FlowLayoutPanel> flowPanels = new List<FlowLayoutPanel>();
-
-        System.Windows.Forms.Timer timer;
         private Label label1;
         private Label playerOneScore;
         private Label label2;
@@ -37,6 +28,15 @@ namespace Snake
         private Label label5;
         private Label playerThreeScore;
         private Label label6;
+
+        Font font = new Font("Verdana", 10);
+        Brush brush = new SolidBrush(Color.GhostWhite);
+
+        //List<Food> foodList = new List<Food>();
+        List<Player> playerList = new List<Player>();
+        List<FlowLayoutPanel> flowPanels = new List<FlowLayoutPanel>();
+
+        System.Windows.Forms.Timer timer;
         Random random = new Random();
 
         public Form1() : base()
@@ -104,7 +104,13 @@ namespace Snake
 
         private void Player_scoreChangeEvent()
         {
+            playerOneScore.Text = "Score: " + playerList.First().Score;
             
+            if (playerList.Count > 1)
+            {
+                playerTwoScore.Text = "Score: " + playerList.ElementAt(1).Score;
+                playerThreeScore.Text = "Score: " + playerList.ElementAt(2).Score;
+            }
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -127,23 +133,6 @@ namespace Snake
             }
 
             Refresh();
-        }
-
-        private void flowLayoutPanel3_Paint(object sender, PaintEventArgs e)
-        {
-            e.Graphics.DrawString($"Player 1: \nScore: {playerList[0].Score}\nControls: W, A, S, D", font, brush, new PointF(0, 0));
-        }
-
-        private void flowLayoutPanel4_Paint(object sender, PaintEventArgs e)
-        {
-            if (playerList.Count > 1)
-                e.Graphics.DrawString($"Player 2: \nScore: {playerList[1].Score}\nControls: Up, Down\nLeft, Right", font, brush, new PointF(0, 0));
-        }
-
-        private void flowLayoutPanel5_Paint(object sender, PaintEventArgs e)
-        {
-            if (playerList.Count > 2)
-                e.Graphics.DrawString($"Player 3: \nScore: {playerList[2].Score}\nControls: I, J, K, L", font, brush, new PointF(0, 0));
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
