@@ -49,7 +49,7 @@ namespace Snake
             // panel2
             // 
             this.panel2.AutoSize = true;
-            this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowOnly;
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(540, 540);
@@ -200,6 +200,7 @@ namespace Snake
             // 
             // Form1
             // 
+            this.AutoSizeMode = AutoSizeMode.GrowOnly;
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;

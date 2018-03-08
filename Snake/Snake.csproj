@@ -66,6 +66,7 @@
     <Compile Include="IDrawable.cs" />
     <Compile Include="IFoodCollidable.cs" />
     <Compile Include="MagicMushroom.cs" />
+    <Compile Include="MatrixPoint.cs" />
     <Compile Include="Music.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />

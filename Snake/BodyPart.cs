@@ -12,7 +12,7 @@ namespace Snake
         Rectangle rectangle;
         Point point;
 
-        public Point matrixPoint { get; internal set; }
+        public MatrixPoint matrixPoint;
 
         public Rectangle Part
         {
@@ -28,6 +28,7 @@ namespace Snake
         public BodyPart(Point point)
         {
             this.point = point;
+            matrixPoint = new MatrixPoint(point.X, point.Y);
             rectangle = new Rectangle(PartPoint, new Size(Settings.size, Settings.size));
         }
     }
