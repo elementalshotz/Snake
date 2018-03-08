@@ -43,7 +43,7 @@ namespace Snake
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(547, 489);
+            this.panel1.Size = new System.Drawing.Size(540, 615);
             this.panel1.TabIndex = 0;
             // 
             // panel2
@@ -200,6 +200,7 @@ namespace Snake
             // 
             // Form1
             // 
+            this.Size = new System.Drawing.Size(540, 615);
             this.AutoSizeMode = AutoSizeMode.GrowOnly;
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;

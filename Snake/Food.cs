@@ -11,13 +11,23 @@ namespace Snake
     public abstract class Food : IFoodCollidable
     {
         protected Point Pos;
+        private int xCoordinate;
+        private int yCoordinate;
         //protected Icon icon;
 
         public Food()
         {
-            int xCoor = Settings.Width - Settings.size;
-            int yCoor = Settings.Height - Settings.size;
-            Pos = new Point(random.Next(xCoor), random.Next(yCoor));
+            do
+            {
+                xCoordinate = random.Next(Settings.Width - Settings.size);
+            } while (xCoordinate % 15 != 0);
+
+            do
+            {
+                yCoordinate = random.Next(Settings.Height - Settings.size);
+            } while (yCoordinate % 15 != 0);
+
+            Pos = new Point(xCoordinate, yCoordinate);
         }
 
         protected Random random = new Random();

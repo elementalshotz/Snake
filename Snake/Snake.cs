@@ -13,6 +13,7 @@ namespace Snake
         protected enum Direction { Up, Left, Down, Right }
         protected Direction moveDirection { get; set; }
         protected Point startPoint;
+        protected int multiplier = 1;
 
         public Snake(Point point)
         {
@@ -39,16 +40,16 @@ namespace Snake
                     switch (moveDirection)
                     {
                         case Direction.Up:
-                            part.Y -= part.Height;
+                            part.Y -= (part.Height * multiplier);
                             break;
                         case Direction.Left:
-                            part.X -= part.Width;
+                            part.X -= (part.Width * multiplier);
                             break;
                         case Direction.Down:
-                            part.Y += part.Height;
+                            part.Y += (part.Height * multiplier);
                             break;
                         case Direction.Right:
-                            part.X += part.Width;
+                            part.X += (part.Width * multiplier);
                             break;
                     }
                 } else

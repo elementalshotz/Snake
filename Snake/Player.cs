@@ -95,7 +95,7 @@ namespace Snake
 
         public void activateEffect(CoffeeFood coffee)
         {
-
+            multiplier = Settings.SpeedChange;
 
             addTimer(coffee);
         }
@@ -134,7 +134,7 @@ namespace Snake
 
         public void coffee_TimerEvent(object sender, EventArgs e)
         {
-
+            multiplier = 1;
 
             Timer t = (Timer)sender;
             t.Stop();
