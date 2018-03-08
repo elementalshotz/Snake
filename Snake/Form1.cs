@@ -28,6 +28,15 @@ namespace Snake
         List<FlowLayoutPanel> flowPanels = new List<FlowLayoutPanel>();
 
         System.Windows.Forms.Timer timer;
+        private Label label1;
+        private Label playerOneScore;
+        private Label label2;
+        private Label label3;
+        private Label playerTwoScore;
+        private Label label4;
+        private Label label5;
+        private Label playerThreeScore;
+        private Label label6;
         Random random = new Random();
 
         public Form1() : base()
@@ -95,9 +104,7 @@ namespace Snake
 
         private void Player_scoreChangeEvent()
         {
-            flowLayoutPanel3.Refresh();
-            flowLayoutPanel4.Refresh();
-            flowLayoutPanel4.Refresh();
+            
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)

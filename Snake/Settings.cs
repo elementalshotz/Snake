@@ -27,17 +27,17 @@ namespace Snake
 
         static Keys[] PlayerOne = new Keys[4]
         {
-            Keys.W, Keys.A, Keys.S, Keys.D  //Player 3
+            Keys.Up, Keys.Left, Keys.Down, Keys.Right //Player 1
         };
 
         static Keys[] PlayerTwo = new Keys[4]
         {
-            Keys.Up, Keys.Left, Keys.Down, Keys.Right //Player 1
+            Keys.I, Keys.J, Keys.K, Keys.L //Player 2
         };
 
         static Keys[] PlayerThree = new Keys[4]
         {
-            Keys.I, Keys.J, Keys.K, Keys.L //Player 2
+            Keys.W, Keys.A, Keys.S, Keys.D  //Player 3
         };
 
         public static Keys[][] playerKeys = new Keys[3][] { PlayerOne, PlayerTwo, PlayerThree };
