@@ -9,11 +9,9 @@ namespace Snake
 {
     public class CoffeeFood : Food, IFoodCollidable
     {
-        Random random;
-
-        public CoffeeFood(Point point) : base(point) {
-            random = new Random();
-            icon = new Icon("CoffieCup.ico");
+        public CoffeeFood() : base()
+        {
+            //icon = new Icon("CoffieCup.ico");
         }
 
         internal override void AddEffect(ref List<Player> playerList)
@@ -23,7 +21,8 @@ namespace Snake
 
         internal override void Draw(Graphics g)
         {
-            g.DrawIcon(icon, Pos.X, Pos.Y);
+            //g.DrawIcon(icon, Pos.X, Pos.Y);
+            g.FillRectangle(new SolidBrush(Color.RosyBrown), new Rectangle(Position, new Size(Settings.size, Settings.size)));
         }
 
         internal override void Hit(Collider collider)

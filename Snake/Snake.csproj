@@ -68,7 +68,6 @@
     <Compile Include="MagicMushroom.cs" />
     <Compile Include="Music.cs" />
     <Compile Include="Player.cs" />
-    <Compile Include="PlayerEffects.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
@@ -104,12 +103,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Apple.ico" />
-    <Content Include="ChoclateBar.ico" />
-    <Content Include="CoffieCup.ico" />
     <Content Include="Derezzed.wav" />
     <Content Include="Ideas.txt" />
-    <Content Include="Mushroom.ico" />
     <Content Include="Onemoretime.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

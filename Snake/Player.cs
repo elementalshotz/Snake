@@ -14,6 +14,7 @@ namespace Snake
         protected int score;
         Brush brush;
         public List<Timer> timerList;
+        int playerID;
 
         public delegate void ScoreChangeDelegate();
         public event ScoreChangeDelegate scoreChangeEvent;
@@ -80,9 +81,64 @@ namespace Snake
             }
         }
 
-        public void Player_TimerEvent(object sender, EventArgs e)
+        public void activateEffect(MagicMushroom mushroom)      //The variable that is going in here is only used to separate the code of what the two functions do.
         {
-            //timer.Stop();
+            switch (playerID)
+            {
+                case 1: playerKeys = Settings.playerKeysInvert[0]; break;
+                case 2: playerKeys = Settings.playerKeysInvert[1]; break;
+                case 3: playerKeys = Settings.playerKeysInvert[2]; break;
+            }
+
+            addTimer(mushroom);
+        }
+
+        public void activateEffect(CoffeeFood coffee)
+        {
+
+
+            addTimer(coffee);
+        }
+
+        public void addTimer(Food food)
+        {
+            Timer t = new Timer();
+
+            if (food is MagicMushroom)
+            {
+                t.Interval = Settings.EffectLengthMagicMushroom;
+                t.Tick += mushroom_TimerEvent;
+            } else if (food is CoffeeFood)
+            {
+                t.Interval = Settings.EffectLengthCoffeeFood;
+                t.Tick += coffee_TimerEvent;
+            }
+
+            t.Start();
+            timerList.Add(t);
+        }
+
+        public void mushroom_TimerEvent(object sender, EventArgs e)
+        {
+            switch (playerID)
+            {
+                case 1: playerKeys = Settings.playerKeys[0]; break;
+                case 2: playerKeys = Settings.playerKeys[1]; break;
+                case 3: playerKeys = Settings.playerKeys[2]; break;
+            }
+
+            Timer t = (Timer)sender;
+            t.Stop();
+            timerList.Remove(t);
+        }
+
+        public void coffee_TimerEvent(object sender, EventArgs e)
+        {
+
+
+            Timer t = (Timer)sender;
+            t.Stop();
+            timerList.Remove(t);
         }
     }
 }

@@ -9,18 +9,17 @@ namespace Snake
 {
     public class ValuableFood : Food, IFoodCollidable
     {
-        public ValuableFood(Point pos) : base(pos)
-        {
-        }
+        public ValuableFood() : base() { }
 
         internal override void AddEffect(ref List<Player> playerList)
         {
-            throw new NotImplementedException();
+            return;                 //Absolutely do nothing about this code, no effect is supposed to be added from the valuable type
         }
 
         internal override void Draw(Graphics g)
         {
-            g.DrawIcon(new Icon("CoffieCup.ico"), Pos.X, Pos.Y);
+            //g.DrawIcon(new Icon("CoffieCup.ico"), Pos.X, Pos.Y);
+            g.FillRectangle(new SolidBrush(Color.ForestGreen), new Rectangle(Position, new Size(Settings.size, Settings.size)));
         }
 
         internal override void Hit(Collider collider)

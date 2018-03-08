@@ -15,7 +15,9 @@ namespace Snake
 
         static Random random = new Random();
         public static int FPS = 10;
-        public static int EffectLength = 3000;
+
+        public static int EffectLengthCoffeeFood = 5000;
+        public static int EffectLengthMagicMushroom = 3000;
 
         public static int standardFood = 1;
         public static int valueableFood = 5;
@@ -24,6 +26,8 @@ namespace Snake
         public static int standardLength = 1;
         public static int valuableLength = 2;
         public static int mushroomLength = 5;
+
+        public static int size = 15;
 
         static Keys[] PlayerOne = new Keys[4]
         {

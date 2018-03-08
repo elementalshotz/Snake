@@ -33,6 +33,7 @@ namespace Snake
             this.flowLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
             timer = new System.Windows.Forms.Timer();
+
             // 
             // panel1
             // 
@@ -51,7 +52,7 @@ namespace Snake
             this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Location = new System.Drawing.Point(540, 540);
             this.panel2.Name = "panel2";
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
@@ -65,7 +66,7 @@ namespace Snake
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 414);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(547, 75);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(540, 75);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // flowLayoutPanel3
@@ -77,7 +78,7 @@ namespace Snake
             this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(98, 69);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(100, 69);
             this.flowLayoutPanel3.TabIndex = 0;
             this.flowLayoutPanel3.Visible = false;
             // 
@@ -90,7 +91,7 @@ namespace Snake
             this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel4.Location = new System.Drawing.Point(107, 3);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(89, 69);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(100, 69);
             this.flowLayoutPanel4.TabIndex = 1;
             this.flowLayoutPanel4.Visible = false;
             // 
@@ -199,7 +200,6 @@ namespace Snake
             // 
             // Form1
             // 
-            this.ClientSize = new System.Drawing.Size(560, 500);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;

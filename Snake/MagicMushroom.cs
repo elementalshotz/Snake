@@ -9,29 +9,31 @@ namespace Snake
 {
     public class MagicMushroom : Food, IFoodCollidable
     {
-        public MagicMushroom(Point point) : base(point)
+        public MagicMushroom() : base()
         {
-            icon = new Icon("Mushroom.ico");
+            //icon = new Icon("Mushroom.ico");
         }
 
         internal override void Draw(Graphics g)
         {
-            g.DrawIcon(icon, Pos.X, Pos.Y);
+            //g.DrawIcon(icon, Pos.X, Pos.Y);
+            g.FillRectangle(new SolidBrush(Color.Purple), new Rectangle(Position, new Size(Settings.size, Settings.size)));
         }
 
         internal override void Hit(Collider collider)
         {
-            throw new NotImplementedException();
+            collider.Collide(this);
         }
 
         internal override void Remove(Food food)
         {
-            throw new NotImplementedException();
+
         }
 
         internal override void AddEffect(ref List<Player> playerList)
         {
-            //Settings.AddEffect(ref playerList);
+            int player = random.Next(playerList.Count);
+            playerList[player].activateEffect(this);
         }
 
         internal override void IncreaseLength(ref Player player)
