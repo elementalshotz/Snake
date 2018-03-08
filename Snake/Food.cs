@@ -11,25 +11,7 @@ namespace Snake
     public abstract class Food : IFoodCollidable
     {
         protected Point Pos;
-        private int xCoordinate;
-        private int yCoordinate;
-        //protected Icon icon;
 
-        public Food()
-        {
-            do
-            {
-                xCoordinate = foodRandom.Next(Settings.Width - Settings.size);
-            } while (xCoordinate % 15 != 0);
-
-            do
-            {
-                yCoordinate = foodRandom.Next(Settings.Height - Settings.size);
-            } while (yCoordinate % 15 != 0);
-
-            Pos = new Point(xCoordinate, yCoordinate);
-        }
-        
         private static Random foodRandom = new Random();
         private enum Type { Standard, Valuable, Coffee, MagicMushroom }
 

@@ -14,7 +14,27 @@ namespace Snake
         public MagicMushroom() : base()
         {
             random = new Random();
+            Position = GeneratePosition(Settings.size);
             //icon = new Icon("Mushroom.ico");
+        }
+
+        private Point GeneratePosition(int multipleOf)
+        {
+            int x = random.Next(Settings.Width - Settings.size);
+
+            while (x % multipleOf != 0)
+            {
+                x = random.Next(Settings.Width - multipleOf);
+            }
+
+            int y = random.Next(Settings.Height - Settings.size);
+
+            while (y % multipleOf != 0)
+            {
+                y = random.Next(Settings.Height - Settings.size);
+            }
+
+            return new Point(x, y);
         }
 
         internal override void Draw(Graphics g)
