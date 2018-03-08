@@ -39,8 +39,17 @@ namespace Snake
         System.Windows.Forms.Timer timer;
         Random random = new Random();
 
+        public ref System.Windows.Forms.Timer DrawTimer
+        {
+            get => ref timer;
+        }
+
         public Form1() : base()
         {
+            foodList.Clear();
+            playerList.Clear();
+            Invalidate();
+
             Text = $"Snek - Players: {this.playerList.Count}";
             AutoSize = true;
             DoubleBuffered = true;
@@ -64,25 +73,9 @@ namespace Snake
             Settings.Height = panel2.Height;
         }
 
-        internal void ResetComponents()
+        internal Form1 ResetComponents()
         {
-            foodList.Clear();
-            playerList.Clear();
-            Invalidate();
-            timer.Stop();
-
-            Text = $"Snek - Players: {this.playerList.Count}";
-            AutoSize = true;
-            DoubleBuffered = true;
-            InitializeComponent();
-
-            KeyPreview = true;
-            KeyDown += Form1_KeyDown;
-            Resize += Form1_Resize;
-
-
-            Settings.Width = panel2.Width;
-            Settings.Height = panel2.Height;
+            return new Form1();
         }
 
         internal void activatePlayers(int v)

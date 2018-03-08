@@ -9,14 +9,17 @@ namespace Snake
 {
     public class CoffeeFood : Food, IFoodCollidable
     {
+        Random random;
+
         public CoffeeFood() : base()
         {
+            random = new Random();
             //icon = new Icon("CoffieCup.ico");
         }
 
         internal override void AddEffect(ref List<Player> playerList)
         {
-            //Settings.AddEffect(ref playerList);
+            playerList[random.Next(playerList.Count)].activateEffect(this);
         }
 
         internal override void Draw(Graphics g)
@@ -27,22 +30,17 @@ namespace Snake
 
         internal override void Hit(Collider collider)
         {
-            throw new NotImplementedException();
+            collider.Collide(this);
         }
 
         internal override void IncreaseLength(ref Player player)
         {
-            throw new NotImplementedException();
+            return; //Implemented on the other food types but since coffee food is just gonna speed up a snake we just return this call
         }
 
         internal override void IncreaseScore(ref Player player)
         {
-            throw new NotImplementedException();
-        }
-
-        internal override void Remove(Food food)
-        {
-            throw new NotImplementedException();
+            return; //Implemented on the other food types but since coffee food is just gonna speed up a snake we just return this call
         }
     }
 }

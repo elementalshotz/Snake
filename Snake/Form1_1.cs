@@ -64,7 +64,7 @@ namespace Snake
             this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel4);
             this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel5);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 414);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 540);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(540, 75);
             this.flowLayoutPanel1.TabIndex = 0;

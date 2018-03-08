@@ -31,7 +31,8 @@ namespace Snake
                 music.Stop();
             }
 
-            form.ResetComponents();
+            form.DrawTimer.Stop();
+            form = form.ResetComponents();
         }
 
         private void onePlayer_Click(object sender, EventArgs e)

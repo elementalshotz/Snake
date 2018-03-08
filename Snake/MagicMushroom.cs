@@ -9,8 +9,11 @@ namespace Snake
 {
     public class MagicMushroom : Food, IFoodCollidable
     {
+        Random random;
+
         public MagicMushroom() : base()
         {
+            random = new Random();
             //icon = new Icon("Mushroom.ico");
         }
 
@@ -23,11 +26,6 @@ namespace Snake
         internal override void Hit(Collider collider)
         {
             collider.Collide(this);
-        }
-
-        internal override void Remove(Food food)
-        {
-
         }
 
         internal override void AddEffect(ref List<Player> playerList)

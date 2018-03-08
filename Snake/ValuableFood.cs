@@ -36,10 +36,5 @@ namespace Snake
         }
 
         internal override void IncreaseScore(ref Player player) => player.Score += Settings.valueableFood;
-
-        internal override void Remove(Food food)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

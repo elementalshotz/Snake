@@ -19,18 +19,17 @@ namespace Snake
         {
             do
             {
-                xCoordinate = random.Next(Settings.Width - Settings.size);
+                xCoordinate = foodRandom.Next(Settings.Width - Settings.size);
             } while (xCoordinate % 15 != 0);
 
             do
             {
-                yCoordinate = random.Next(Settings.Height - Settings.size);
+                yCoordinate = foodRandom.Next(Settings.Height - Settings.size);
             } while (yCoordinate % 15 != 0);
 
             Pos = new Point(xCoordinate, yCoordinate);
         }
-
-        protected Random random = new Random();
+        
         private static Random foodRandom = new Random();
         private enum Type { Standard, Valuable, Coffee, MagicMushroom }
 
@@ -62,7 +61,6 @@ namespace Snake
         public void Remove(Collider collider, Food food)
         {
             //collider.Remove(food);
-            food.Remove(food);
         }
 
         public void AddEffect(ref List<Player> playerList, Food food)
@@ -84,7 +82,6 @@ namespace Snake
 
         internal abstract void Draw(Graphics g);
         internal abstract void Hit(Collider collider);
-        internal abstract void Remove(Food food);
         internal abstract void AddEffect(ref List<Player> playerList);
         internal abstract void IncreaseLength(ref Player player);
         internal abstract void IncreaseScore(ref Player player);
