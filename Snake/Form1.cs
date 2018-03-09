@@ -73,14 +73,15 @@ namespace Snake
             flowPanels.Add(flowLayoutPanel4);
             flowPanels.Add(flowLayoutPanel5);
 
-            collider = new Collider(ref playerList, ref foodList);
+            collider = new Collider(playerList, foodList);
             collider.GameOverEvent += Collider_GameOverEvent;
         }
 
         private void Collider_GameOverEvent()
         {
-            timer.Stop();
-            //Tell the players who won
+            int Player_ID =0;
+
+            MessageBox.Show($"Player {Player_ID} has won with a score of {playerList[Player_ID].Score}");
         }
 
         private void Form1_Resize(object sender, EventArgs e)
@@ -138,22 +139,27 @@ namespace Snake
         {
             if (foodList.Count < 4) foodList.Add(Food.Create());
 
-            foreach (var player in playerList)
+            Player[] players = new Player[playerList.Count];
+            playerList.CopyTo(players);
+
+            foreach (var player in players)
             {
                 player.MoveSnake();
 
                 if (player.snakeBody.Count < 8) player.snakeBody.Add(new BodyPart(player.snakeBody.Last().PartPoint));
+
+                collider.Collide(player);
             }
 
             Food[] foods = new Food[foodList.Count];
-            foodList.CopyTo(foods, 0);
+            foodList.CopyTo(foods);
 
             foreach (var food in foods)
             {
                 food.Hit(collider);
             }
-            
 
+            collider.PutIntoMatrix();
             Refresh();
         }
 

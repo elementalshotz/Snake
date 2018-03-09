@@ -14,7 +14,7 @@ namespace Snake
         protected int score;
         Brush brush;
         public List<Timer> timerList = new List<Timer>();
-        int playerID;
+        public int playerID;
 
         public delegate void ScoreChangeDelegate();
         public event ScoreChangeDelegate scoreChangeEvent;

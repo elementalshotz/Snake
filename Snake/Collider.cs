@@ -13,8 +13,9 @@ namespace Snake
 
         public delegate void GameOverDelegate();
         public event GameOverDelegate GameOverEvent;
+        int[,] gameMatrix = new int[34,34];
 
-        public Collider(ref List<Player> PlayerList, ref List<Food> FoodList)
+        public Collider(List<Player> PlayerList, List<Food> FoodList)
         {
 
             Players = PlayerList;
@@ -22,12 +23,26 @@ namespace Snake
             //Any constructor that we can use to initialize the collider class with
         }
 
+        public void PutIntoMatrix()
+        {
+            gameMatrix = new int[34, 34];
+
+            foreach (var player in Players)
+            {
+                int id = player.playerID;
+                foreach (var bodyPart in player.snakeBody)
+                {
+                    gameMatrix[bodyPart.matrixPoint.X, bodyPart.matrixPoint.Y] = id;
+                }
+            }
+        }
+
         public void Collide(Player player)
         {
-            foreach (var bodyPart in player.snakeBody)
+            for (int i = 1; i < player.snakeBody.Count; i++)
             {
-                bool bodypart = bodyPart != player.snakeBody.First();
-                if (player.snakeBody.First().matrixPoint.Equals(bodyPart.matrixPoint) && bodypart)
+                var head = player.snakeBody.First();
+                if (head.Part.Equals(player.snakeBody[i].Part))
                 {
                     Players.Remove(player);
 
@@ -52,7 +67,6 @@ namespace Snake
                     food.AddEffect(ref Players);
 
                     Players[i] = player;
-
                     Eatables.Remove(food);
                 }
             }
