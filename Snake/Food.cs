@@ -11,9 +11,27 @@ namespace Snake
     public abstract class Food : IFoodCollidable
     {
         protected Point Pos;
+        protected static List<Food> foods = new List<Food>();
 
         private static Random foodRandom = new Random();
         private enum Type { Standard, Valuable, Coffee, MagicMushroom }
+
+        protected static Point SpawnPoint()
+        {
+            int x = foodRandom.Next(Settings.Width - Settings.size);
+            while (x % 15 != 0)
+            {
+                x = foodRandom.Next(Settings.Width - Settings.size);
+            }
+
+            int y = foodRandom.Next(Settings.Height - Settings.size);
+            while (y % 15 != 0)
+            {
+                y = foodRandom.Next(Settings.Height - Settings.size);
+            }
+
+            return new Point(x, y);
+        }
 
         private static Dictionary<Type, Food> foodDict = new Dictionary<Type, Food>()
         {
@@ -30,7 +48,9 @@ namespace Snake
 
         private static Food CreateFood()
         {
-            return foodDict[(Type)foodRandom.Next(foodDict.Count)];
+            Type food = (Type)foodRandom.Next(foodDict.Count);
+            foods.Add(foodDict[food]);
+            return foodDict[food];
         }
         
         public void Draw(Graphics g, Food food) => food.Draw(g);

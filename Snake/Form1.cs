@@ -66,7 +66,7 @@ namespace Snake
             flowPanels.Add(flowLayoutPanel3);
             flowPanels.Add(flowLayoutPanel4);
             flowPanels.Add(flowLayoutPanel5);
-            collider = new Collider(foodList, playerList);
+            //collider = new Collider(foodList, playerList);
         }
 
         private void Form1_Resize(object sender, EventArgs e)
@@ -125,13 +125,13 @@ namespace Snake
 
                 if (player.snakeBody.Count < 8) player.snakeBody.Add(new BodyPart(player.snakeBody.Last().PartPoint));
 
-                collider.Collide(player);
+                //collider.Collide(player);
             }
 
-            foreach (var food in foodList)
+            /*foreach (var food in foodList)
             {
                 food.Hit(collider);
-            }
+            }*/
 
             Refresh();
         }
@@ -141,7 +141,6 @@ namespace Snake
             foreach (var player in playerList)
             {
                 player.Draw(e.Graphics);
-                player.activateEffect(new MagicMushroom());
             }
 
             foreach (var food in foodList)

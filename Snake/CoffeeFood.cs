@@ -14,27 +14,8 @@ namespace Snake
         public CoffeeFood() : base()
         {
             random = new Random();
-            Position = GeneratePosition(Settings.size);
+            Pos = Food.SpawnPoint();
             //icon = new Icon("CoffieCup.ico");
-        }
-
-        private Point GeneratePosition(int multipleOf)
-        {
-            int x = random.Next(Settings.Width - Settings.size);
-
-            while (x % multipleOf != 0)
-            {
-                x = random.Next(Settings.Width - multipleOf);
-            }
-
-            int y = random.Next(Settings.Height - Settings.size);
-
-            while (y % multipleOf != 0)
-            {
-                y = random.Next(Settings.Height - Settings.size);
-            }
-
-            return new Point(x, y);
         }
 
         internal override void AddEffect(ref List<Player> playerList)
