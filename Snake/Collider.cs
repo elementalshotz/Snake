@@ -11,7 +11,7 @@ namespace Snake
         List<Player> Players;
         List<Food> Eatables;
 
-        public delegate void GameOverDelegate(int score, int id);
+        public delegate void GameOverDelegate(int id);
         public event GameOverDelegate GameOverEvent;
 
         public Collider(List<Player> PlayerList, List<Food> FoodList)
@@ -32,7 +32,7 @@ namespace Snake
                     Players.Remove(player);
 
                     if (Players.Count < 1)
-                        GameOverEvent.Invoke(player.Score, player.playerID);
+                        GameOverEvent.Invoke(player.playerID);
 
                     break;
                 }
@@ -41,7 +41,27 @@ namespace Snake
 
         public void CollideWithPlayers(Player player)
         {
+            int index = 0;
 
+            for (int i = 0; i < Players.Count; i++)
+            {
+                if (Players[i].Equals(player))
+                {
+                    index = i;
+                }
+            }
+
+            for (int i = 0; i < Players.Count; i++)
+            {
+                if (i != index)
+                {
+                    if (player.snakeBody.First().Equals(Players[i].snakeBody.First()))
+                    {
+                        Players.Remove(player);
+                        break;
+                    }
+                }
+            }
         }
 
         public void Collide(Food food)

@@ -77,9 +77,9 @@ namespace Snake
             collider.GameOverEvent += Collider_GameOverEvent;
         }
 
-        private void Collider_GameOverEvent(int score, int id)
+        private void Collider_GameOverEvent(int id)
         {
-            MessageBox.Show($"Player {id} has won with a score of {score}");
+            MessageBox.Show($"Player {id} has survived the longest time.\nCheck the score to see who won!");
         }
 
         private void Form1_Resize(object sender, EventArgs e)
@@ -143,6 +143,7 @@ namespace Snake
                 if (player.snakeBody.Count < 8) player.snakeBody.Add(new BodyPart(player.snakeBody.Last().PartPoint));
 
                 collider.Collide(player);
+                collider.CollideWithPlayers(player);
             }
 
             Food[] foods = new Food[foodList.Count];
