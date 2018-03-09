@@ -5919,6 +5919,35 @@
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAFiCyP3y3wbfiU=",
+											"_parent": {
+												"$ref": "AAAAAAFiB5SdV5ndwTU="
+											},
+											"model": {
+												"$ref": "AAAAAAFiCyP3jnwYvmw="
+											},
+											"visible": true,
+											"enabled": true,
+											"lineColor": "#000000",
+											"fillColor": "#ffffff",
+											"fontColor": "#000000",
+											"font": "Arial;13;0",
+											"showShadow": true,
+											"containerChangeable": false,
+											"containerExtending": false,
+											"left": 533,
+											"top": 472,
+											"width": 314.65966796875,
+											"height": 13,
+											"autoResize": false,
+											"underline": false,
+											"text": "~AddParts(length: int)",
+											"horizontalAlignment": 0,
+											"verticalAlignment": 5,
+											"wordWrap": false
 										}
 									],
 									"visible": true,
@@ -5933,7 +5962,7 @@
 									"left": 528,
 									"top": 347,
 									"width": 324.65966796875,
-									"height": 128,
+									"height": 143,
 									"autoResize": false
 								},
 								{
@@ -15949,6 +15978,38 @@
 							"concurrency": "sequential",
 							"isQuery": false,
 							"isAbstract": false
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAFiCyP3jnwYvmw=",
+							"_parent": {
+								"$ref": "AAAAAAFiB5SdVZnUDpo="
+							},
+							"name": "AddParts",
+							"visibility": "package",
+							"isStatic": false,
+							"isLeaf": false,
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAFiCyQyUXwfb+4=",
+									"_parent": {
+										"$ref": "AAAAAAFiCyP3jnwYvmw="
+									},
+									"name": "length",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": "int",
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"direction": "in"
+								}
+							],
+							"concurrency": "sequential",
+							"isQuery": false,
+							"isAbstract": false
 						}
 					],
 					"isAbstract": false,
@@ -17175,6 +17236,7 @@
 							"visibility": "private",
 							"isStatic": false,
 							"isLeaf": false,
+							"type": "",
 							"isReadOnly": false,
 							"isOrdered": false,
 							"isUnique": false,
