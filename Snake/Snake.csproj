@@ -63,7 +63,6 @@
     </Compile>
     <Compile Include="ICollidable.cs" />
     <Compile Include="IDrawable.cs" />
-    <Compile Include="IFoodCollidable.cs" />
     <Compile Include="MagicMushroom.cs" />
     <Compile Include="MatrixPoint.cs" />
     <Compile Include="Music.cs" />

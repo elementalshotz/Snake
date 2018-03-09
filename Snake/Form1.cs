@@ -40,6 +40,7 @@ namespace Snake
 
         System.Windows.Forms.Timer timer;
         Random random = new Random();
+        int ticks = 0;
 
         public ref System.Windows.Forms.Timer DrawTimer
         {
@@ -73,7 +74,7 @@ namespace Snake
             flowPanels.Add(flowLayoutPanel5);
 
             
-            //collider = new Collider(foodList, playerList);
+            collider = new Collider(ref playerList, ref foodList);
         }
 
         private void Form1_Resize(object sender, EventArgs e)
@@ -135,13 +136,17 @@ namespace Snake
 
                 if (player.snakeBody.Count < 8) player.snakeBody.Add(new BodyPart(player.snakeBody.Last().PartPoint));
 
-                //collider.Collide(player);
+                //ticks++;
+                //if (ticks > 10)
+                    //collider.Collide(player);
+                break;
             }
 
-            /*foreach (var food in foodList)
+            foreach (var food in foodList)
             {
                 food.Hit(collider);
-            }*/
+            }
+            
 
             Refresh();
         }

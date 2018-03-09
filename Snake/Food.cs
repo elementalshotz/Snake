@@ -8,11 +8,16 @@ using Snake;
 
 namespace Snake
 {
-    public abstract class Food : IFoodCollidable
+    public abstract class Food
     {
         protected Point Pos;
         protected static List<Food> foods = new List<Food>();
         protected Rectangle rect;
+
+        public Rectangle GetRectangle
+        {
+            get => rect;
+        }
 
         private static Random foodRandom = new Random();
         private enum Type { Standard, Valuable, Coffee, MagicMushroom }
@@ -78,33 +83,6 @@ namespace Snake
             Type food = (Type)foodRandom.Next(foodDict.Count);
             foods.Add(foodDict[food]);
             return foodDict[food];
-        }
-        
-        public void Draw(Graphics g, Food food) => food.Draw(g);
-
-        public void Hit(Collider collider, Food food)
-        {
-            food.Hit(collider);
-        }
-
-        public void Remove(Collider collider, Food food)
-        {
-            //collider.Remove(food);
-        }
-
-        public void AddEffect(ref List<Player> playerList, Food food)
-        {
-            food.AddEffect(ref playerList);
-        }
-
-        public void IncreaseLength(ref Player player, Food food)
-        {
-            food.IncreaseLength(ref player);
-        }
-
-        public void IncreaseScore(ref Player player, Food food)
-        {
-            food.IncreaseScore(ref player);
         }
 
         public Point Position { get => Pos; internal set => Pos = value; }

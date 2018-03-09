@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace Snake
 {
-    public class MagicMushroom : Food, IFoodCollidable
+    public class MagicMushroom : Food
     {
         Random random;
         public MagicMushroom() : base()

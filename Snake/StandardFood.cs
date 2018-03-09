@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace Snake
 {
-    public class StandardFood : Food, IFoodCollidable
+    public class StandardFood : Food
     {
         public StandardFood() : base()
         {

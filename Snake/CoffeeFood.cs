@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace Snake
 {
-    public class CoffeeFood : Food, IFoodCollidable
+    public class CoffeeFood : Food
     {
         Random random;
 

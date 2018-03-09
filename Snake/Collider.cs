@@ -11,7 +11,7 @@ namespace Snake
         List<Player> Players;
         List<Food> Eatables;
 
-        public Collider(ref List<Player> PlayerList,ref List<Food> FoodList)
+        public Collider(ref List<Player> PlayerList, ref List<Food> FoodList)
         {
 
             Players = PlayerList;
@@ -21,35 +21,30 @@ namespace Snake
 
         public void Collide(Player player)
         {
-            
-            int i = 0;
-            foreach (var Player in Players)
+            foreach (var bodyPart in player.snakeBody)
             {
-                if (i == 0)
+                bool bodypart = bodyPart != player.snakeBody.First();
+                if (player.snakeBody.First().matrixPoint.Equals(bodyPart.matrixPoint) && bodypart)
                 {
-                    if (player.snakeBody[0].Part.IntersectsWith(Player.snakeBody[0].Part))
-                    {
-
-                    }
+                    Players.Remove(player);
+                    break;
                 }
-                foreach(var Bodypart in Player.snakeBody)
-                {
-                    if (player.snakeBody[0].Part.IntersectsWith(Player.snakeBody[i].Part))
-                    {
-
-                    }
-                }
-               
-                i++;
-               
             }
         }
 
         public void Collide(Food food)
         {
-            //Some if statement
-            //Remove code
-            //foodList.Remove(food);
+            for (int i = 0; i < Players.Count; i++)
+            {
+                if (Players[i].snakeBody.First().Part.Equals(food.GetRectangle))
+                {
+                    Player player = Players[i];
+                    food.IncreaseLength(ref player);
+                    food.IncreaseScore(ref player);
+                    food.AddEffect(ref Players);
+                    Players[i] = player;
+                }
+            }
         }
     }
 }
