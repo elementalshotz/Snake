@@ -39,6 +39,11 @@ namespace Snake
             }
         }
 
+        public void CollideWithPlayers(Player player)
+        {
+
+        }
+
         public void Collide(Food food)
         {
             for (int i = 0; i < Players.Count; i++)
