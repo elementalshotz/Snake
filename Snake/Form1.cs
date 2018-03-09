@@ -114,7 +114,9 @@ namespace Snake
             if (playerList.Count > 1)
             {
                 playerTwoScore.Text = "Score: " + playerList.ElementAt(1).Score;
-                playerThreeScore.Text = "Score: " + playerList.ElementAt(2).Score;
+
+                if (playerList.Count > 2)
+                    playerThreeScore.Text = "Score: " + playerList.ElementAt(2).Score;
             }
         }
 
@@ -128,21 +130,19 @@ namespace Snake
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            if (foodList.Count < 100) foodList.Add(Food.Create());
+            if (foodList.Count < 4) foodList.Add(Food.Create());
 
             foreach (var player in playerList)
             {
                 player.MoveSnake();
 
                 if (player.snakeBody.Count < 8) player.snakeBody.Add(new BodyPart(player.snakeBody.Last().PartPoint));
-
-                //ticks++;
-                //if (ticks > 10)
-                    //collider.Collide(player);
-                break;
             }
 
-            foreach (var food in foodList)
+            Food[] foods = new Food[foodList.Count];
+            foodList.CopyTo(foods, 0);
+
+            foreach (var food in foods)
             {
                 food.Hit(collider);
             }

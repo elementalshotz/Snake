@@ -39,10 +39,7 @@ namespace Snake
 
         internal override void IncreaseLength(ref Player player)
         {
-            for (int i = 0; i < Settings.valuableLength; i++)
-            {
-                player.snakeBody.Add(player.snakeBody.Last());
-            }
+            player.AddParts(Settings.valuableLength);
         }
 
         internal override void IncreaseScore(ref Player player) => player.Score += Settings.valueableFood;

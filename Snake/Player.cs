@@ -61,6 +61,33 @@ namespace Snake
             }
         }
 
+        internal void AddParts(int length)
+        {
+            BodyPart bodyPart = default(BodyPart);
+
+            for (int i = 0; i < length; i++)
+            {
+                switch (moveDirection)
+                {
+                    case Direction.Up:
+                        bodyPart = new BodyPart(new Point(snakeBody.Last().Part.X, snakeBody.Last().Part.Y + Settings.size));
+                        break;
+                    case Direction.Down:
+                        bodyPart = new BodyPart(new Point(snakeBody.Last().Part.X, snakeBody.Last().Part.Y - Settings.size));
+                        break;
+                    case Direction.Left:
+                        bodyPart = new BodyPart(new Point(snakeBody.Last().Part.X + Settings.size, snakeBody.Last().Part.Y));
+                        break;
+                    case Direction.Right:
+                        bodyPart = new BodyPart(new Point(snakeBody.Last().Part.X - Settings.size, snakeBody.Last().Part.Y));
+                        break;
+                    default: break;
+                }
+
+                snakeBody.Add(bodyPart);
+            }
+        }
+
         public void Hit(Collider collider)
         {
             collider.Collide(this);

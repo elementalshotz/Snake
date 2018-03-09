@@ -61,7 +61,7 @@ namespace Snake
                 {
                     //Controls the movement of the rest of the body
                     secondPart = snakeBody[i - 1].Part;
-
+                    
                     part.X = secondPart.X;
                     part.Y = secondPart.Y;
                     snakeBody[i].matrixPoint = snakeBody[i - 1].matrixPoint;

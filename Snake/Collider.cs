@@ -39,10 +39,14 @@ namespace Snake
                 if (Players[i].snakeBody.First().Part.Equals(food.GetRectangle))
                 {
                     Player player = Players[i];
+
                     food.IncreaseLength(ref player);
                     food.IncreaseScore(ref player);
                     food.AddEffect(ref Players);
+
                     Players[i] = player;
+
+                    Eatables.Remove(food);
                 }
             }
         }
