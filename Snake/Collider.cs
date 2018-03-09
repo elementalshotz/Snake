@@ -11,6 +11,9 @@ namespace Snake
         List<Player> Players;
         List<Food> Eatables;
 
+        public delegate void GameOverDelegate();
+        public event GameOverDelegate GameOverEvent;
+
         public Collider(ref List<Player> PlayerList, ref List<Food> FoodList)
         {
 
@@ -27,6 +30,10 @@ namespace Snake
                 if (player.snakeBody.First().matrixPoint.Equals(bodyPart.matrixPoint) && bodypart)
                 {
                     Players.Remove(player);
+
+                    if (Players.Count == 0)
+                        GameOverEvent.Invoke();
+
                     break;
                 }
             }

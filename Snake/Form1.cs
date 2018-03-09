@@ -73,8 +73,14 @@ namespace Snake
             flowPanels.Add(flowLayoutPanel4);
             flowPanels.Add(flowLayoutPanel5);
 
-            
             collider = new Collider(ref playerList, ref foodList);
+            collider.GameOverEvent += Collider_GameOverEvent;
+        }
+
+        private void Collider_GameOverEvent()
+        {
+            timer.Stop();
+            //Tell the players who won
         }
 
         private void Form1_Resize(object sender, EventArgs e)
