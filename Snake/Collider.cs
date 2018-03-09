@@ -31,7 +31,7 @@ namespace Snake
                 {
                     Players.Remove(player);
 
-                    if (Players.Count == 0)
+                    if (Players.Count < 1)
                         GameOverEvent.Invoke(player.Score, player.playerID);
 
                     break;

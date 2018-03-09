@@ -80,7 +80,6 @@ namespace Snake
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(100, 69);
             this.flowLayoutPanel3.TabIndex = 0;
-            this.flowLayoutPanel3.Visible = false;
             // 
             // flowLayoutPanel4
             // 
@@ -93,7 +92,6 @@ namespace Snake
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
             this.flowLayoutPanel4.Size = new System.Drawing.Size(100, 69);
             this.flowLayoutPanel4.TabIndex = 1;
-            this.flowLayoutPanel4.Visible = false;
             // 
             // flowLayoutPanel5
             // 
@@ -106,7 +104,6 @@ namespace Snake
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
             this.flowLayoutPanel5.Size = new System.Drawing.Size(100, 69);
             this.flowLayoutPanel5.TabIndex = 2;
-            this.flowLayoutPanel5.Visible = false;
             // 
             // label1
             // 
@@ -126,7 +123,7 @@ namespace Snake
             this.playerOneScore.Name = "playerOneScore";
             this.playerOneScore.Size = new System.Drawing.Size(35, 13);
             this.playerOneScore.TabIndex = 1;
-            this.playerOneScore.Text = "Score";
+            this.playerOneScore.Text = "Score: 0";
             // 
             // label2
             // 
@@ -156,7 +153,7 @@ namespace Snake
             this.playerTwoScore.Name = "playerTwoScore";
             this.playerTwoScore.Size = new System.Drawing.Size(35, 13);
             this.playerTwoScore.TabIndex = 1;
-            this.playerTwoScore.Text = "Score";
+            this.playerTwoScore.Text = "Score: 0";
             // 
             // label4
             // 
@@ -186,7 +183,7 @@ namespace Snake
             this.playerThreeScore.Name = "playerThreeScore";
             this.playerThreeScore.Size = new System.Drawing.Size(35, 13);
             this.playerThreeScore.TabIndex = 1;
-            this.playerThreeScore.Text = "Score";
+            this.playerThreeScore.Text = "Score: 0";
             // 
             // label6
             // 

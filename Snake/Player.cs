@@ -16,7 +16,7 @@ namespace Snake
         public List<Timer> timerList = new List<Timer>();
         public int playerID;
 
-        public delegate void ScoreChangeDelegate();
+        public delegate void ScoreChangeDelegate(int id, int score);
         public event ScoreChangeDelegate scoreChangeEvent;
 
         public int Score
@@ -24,7 +24,7 @@ namespace Snake
             get => score;
             set {
                 score = value;
-                scoreChangeEvent.Invoke();
+                scoreChangeEvent.Invoke(playerID, score);
             }
         }
 
@@ -111,7 +111,7 @@ namespace Snake
 
         public void activateEffect(MagicMushroom mushroom)
         {
-            playerKeys = Settings.playerKeysInvert[playerID];
+            playerKeys = Settings.playerKeysInvert[playerID - 1];
 
             addTimer(mushroom);     //Used to create a timer with a reasonable length that removes itself and reverts the effect on timer end
         }
@@ -143,7 +143,7 @@ namespace Snake
 
         public void mushroom_TimerEvent(object sender, EventArgs e)
         {
-            playerKeys = Settings.playerKeys[playerID];
+            playerKeys = Settings.playerKeys[playerID - 1];
 
             Timer t = (Timer)sender;
             t.Stop();

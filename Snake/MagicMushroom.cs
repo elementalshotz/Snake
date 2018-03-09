@@ -38,8 +38,14 @@ namespace Snake
 
         internal override void AddEffect(ref List<Player> playerList)
         {
-            int player = random.Next(playerList.Count);
-            playerList[player].activateEffect(this);
+            if (playerList.Count > 1)
+            {
+                int player = random.Next(playerList.Count);
+                playerList[player].activateEffect(this);
+            } else
+            {
+                playerList.First().activateEffect(this);
+            }
         }
 
         internal override void IncreaseLength(ref Player player)

@@ -100,8 +100,7 @@ namespace Snake
 
             for (int i = 0; i < v; i++)
             {
-                playerList.Add(new Player(Settings.playerKeys[i], Settings.playerColor[i], Settings.startLocations[i], i));
-                flowPanels[i].Visible = true;
+                playerList.Add(new Player(Settings.playerKeys[i], Settings.playerColor[i], Settings.startLocations[i], i+1));
             }
 
             foreach (var player in playerList)
@@ -112,17 +111,14 @@ namespace Snake
             Text = $"Snek - Players: {this.playerList.Count}";
         }
 
-        private void Player_scoreChangeEvent()
+        private void Player_scoreChangeEvent(int id, int score)
         {
-            playerOneScore.Text = "Score: " + playerList.First().Score;
-            
-            if (playerList.Count > 1)
-            {
-                playerTwoScore.Text = "Score: " + playerList.ElementAt(1).Score;
-
-                if (playerList.Count > 2)
-                    playerThreeScore.Text = "Score: " + playerList.ElementAt(2).Score;
-            }
+            if (id == 1)
+                playerOneScore.Text = "Score: " + score;
+            else if (id == 2)
+                playerTwoScore.Text = "Score: " + score;
+            else if (id == 3)
+                playerThreeScore.Text = "Score: " + score;
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
