@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -32,8 +33,8 @@ namespace Snake
         Font font = new Font("Verdana", 10);
         Brush brush = new SolidBrush(Color.GhostWhite);
 
-        List<Food> foodList = new List<Food>();
-        List<Player> playerList = new List<Player>();
+        List<Food> foodList;
+        List<Player> playerList;
         List<FlowLayoutPanel> flowPanels = new List<FlowLayoutPanel>();
         Collider collider;
 
@@ -47,9 +48,13 @@ namespace Snake
 
         public Form1() : base()
         {
-            foodList.Clear();
-            playerList.Clear();
             Invalidate();
+            playerList = new List<Player>();
+            foodList = new List<Food>();
+
+            playerList.Clear();
+            foodList.Clear();
+
 
             Text = $"Snek - Players: {this.playerList.Count}";
             AutoSize = true;
@@ -66,6 +71,8 @@ namespace Snake
             flowPanels.Add(flowLayoutPanel3);
             flowPanels.Add(flowLayoutPanel4);
             flowPanels.Add(flowLayoutPanel5);
+
+            
             //collider = new Collider(foodList, playerList);
         }
 
@@ -82,6 +89,9 @@ namespace Snake
 
         internal void activatePlayers(int v)
         {
+            playerList.Clear();
+            foodList.Clear();
+
             for (int i = 0; i < v; i++)
             {
                 playerList.Add(new Player(Settings.playerKeys[i], Settings.playerColor[i], Settings.startLocations[i], i));
@@ -117,7 +127,7 @@ namespace Snake
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            if (foodList.Count < 5) foodList.Add(Food.Create());
+            if (foodList.Count < 100) foodList.Add(Food.Create());
 
             foreach (var player in playerList)
             {

@@ -28,7 +28,7 @@ namespace Snake
         public BodyPart(Point point)
         {
             this.point = point;
-            matrixPoint = new MatrixPoint(point.X, point.Y);
+            matrixPoint = new MatrixPoint(0, 0);
             rectangle = new Rectangle(PartPoint, new Size(Settings.size, Settings.size));
         }
     }

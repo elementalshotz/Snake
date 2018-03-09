@@ -17,6 +17,18 @@ namespace Snake
             this.y = y;
         }
 
+        public int X
+        {
+            get => this.x;
+            set => this.x = value;
+        }
+
+        public int Y
+        {
+            get => this.y;
+            set => this.y = value;
+        }
+
         public override bool Equals(object obj)
         {
             MatrixPoint matrix = (MatrixPoint)obj;

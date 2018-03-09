@@ -12,6 +12,13 @@ namespace Snake
         public ValuableFood() : base()
         {
             Pos = Food.SpawnPoint();
+            rect = new Rectangle(Position, new Size(Settings.size, Settings.size));
+
+            while (CheckFoodPosition())
+            {
+                Pos = Food.SpawnPoint();
+                rect = new Rectangle(Position, new Size(Settings.size, Settings.size));
+            }
         }
 
         internal override void AddEffect(ref List<Player> playerList)
@@ -22,7 +29,7 @@ namespace Snake
         internal override void Draw(Graphics g)
         {
             //g.DrawIcon(new Icon("CoffieCup.ico"), Pos.X, Pos.Y);
-            g.FillRectangle(new SolidBrush(Color.ForestGreen), new Rectangle(Position, new Size(Settings.size, Settings.size)));
+            g.FillRectangle(new SolidBrush(Color.ForestGreen), rect);
         }
 
         internal override void Hit(Collider collider)

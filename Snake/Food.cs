@@ -12,11 +12,12 @@ namespace Snake
     {
         protected Point Pos;
         protected static List<Food> foods = new List<Food>();
+        protected Rectangle rect;
 
         private static Random foodRandom = new Random();
         private enum Type { Standard, Valuable, Coffee, MagicMushroom }
 
-        protected static Point SpawnPoint()
+        public static Point SpawnPoint()
         {
             int x = foodRandom.Next(Settings.Width - Settings.size);
             while (x % 15 != 0)
@@ -31,6 +32,32 @@ namespace Snake
             }
 
             return new Point(x, y);
+        }
+
+        protected bool CheckFoodPosition()
+        {
+            bool isSamePos = false;
+
+            foreach (var food in foods)
+            {
+                if (this != food)
+                {
+                    if (this.rect.IntersectsWith(food.rect))
+                    {
+                        isSamePos = true;
+                        break;
+                    } else
+                    {
+                        isSamePos = false;
+                    }
+                }
+                else
+                {
+                    isSamePos = false;
+                }
+            }
+
+            return isSamePos;
         }
 
         private static Dictionary<Type, Food> foodDict = new Dictionary<Type, Food>()
