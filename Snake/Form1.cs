@@ -77,11 +77,9 @@ namespace Snake
             collider.GameOverEvent += Collider_GameOverEvent;
         }
 
-        private void Collider_GameOverEvent()
+        private void Collider_GameOverEvent(int score, int id)
         {
-            int Player_ID = 0;
-
-            MessageBox.Show($"Player {Player_ID} has won with a score of {playerList[Player_ID].Score}");
+            MessageBox.Show($"Player {id} has won with a score of {score}");
         }
 
         private void Form1_Resize(object sender, EventArgs e)
@@ -160,7 +158,6 @@ namespace Snake
             }
 
             Refresh();
-            collider.PutIntoMatrix();
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)

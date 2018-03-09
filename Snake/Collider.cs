@@ -11,9 +11,8 @@ namespace Snake
         List<Player> Players;
         List<Food> Eatables;
 
-        public delegate void GameOverDelegate();
+        public delegate void GameOverDelegate(int score, int id);
         public event GameOverDelegate GameOverEvent;
-        int[,] gameMatrix = new int[34,34];
 
         public Collider(List<Player> PlayerList, List<Food> FoodList)
         {
@@ -21,20 +20,6 @@ namespace Snake
             Players = PlayerList;
             Eatables = FoodList;
             //Any constructor that we can use to initialize the collider class with
-        }
-
-        public void PutIntoMatrix()
-        {
-            gameMatrix = new int[34, 34];
-
-            foreach (var player in Players)
-            {
-                int id = player.playerID;
-                foreach (var bodyPart in player.snakeBody)
-                {
-                    gameMatrix[bodyPart.matrixPoint.X, bodyPart.matrixPoint.Y] = id;
-                }
-            }
         }
 
         public void Collide(Player player)
@@ -47,7 +32,7 @@ namespace Snake
                     Players.Remove(player);
 
                     if (Players.Count == 0)
-                        GameOverEvent.Invoke();
+                        GameOverEvent.Invoke(player.Score, player.playerID);
 
                     break;
                 }
