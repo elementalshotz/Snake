@@ -13,7 +13,7 @@ namespace Snake
         {
             Pos = Food.SpawnPoint();
             rect = new Rectangle(Position, new Size(Settings.size, Settings.size));
-
+            
             while (CheckFoodPosition())
             {
                 Pos = Food.SpawnPoint();

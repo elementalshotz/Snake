@@ -74,7 +74,20 @@ namespace Snake
                     Eatables.Remove(food);
                 }
             }
-            
+        }
+
+        public bool CheckFood(Food food)
+        {
+            if (Eatables == null)
+                return false;
+
+            foreach (var eatable in Eatables)
+            {
+                if (eatable.GetRectangle.IntersectsWith(food.GetRectangle))
+                    return true;
+            }
+
+            return false;
         }
     }
 }

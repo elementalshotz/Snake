@@ -32,7 +32,7 @@ namespace Snake
             this.flowLayoutPanel4.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
-            timer = new System.Windows.Forms.Timer();
+            _timer = new System.Windows.Forms.Timer();
 
             // 
             // panel1
@@ -214,9 +214,9 @@ namespace Snake
             this.flowLayoutPanel5.PerformLayout();
             this.ResumeLayout(false);
 
-            timer.Interval = 1000 / Settings.FPS;
-            timer.Tick += Timer_Tick;
-            timer.Start();
+            _timer.Interval = 1000 / Settings.FPS;
+            _timer.Tick += Timer_Tick;
+            _timer.Start();
         }
     }
 }

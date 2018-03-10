@@ -9,11 +9,8 @@ namespace Snake
 {
     public class MagicMushroom : Food
     {
-        Random random;
         public MagicMushroom() : base()
         {
-            random = new Random();
-
             Pos = Food.SpawnPoint();
             rect = new Rectangle(Position, new Size(Settings.size, Settings.size));
 
@@ -42,7 +39,7 @@ namespace Snake
         {
             if (playerList.Count > 1)
             {
-                int player = random.Next(playerList.Count);
+                int player = foodRandom.Next(playerList.Count);
                 playerList[player].ActivateEffect(this);
             } else
             {

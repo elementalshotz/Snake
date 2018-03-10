@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Timer = System.Windows.Forms.Timer;
 
 namespace Snake
 {
@@ -35,9 +36,10 @@ namespace Snake
         List<FlowLayoutPanel> flowPanels = new List<FlowLayoutPanel>();
         Collider collider;
 
-        System.Windows.Forms.Timer timer;
+        private Timer foodSpawnTimer;
+        Timer _timer;
 
-        public ref System.Windows.Forms.Timer DrawTimer => ref timer;
+        public ref System.Windows.Forms.Timer DrawTimer => ref _timer;
 
         public Form1() : base()
         {
@@ -47,7 +49,6 @@ namespace Snake
 
             playerList.Clear();
             foodList.Clear();
-
 
             Text = $"Snek - Players: {this.playerList.Count}";
             AutoSize = true;
@@ -67,10 +68,20 @@ namespace Snake
 
             collider = new Collider(playerList, foodList);
             collider.GameOverEvent += Collider_GameOverEvent;
+
+            foodSpawnTimer = new Timer();
+            foodSpawnTimer.Interval = 2500;
+            foodSpawnTimer.Tick += FoodSpawnTimer_Tick;
+        }
+
+        private void FoodSpawnTimer_Tick(object sender, EventArgs e)
+        {
+            foodList.Add(Food.Create());
         }
 
         private void Collider_GameOverEvent(int id)
         {
+            foodSpawnTimer?.Stop();
             MessageBox.Show($"Player {id} has survived the longest time.\nCheck the score to see who won!");
         }
 
@@ -123,7 +134,7 @@ namespace Snake
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            if (foodList.Count < 4) foodList.Add(Food.Create());
+            if (!foodSpawnTimer.Enabled) foodSpawnTimer.Start();
 
             Player[] players = new Player[playerList.Count];
             playerList.CopyTo(players);

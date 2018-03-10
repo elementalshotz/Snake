@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Runtime.CompilerServices;
 using Snake;
 
 namespace Snake
@@ -13,6 +15,7 @@ namespace Snake
         protected Point Pos;
         protected static List<Food> foods = new List<Food>();
         protected Rectangle rect;
+        private static Collider eCollider;
         
         public MatrixPoint Matrix { get; protected set; }
 
@@ -21,50 +24,42 @@ namespace Snake
             get => rect;
         }
 
-        private static Random foodRandom = new Random();
+        protected static Random foodRandom = new Random();
+        private static readonly object syncLock = new object();
         private enum Type { Standard, Valuable, Coffee, MagicMushroom }
 
         public static Point SpawnPoint()
         {
-            int x = foodRandom.Next(Settings.Width - Settings.size);
-            while (x % 15 != 0)
+            lock (syncLock)
             {
-                x = foodRandom.Next(Settings.Width - Settings.size);
-            }
+                int x = new Random().Next(Settings.Width - Settings.size);
+                while (x % 15 != 0)
+                {
+                    x = new Random().Next(Settings.Width - Settings.size);
+                }
 
-            int y = foodRandom.Next(Settings.Height - Settings.size);
-            while (y % 15 != 0)
-            {
-                y = foodRandom.Next(Settings.Height - Settings.size);
-            }
+                int y = new Random().Next(Settings.Height - Settings.size);
+                while (y % 15 != 0)
+                {
+                    y = new Random().Next(Settings.Height - Settings.size);
+                }
 
-            return new Point(x, y);
+                return new Point(x, y);
+            }
         }
 
         protected bool CheckFoodPosition()
         {
-            bool isSamePos = false;
+            if (foods == null)
+                return false;
 
-            foreach (var food in foods)
+            foreach (var eatable in foods)
             {
-                if (this != food)
-                {
-                    if (this.rect.IntersectsWith(food.rect))
-                    {
-                        isSamePos = true;
-                        break;
-                    } else
-                    {
-                        isSamePos = false;
-                    }
-                }
-                else
-                {
-                    isSamePos = false;
-                }
+                if (eatable.Matrix.Equals(this.Matrix))
+                    return true;
             }
 
-            return isSamePos;
+            return false;
         }
 
         private static Dictionary<Type, Food> foodDict = new Dictionary<Type, Food>()
@@ -82,9 +77,12 @@ namespace Snake
 
         private static Food CreateFood()
         {
-            Type food = (Type)foodRandom.Next(foodDict.Count);
-            foods.Add(foodDict[food]);
-            return foodDict[food];
+            lock (syncLock)
+            {
+                Type food = (Type)new Random().Next(foodDict.Count);
+                foods.Add(foodDict[food]);
+                return foodDict[food];
+            }
         }
 
         public Point Position { get => Pos; internal set => Pos = value; }
@@ -94,5 +92,11 @@ namespace Snake
         internal abstract void AddEffect(ref List<Player> playerList);
         internal abstract void IncreaseLength(ref Player player);
         internal abstract void IncreaseScore(ref Player player);
+
+        public void Update()
+        {
+            rect = new Rectangle(Pos, new Size(Settings.size, Settings.size));
+            Matrix = new MatrixPoint(Pos.X / 15, Pos.Y / 15);
+        }
     }
 }

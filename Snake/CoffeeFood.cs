@@ -9,12 +9,8 @@ namespace Snake
 {
     public class CoffeeFood : Food
     {
-        Random random;
-
         public CoffeeFood() : base()
         {
-            random = new Random();
-
             Pos = Food.SpawnPoint();
             rect = new Rectangle(Position, new Size(Settings.size, Settings.size));
 
@@ -32,7 +28,7 @@ namespace Snake
         {
             if (playerList.Count > 1)
             {
-                int player = random.Next(playerList.Count);
+                int player = foodRandom.Next(playerList.Count);
                 playerList[player].ActivateEffect(this);
             }
             else
