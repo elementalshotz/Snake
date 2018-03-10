@@ -38,8 +38,15 @@ namespace Snake
 
         private Timer foodSpawnTimer;
         Timer _timer;
+        
+        Dictionary<int, int> scoreDictionary = new Dictionary<int, int>()
+        {
+            {1, 0},
+            {2, 0},
+            {3, 0}
+        };
 
-        public ref System.Windows.Forms.Timer DrawTimer => ref _timer;
+        public ref Timer DrawTimer => ref _timer;
 
         public Form1() : base()
         {
@@ -82,7 +89,20 @@ namespace Snake
         private void Collider_GameOverEvent(int id)
         {
             foodSpawnTimer?.Stop();
-            MessageBox.Show($"Player {id} has survived the longest time.\nCheck the score to see who won!");
+
+            int high = 0;
+            int ID = 0;
+
+            foreach (var item in scoreDictionary)
+            {
+                if (item.Value > high)
+                {
+                    high = item.Value;
+                    ID = item.Key;
+                }
+            }
+
+            MessageBox.Show($"Player {id} has survived the longest time.\nPlayer {ID} has won with a score of {high} points.");
         }
 
         private void Form1_Resize(object sender, EventArgs e)
@@ -116,6 +136,8 @@ namespace Snake
 
         private void Player_scoreChangeEvent(int id, int score)
         {
+            scoreDictionary[id] = score;
+
             if (id == 1)
                 playerOneScore.Text = "Score: " + score;
             else if (id == 2)

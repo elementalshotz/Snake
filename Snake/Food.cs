@@ -15,7 +15,6 @@ namespace Snake
         protected Point Pos;
         protected static List<Food> foods = new List<Food>();
         protected Rectangle rect;
-        private static Collider eCollider;
         
         public MatrixPoint Matrix { get; protected set; }
 
@@ -23,7 +22,8 @@ namespace Snake
         {
             get => rect;
         }
-        
+
+        public static Random random = new Random();
         private static readonly object syncLock = new object();
         private enum Type { Standard, Valuable, Coffee, MagicMushroom }
 
@@ -31,16 +31,16 @@ namespace Snake
         {
             lock (syncLock)
             {
-                int x = new Random().Next(Settings.Width - Settings.size);
+                int x = random.Next(Settings.Width - Settings.size);
                 while (x % 15 != 0)
                 {
-                    x = new Random().Next(Settings.Width - Settings.size);
+                    x = random.Next(Settings.Width - Settings.size);
                 }
 
-                int y = new Random().Next(Settings.Height - Settings.size);
+                int y = random.Next(Settings.Height - Settings.size);
                 while (y % 15 != 0)
                 {
-                    y = new Random().Next(Settings.Height - Settings.size);
+                    y = random.Next(Settings.Height - Settings.size);
                 }
 
                 return new Point(x, y);
