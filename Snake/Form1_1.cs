@@ -32,7 +32,6 @@ namespace Snake
             this.flowLayoutPanel4.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
-            _timer = new System.Windows.Forms.Timer();
 
             // 
             // panel1
@@ -214,9 +213,13 @@ namespace Snake
             this.flowLayoutPanel5.PerformLayout();
             this.ResumeLayout(false);
 
-            _timer.Interval = 1000 / Settings.FPS;
+            _timer = new Timer {Interval = 1000 / Settings.FPS};
             _timer.Tick += Timer_Tick;
             _timer.Start();
+
+            foodSpawnTimer = new Timer {Interval = 2500};
+            foodSpawnTimer.Tick += FoodSpawnTimer_Tick;
+            foodSpawnTimer.Start();
         }
     }
 }

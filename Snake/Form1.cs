@@ -76,9 +76,7 @@ namespace Snake
             collider = new Collider(playerList, foodList);
             collider.GameOverEvent += Collider_GameOverEvent;
 
-            foodSpawnTimer = new Timer();
-            foodSpawnTimer.Interval = 2500;
-            foodSpawnTimer.Tick += FoodSpawnTimer_Tick;
+            
         }
 
         private void FoodSpawnTimer_Tick(object sender, EventArgs e)
@@ -184,14 +182,14 @@ namespace Snake
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
-            foreach (var player in playerList)
-            {
-                player.Draw(e.Graphics);
-            }
-
             foreach (var food in foodList)
             {
                 food.Draw(e.Graphics);
+            }
+
+            foreach (var player in playerList)
+            {
+                player.Draw(e.Graphics);
             }
         }
     }
