@@ -12,7 +12,7 @@ namespace Snake
     {
         Keys[] playerKeys;
         protected int score;
-        Brush brush;
+        readonly Brush brush;
         public List<Timer> timerList = new List<Timer>();
         public int playerID;
 
@@ -109,14 +109,14 @@ namespace Snake
             }
         }
 
-        public void activateEffect(MagicMushroom mushroom)
+        public void ActivateEffect(MagicMushroom mushroom)
         {
             playerKeys = Settings.playerKeysInvert[playerID - 1];
 
             addTimer(mushroom);     //Used to create a timer with a reasonable length that removes itself and reverts the effect on timer end
         }
 
-        public void activateEffect(CoffeeFood coffee)
+        public void ActivateEffect(CoffeeFood coffee)
         {
             multiplier = Settings.SpeedChange;
 

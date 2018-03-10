@@ -31,11 +31,11 @@ namespace Snake
             if (playerList.Count > 1)
             {
                 int player = random.Next(playerList.Count);
-                playerList[player].activateEffect(this);
+                playerList[player].ActivateEffect(this);
             }
             else
             {
-                playerList.First().activateEffect(this);
+                playerList.First().ActivateEffect(this);
             }
         }
 

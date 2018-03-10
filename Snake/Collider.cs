@@ -14,11 +14,11 @@ namespace Snake
         public delegate void GameOverDelegate(int id);
         public event GameOverDelegate GameOverEvent;
 
-        public Collider(List<Player> PlayerList, List<Food> FoodList)
+        public Collider(List<Player> playerList, List<Food> foodList)
         {
 
-            Players = PlayerList;
-            Eatables = FoodList;
+            Players = playerList;
+            Eatables = foodList;
             //Any constructor that we can use to initialize the collider class with
         }
 
@@ -32,7 +32,7 @@ namespace Snake
                     Players.Remove(player);
 
                     if (Players.Count < 1)
-                        GameOverEvent.Invoke(player.playerID);
+                        GameOverEvent?.Invoke(player.playerID);
 
                     break;
                 }

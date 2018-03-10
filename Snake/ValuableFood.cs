@@ -29,7 +29,7 @@ namespace Snake
         internal override void Draw(Graphics g)
         {
             //g.DrawIcon(new Icon("CoffieCup.ico"), Pos.X, Pos.Y);
-            g.FillRectangle(new SolidBrush(Color.ForestGreen), rect);
+            g.FillRectangle(new SolidBrush(Color.SlateGray), rect);
         }
 
         internal override void Hit(Collider collider)

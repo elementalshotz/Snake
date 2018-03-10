@@ -20,11 +20,8 @@ namespace Snake
             set => rectangle = value;
         }
 
-        public Point PartPoint
-        {
-            get => point;
-        }
-        
+        public Point PartPoint => point;
+
         public BodyPart(Point point)
         {
             this.point = point;

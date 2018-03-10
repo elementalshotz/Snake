@@ -12,13 +12,8 @@ namespace Snake
         string[] songs = new string[] { "shootingstars.wav", "Derezzed.wav","Onemoretime.wav" };
         Random random;
 
-        private bool playing;
-        public bool IsPlaying
-        {
-            get { return playing; }
-            set { playing = value; }
-        }
-        
+        public bool IsPlaying { get; private set; }
+
         public Music()
         {
             soundPlayer = new System.Media.SoundPlayer();
