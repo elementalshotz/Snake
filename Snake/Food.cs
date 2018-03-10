@@ -23,8 +23,7 @@ namespace Snake
         {
             get => rect;
         }
-
-        protected static Random foodRandom = new Random();
+        
         private static readonly object syncLock = new object();
         private enum Type { Standard, Valuable, Coffee, MagicMushroom }
 

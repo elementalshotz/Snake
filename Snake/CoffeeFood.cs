@@ -28,7 +28,7 @@ namespace Snake
         {
             if (playerList.Count > 1)
             {
-                int player = foodRandom.Next(playerList.Count);
+                int player = new Random().Next(playerList.Count);
                 playerList[player].ActivateEffect(this);
             }
             else
