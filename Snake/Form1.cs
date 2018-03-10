@@ -30,22 +30,14 @@ namespace Snake
         private Label playerThreeScore;
         private Label label6;
 
-        Font font = new Font("Verdana", 10);
-        Brush brush = new SolidBrush(Color.GhostWhite);
-
         List<Food> foodList;
         List<Player> playerList;
         List<FlowLayoutPanel> flowPanels = new List<FlowLayoutPanel>();
         Collider collider;
 
         System.Windows.Forms.Timer timer;
-        Random random = new Random();
-        int ticks = 0;
 
-        public ref System.Windows.Forms.Timer DrawTimer
-        {
-            get => ref timer;
-        }
+        public ref System.Windows.Forms.Timer DrawTimer => ref timer;
 
         public Form1() : base()
         {
