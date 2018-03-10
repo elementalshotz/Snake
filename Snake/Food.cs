@@ -13,6 +13,8 @@ namespace Snake
         protected Point Pos;
         protected static List<Food> foods = new List<Food>();
         protected Rectangle rect;
+        
+        public MatrixPoint Matrix { get; protected set; }
 
         public Rectangle GetRectangle
         {

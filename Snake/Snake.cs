@@ -42,21 +42,19 @@ namespace Snake
                     {
                         case Direction.Up:
                             part.Y -= (part.Height * multiplier);
-                            snakeBody[i].matrixPoint.Y -= 1;
                             break;
                         case Direction.Left:
                             part.X -= (part.Width * multiplier);
-                            snakeBody[i].matrixPoint.X -= 1;
                             break;
                         case Direction.Down:
                             part.Y += (part.Height * multiplier);
-                            snakeBody[i].matrixPoint.Y += 1;
                             break;
                         case Direction.Right:
                             part.X += (part.Width * multiplier);
-                            snakeBody[i].matrixPoint.X += 1;
                             break;
                     }
+
+                    snakeBody[i].matrixPoint = new MatrixPoint(part.X / 15, part.Y / 15);
                 } else
                 {
                     //Controls the movement of the rest of the body
@@ -78,7 +76,7 @@ namespace Snake
                 else if (part.X < 0)
                 {
                     part.X = Settings.Width;
-                    snakeBody[i].matrixPoint.X = 34;
+                    snakeBody[i].matrixPoint.X = Settings.Width / 15;
                 }
                 else if (part.Y > Settings.Height)
                 {
@@ -88,7 +86,7 @@ namespace Snake
                 else if (part.Y < 0)
                 {
                     part.Y = Settings.Height;
-                    snakeBody[i].matrixPoint.Y = 34;
+                    snakeBody[i].matrixPoint.Y = Settings.Height / 15;
                 }
 
                 snakeBody[i].Part = part;

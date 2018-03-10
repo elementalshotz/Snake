@@ -23,6 +23,8 @@ namespace Snake
                 Pos = Food.SpawnPoint();
                 rect = new Rectangle(Position, new Size(Settings.size, Settings.size));
             }
+
+            Matrix = new MatrixPoint(Pos.X/15, Pos.Y/15);
             //icon = new Icon("CoffieCup.ico");
         }
 

@@ -27,7 +27,7 @@ namespace Snake
             for (int i = 1; i < player.snakeBody.Count; i++)
             {
                 var head = player.snakeBody.First();
-                if (head.Part.Equals(player.snakeBody[i].Part))
+                if (head.matrixPoint.Equals(player.snakeBody[i].matrixPoint))
                 {
                     Players.Remove(player);
 
@@ -41,25 +41,20 @@ namespace Snake
 
         public void CollideWithPlayers(Player player)
         {
-            int index = 0;
-
-            for (int i = 0; i < Players.Count; i++)
+            foreach (var PLAYER in Players)
             {
-                if (Players[i].Equals(player))
+                if (PLAYER != player)
                 {
-                    index = i;
-                }
-            }
-
-            for (int i = 0; i < Players.Count; i++)
-            {
-                if (i != index)
-                {
-                    if (player.snakeBody.First().Equals(Players[i].snakeBody.First()))
+                    for (int i = 0; i < PLAYER.snakeBody.Count; i++)
                     {
-                        Players.Remove(player);
-                        break;
+                        if (PLAYER.snakeBody[i].matrixPoint.Equals(player.snakeBody.First().matrixPoint))
+                        {
+                            Players.Remove(player);
+                            break;
+                        }
                     }
+
+                    break;
                 }
             }
         }
@@ -68,18 +63,18 @@ namespace Snake
         {
             for (int i = 0; i < Players.Count; i++)
             {
-                if (Players[i].snakeBody.First().Part.Equals(food.GetRectangle))
+                if (Players[i].snakeBody.First().matrixPoint.Equals(food.Matrix))
                 {
                     Player player = Players[i];
-
                     food.IncreaseLength(ref player);
                     food.IncreaseScore(ref player);
                     food.AddEffect(ref Players);
-
                     Players[i] = player;
+
                     Eatables.Remove(food);
                 }
             }
+            
         }
     }
 }
