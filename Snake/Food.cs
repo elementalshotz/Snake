@@ -39,11 +39,8 @@ namespace Snake
 
         private static Food CreateFood()
         {
-            lock (syncLock)
-            {
-                Type food = (Type)new Random().Next(foodDict.Count);
-                return foodDict[food];
-            }
+            Type food = (Type)new Random().Next(foodDict.Count);
+            return foodDict[food];
         }
 
         public Point Position { get => Pos; internal set => Pos = value; }
