@@ -24,14 +24,6 @@ namespace Snake
         private static readonly object syncLock = new object();
         private enum Type { Standard, Valuable, Coffee, MagicMushroom }
 
-        private static Dictionary<Type, Food> foodDict = new Dictionary<Type, Food>()
-        {
-            { Type.Standard, new StandardFood() },
-            { Type.Valuable, new ValuableFood() },
-            { Type.Coffee, new CoffeeFood() },
-            { Type.MagicMushroom, new MagicMushroom() }
-        };
-
         public static Food Create()
         {
             return CreateFood();
@@ -39,8 +31,21 @@ namespace Snake
 
         private static Food CreateFood()
         {
-            Type food = (Type)new Random().Next(foodDict.Count);
-            return foodDict[food];
+            lock (syncLock)
+            {
+                Type food = (Type)_r.Next(4);
+                
+                if (food == Type.Coffee)
+                    return new CoffeeFood();
+                else if (food == Type.MagicMushroom)
+                    return new MagicMushroom();
+                else if (food == Type.Standard)
+                    return new StandardFood();
+                else if (food == Type.Valuable)
+                    return new ValuableFood();
+                else
+                    return CreateFood();
+            }
         }
 
         public Point Position { get => Pos; internal set => Pos = value; }
