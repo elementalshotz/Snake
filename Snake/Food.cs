@@ -16,6 +16,8 @@ namespace Snake
         protected Rectangle Rect;
         
         private static readonly Random _r = new Random();
+        
+        public Point Position { get => Pos; internal set => Pos = value; }
 
         public MatrixPoint Matrix { get; protected set; }
 
@@ -34,21 +36,17 @@ namespace Snake
             lock (syncLock)
             {
                 Type food = (Type)_r.Next(4);
-                
-                if (food == Type.Coffee)
-                    return new CoffeeFood();
-                else if (food == Type.MagicMushroom)
-                    return new MagicMushroom();
-                else if (food == Type.Standard)
-                    return new StandardFood();
-                else if (food == Type.Valuable)
-                    return new ValuableFood();
-                else
-                    return CreateFood();
+
+                switch (food)
+                {
+                    case Type.Standard: return new StandardFood();
+                    case Type.Valuable: return new ValuableFood();
+                    case Type.Coffee: return new CoffeeFood();
+                    case Type.MagicMushroom: return new MagicMushroom();
+                    default: return CreateFood();
+                }
             }
         }
-
-        public Point Position { get => Pos; internal set => Pos = value; }
 
         internal abstract void Draw(Graphics g);
         internal abstract void Hit(Collider collider);

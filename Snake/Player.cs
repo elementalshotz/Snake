@@ -103,10 +103,7 @@ namespace Snake
 
         public void Remove(Collider collider)
         {
-            for(int i = 0; i < 5; i++)
-            {
-                snakeBody.Add(snakeBody.Last());
-            }
+            collider.Remove(this);
         }
 
         public void Draw(Graphics g)
@@ -172,7 +169,7 @@ namespace Snake
             t.Start();
         }
 
-        public void mushroom_TimerEvent(object sender, EventArgs e)
+        private void mushroom_TimerEvent(object sender, EventArgs e)
         {
             playerKeys = Settings.playerKeys[playerID - 1];
 
@@ -181,7 +178,7 @@ namespace Snake
             timerList.Remove(t);
         }
 
-        public void coffee_TimerEvent(object sender, EventArgs e)
+        private void coffee_TimerEvent(object sender, EventArgs e)
         {
             _timer.Stop();
             _timer = new Timer();

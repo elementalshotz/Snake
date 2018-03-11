@@ -89,5 +89,10 @@ namespace Snake
 
             return false;
         }
+
+        public void Remove(Player player)
+        {
+            Players.Remove(player);
+        }
     }
 }
