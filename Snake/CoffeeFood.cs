@@ -11,7 +11,6 @@ namespace Snake
     {
         public CoffeeFood() : base()
         {
-            
             //icon = new Icon("CoffieCup.ico");
         }
 

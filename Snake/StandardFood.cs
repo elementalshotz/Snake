@@ -9,10 +9,6 @@ namespace Snake
 {
     public class StandardFood : Food
     {
-        public StandardFood() : base()
-        {
-            
-        }
 
         internal override void AddEffect(ref List<Player> playerList)
         {

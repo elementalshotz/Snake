@@ -15,36 +15,14 @@ namespace Snake
         protected Point Pos;
         protected Rectangle Rect;
         
+        private static readonly Random _r = new Random();
+
         public MatrixPoint Matrix { get; protected set; }
 
         public Rectangle GetRectangle => Rect;
 
         private static readonly object syncLock = new object();
         private enum Type { Standard, Valuable, Coffee, MagicMushroom }
-        
-        public Food()
-        {
-            Pos = SpawnPoint();
-            Rect = new Rectangle(Position, new Size(Settings.size, Settings.size));
-
-            Matrix = new MatrixPoint(Pos.X/15, Pos.Y/15);
-        }
-
-        public Point SpawnPoint()
-        {
-            int x = GeneratePoint(Settings.Width, Settings.size);
-            int y = GeneratePoint(Settings.Height, Settings.size);
-
-            while (x % 15 != 0 && y % 15 != 0)
-                return SpawnPoint();
-
-            return new Point(x, y);
-        }
-
-        int GeneratePoint(int location, int size)
-        {
-            return Form1.rnd.Next(location - size);
-        }
 
         private static Dictionary<Type, Food> foodDict = new Dictionary<Type, Food>()
         {
@@ -75,5 +53,12 @@ namespace Snake
         internal abstract void AddEffect(ref List<Player> playerList);
         internal abstract void IncreaseLength(ref Player player);
         internal abstract void IncreaseScore(ref Player player);
+
+        public void Update(Point point)
+        {
+            Position = point;
+            Rect = new Rectangle(Position, new Size(Settings.size, Settings.size));
+            Matrix = new MatrixPoint(Pos.X/15, Pos.Y/15);
+        }
     }
 }

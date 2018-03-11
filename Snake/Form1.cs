@@ -45,10 +45,9 @@ namespace Snake
             {3, 0}
         };
 
-        public static Random rnd = new Random(DateTime.MaxValue.Millisecond);
+        public static readonly Random rnd = new Random(DateTime.MaxValue.Millisecond);
 
         public ref Timer DrawTimer => ref _timer;
-        private static Random random = new Random(DateTime.Now.Millisecond);
 
         public Form1() : base()
         {
@@ -77,7 +76,10 @@ namespace Snake
 
         private void FoodSpawnTimer_Tick(object sender, EventArgs e)
         {
-            if (foodList.Count < 100) foodList.Add(Food.Create());
+            Food food = Food.Create();
+            SpawnPoint(food);
+
+            if (foodList.Count < 100) foodList.Add(food);
         }
 
         private void Collider_GameOverEvent(int id)
@@ -186,6 +188,20 @@ namespace Snake
             {
                 player.Draw(e.Graphics);
             }
+        }
+
+        public void SpawnPoint(Food food)
+        {
+            int x = rnd.Next(Settings.Width - Settings.size);
+            int y = rnd.Next(Settings.Height - Settings.size);
+
+            while (x % 15 != 0)
+                x = rnd.Next(Settings.Width - Settings.size);
+
+            while (y % 15 != 0)
+                y = rnd.Next(Settings.Height - Settings.size);
+
+            food.Update(new Point(x, y));
         }
     }
 }

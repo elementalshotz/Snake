@@ -9,11 +9,6 @@ namespace Snake
 {
     public class ValuableFood : Food
     {
-        public ValuableFood() : base()
-        {
-            
-        }
-
         internal override void AddEffect(ref List<Player> playerList)
         {
             return;                 //Absolutely do nothing about this code, no effect is supposed to be added from the valuable type

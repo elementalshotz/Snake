@@ -11,7 +11,6 @@ namespace Snake
     {
         public MagicMushroom() : base()
         {
-            
             //icon = new Icon("Mushroom.ico");
         }
 
