@@ -75,8 +75,6 @@ namespace Snake
 
             collider = new Collider(playerList, foodList);
             collider.GameOverEvent += Collider_GameOverEvent;
-
-            
         }
 
         private void FoodSpawnTimer_Tick(object sender, EventArgs e)
@@ -127,6 +125,7 @@ namespace Snake
             foreach (var player in playerList)
             {
                 player.scoreChangeEvent += Player_scoreChangeEvent;
+                player.Score = 0;
             }
 
             Text = $"Snek - Players: {this.playerList.Count}";

@@ -15,7 +15,7 @@ namespace Snake
         
         public static int FPS = 10;
 
-        public static int EffectLengthCoffeeFood = 5000;
+        public static int EffectLengthCoffeeFood = 2500;
         public static int EffectLengthMagicMushroom = 3000;
         public static int SpeedChange = 2;
 

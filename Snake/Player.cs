@@ -15,6 +15,7 @@ namespace Snake
         readonly Brush brush;
         public List<Timer> timerList = new List<Timer>();
         public int playerID;
+        private Timer _timer;
 
         public delegate void ScoreChangeDelegate(int id, int score);
         public event ScoreChangeDelegate scoreChangeEvent;
@@ -33,6 +34,7 @@ namespace Snake
             playerKeys = keys;
             this.brush = brush;
             playerID = ID;
+            _timer = new Timer();
         }
 
         public void Player_KeyDown(object sender, KeyEventArgs e)
@@ -118,9 +120,16 @@ namespace Snake
 
         public void ActivateEffect(CoffeeFood coffee)
         {
-            multiplier = Settings.SpeedChange;
+            _timer = new Timer {Interval = 1000 / (Settings.FPS/3)};
+            _timer.Tick += _timer_Tick;
+            _timer.Start();
 
             addTimer(coffee);
+        }
+
+        private void _timer_Tick(object sender, EventArgs e)
+        {
+            MoveSnake();
         }
 
         public void addTimer(Food food)
@@ -152,7 +161,7 @@ namespace Snake
 
         public void coffee_TimerEvent(object sender, EventArgs e)
         {
-            multiplier = 1;
+            _timer.Stop();
 
             Timer t = (Timer)sender;
             t.Stop();
