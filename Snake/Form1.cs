@@ -33,7 +33,6 @@ namespace Snake
 
         List<Food> foodList;
         List<Player> playerList;
-        List<FlowLayoutPanel> flowPanels = new List<FlowLayoutPanel>();
         Collider collider;
 
         private Timer foodSpawnTimer;
@@ -46,7 +45,10 @@ namespace Snake
             {3, 0}
         };
 
+        public static Random rnd = new Random(DateTime.MaxValue.Millisecond);
+
         public ref Timer DrawTimer => ref _timer;
+        private static Random random = new Random(DateTime.Now.Millisecond);
 
         public Form1() : base()
         {
@@ -69,23 +71,17 @@ namespace Snake
             Settings.Width = panel2.Width;
             Settings.Height = panel2.Height;
 
-            flowPanels.Add(flowLayoutPanel3);
-            flowPanels.Add(flowLayoutPanel4);
-            flowPanels.Add(flowLayoutPanel5);
-
             collider = new Collider(playerList, foodList);
             collider.GameOverEvent += Collider_GameOverEvent;
         }
 
         private void FoodSpawnTimer_Tick(object sender, EventArgs e)
         {
-            foodList.Add(Food.Create());
+            if (foodList.Count < 100) foodList.Add(Food.Create());
         }
 
         private void Collider_GameOverEvent(int id)
         {
-            foodSpawnTimer?.Stop();
-
             int high = 0;
             int ID = 0;
 

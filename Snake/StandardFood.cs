@@ -11,16 +11,7 @@ namespace Snake
     {
         public StandardFood() : base()
         {
-            Pos = Food.SpawnPoint();
-            rect = new Rectangle(Position, new Size(Settings.size, Settings.size));
             
-            while (CheckFoodPosition())
-            {
-                Pos = Food.SpawnPoint();
-                rect = new Rectangle(Position, new Size(Settings.size, Settings.size));
-            }
-
-            Matrix = new MatrixPoint(Pos.X/15, Pos.Y/15);
         }
 
         internal override void AddEffect(ref List<Player> playerList)
@@ -31,7 +22,7 @@ namespace Snake
         internal override void Draw(Graphics g)
         {
             //g.DrawIcon(new Icon("Apple.ico"), Pos.X, Pos.Y);
-            g.FillRectangle(new SolidBrush(Color.Black), rect);
+            g.FillRectangle(new SolidBrush(Color.Black), Rect);
         }
 
         internal override void Hit(Collider collider)

@@ -11,23 +11,14 @@ namespace Snake
     {
         public MagicMushroom() : base()
         {
-            Pos = Food.SpawnPoint();
-            rect = new Rectangle(Position, new Size(Settings.size, Settings.size));
-
-            while (CheckFoodPosition())
-            {
-                Pos = Food.SpawnPoint();
-                rect = new Rectangle(Position, new Size(Settings.size, Settings.size));
-            }
-
-            Matrix = new MatrixPoint(Pos.X/15, Pos.Y/15);
+            
             //icon = new Icon("Mushroom.ico");
         }
 
         internal override void Draw(Graphics g)
         {
             //g.DrawIcon(icon, Pos.X, Pos.Y);
-            g.FillRectangle(new SolidBrush(Color.Purple), rect);
+            g.FillRectangle(new SolidBrush(Color.Purple), Rect);
         }
 
         internal override void Hit(Collider collider)

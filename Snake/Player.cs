@@ -16,6 +16,7 @@ namespace Snake
         public List<Timer> timerList = new List<Timer>();
         public int playerID;
         private Timer _timer;
+        private int Ticks;
 
         public delegate void ScoreChangeDelegate(int id, int score);
         public event ScoreChangeDelegate scoreChangeEvent;
@@ -66,22 +67,27 @@ namespace Snake
         internal void AddParts(int length)
         {
             BodyPart bodyPart = default(BodyPart);
+            Point point = new Point(snakeBody.Last().Part.X, snakeBody.Last().Part.Y);
 
             for (int i = 0; i < length; i++)
             {
                 switch (moveDirection)
                 {
                     case Direction.Up:
-                        bodyPart = new BodyPart(new Point(snakeBody.Last().Part.X, snakeBody.Last().Part.Y + Settings.size));
+                        point.Y += Settings.size;
+                        bodyPart = new BodyPart(point);
                         break;
                     case Direction.Down:
-                        bodyPart = new BodyPart(new Point(snakeBody.Last().Part.X, snakeBody.Last().Part.Y - Settings.size));
+                        point.Y -= Settings.size;
+                        bodyPart = new BodyPart(point);
                         break;
                     case Direction.Left:
-                        bodyPart = new BodyPart(new Point(snakeBody.Last().Part.X + Settings.size, snakeBody.Last().Part.Y));
+                        point.X += Settings.size;
+                        bodyPart = new BodyPart(point);
                         break;
                     case Direction.Right:
-                        bodyPart = new BodyPart(new Point(snakeBody.Last().Part.X - Settings.size, snakeBody.Last().Part.Y));
+                        point.X -= Settings.size;
+                        bodyPart = new BodyPart(point);
                         break;
                     default: break;
                 }
@@ -115,24 +121,35 @@ namespace Snake
         {
             playerKeys = Settings.playerKeysInvert[playerID - 1];
 
-            addTimer(mushroom);     //Used to create a timer with a reasonable length that removes itself and reverts the effect on timer end
+            AddTimer(mushroom);     //Used to create a timer with a reasonable length that removes itself and reverts the effect on timer end
         }
 
         public void ActivateEffect(CoffeeFood coffee)
         {
-            _timer = new Timer {Interval = 1000 / (Settings.FPS/3)};
+            _timer = new Timer {Interval = 1000 / (Settings.FPS / 2)};
             _timer.Tick += _timer_Tick;
             _timer.Start();
 
-            addTimer(coffee);
+            AddTimer(coffee);
         }
 
         private void _timer_Tick(object sender, EventArgs e)
         {
-            MoveSnake();
+            Timer t = (Timer) sender;
+            Ticks++;
+
+            if (!(Ticks >= 50))
+            {
+                MoveSnake();
+            }
+            else
+            {
+                t.Stop();
+                Ticks = 0;
+            }
         }
 
-        public void addTimer(Food food)
+        public void AddTimer(Food food)
         {
             Timer t = new Timer();
 
@@ -140,14 +157,19 @@ namespace Snake
             {
                 t.Interval = Settings.EffectLengthMagicMushroom;
                 t.Tick += mushroom_TimerEvent;
-            } else if (food is CoffeeFood)
+            } 
+            else if (food is CoffeeFood)
             {
                 t.Interval = Settings.EffectLengthCoffeeFood;
                 t.Tick += coffee_TimerEvent;
             }
+            else
+            {
+                throw new NotSupportedException();
+            }
 
-            t.Start();
             timerList.Add(t);
+            t.Start();
         }
 
         public void mushroom_TimerEvent(object sender, EventArgs e)
@@ -162,6 +184,7 @@ namespace Snake
         public void coffee_TimerEvent(object sender, EventArgs e)
         {
             _timer.Stop();
+            _timer = new Timer();
 
             Timer t = (Timer)sender;
             t.Stop();

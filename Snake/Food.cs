@@ -13,52 +13,37 @@ namespace Snake
     public abstract class Food
     {
         protected Point Pos;
-        protected static List<Food> foods = new List<Food>();
-        protected Rectangle rect;
+        protected Rectangle Rect;
         
         public MatrixPoint Matrix { get; protected set; }
 
-        public Rectangle GetRectangle
-        {
-            get => rect;
-        }
+        public Rectangle GetRectangle => Rect;
 
-        public static Random random = new Random();
         private static readonly object syncLock = new object();
         private enum Type { Standard, Valuable, Coffee, MagicMushroom }
-
-        public static Point SpawnPoint()
+        
+        public Food()
         {
-            lock (syncLock)
-            {
-                int x = random.Next(Settings.Width - Settings.size);
-                while (x % 15 != 0)
-                {
-                    x = random.Next(Settings.Width - Settings.size);
-                }
+            Pos = SpawnPoint();
+            Rect = new Rectangle(Position, new Size(Settings.size, Settings.size));
 
-                int y = random.Next(Settings.Height - Settings.size);
-                while (y % 15 != 0)
-                {
-                    y = random.Next(Settings.Height - Settings.size);
-                }
-
-                return new Point(x, y);
-            }
+            Matrix = new MatrixPoint(Pos.X/15, Pos.Y/15);
         }
 
-        protected bool CheckFoodPosition()
+        public Point SpawnPoint()
         {
-            if (foods == null)
-                return false;
+            int x = GeneratePoint(Settings.Width, Settings.size);
+            int y = GeneratePoint(Settings.Height, Settings.size);
 
-            foreach (var eatable in foods)
-            {
-                if (eatable.Matrix.Equals(this.Matrix))
-                    return true;
-            }
+            while (x % 15 != 0 && y % 15 != 0)
+                return SpawnPoint();
 
-            return false;
+            return new Point(x, y);
+        }
+
+        int GeneratePoint(int location, int size)
+        {
+            return Form1.rnd.Next(location - size);
         }
 
         private static Dictionary<Type, Food> foodDict = new Dictionary<Type, Food>()
@@ -79,7 +64,6 @@ namespace Snake
             lock (syncLock)
             {
                 Type food = (Type)new Random().Next(foodDict.Count);
-                foods.Add(foodDict[food]);
                 return foodDict[food];
             }
         }
@@ -91,11 +75,5 @@ namespace Snake
         internal abstract void AddEffect(ref List<Player> playerList);
         internal abstract void IncreaseLength(ref Player player);
         internal abstract void IncreaseScore(ref Player player);
-
-        public void Update()
-        {
-            rect = new Rectangle(Pos, new Size(Settings.size, Settings.size));
-            Matrix = new MatrixPoint(Pos.X / 15, Pos.Y / 15);
-        }
     }
 }
