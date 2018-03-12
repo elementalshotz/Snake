@@ -8,7 +8,7 @@ namespace Snake
 {
     public class Collider
     {
-        List<Player> Players;
+        List<Player> Players;       //Save away the reference to the list of players and the list of foods spawned
         List<Food> Eatables;
 
         public delegate void GameOverDelegate(int id);
@@ -22,7 +22,7 @@ namespace Snake
             //Any constructor that we can use to initialize the collider class with
         }
 
-        public void Collide(Player player)
+        public void Collide(Player player)          //Check if the player collides with itself.
         {
             for (int i = 1; i < player.snakeBody.Count; i++)
             {
@@ -39,7 +39,7 @@ namespace Snake
             }
         }
 
-        public void CollideWithPlayers(Player player)
+        public void CollideWithPlayers(Player player)       //Check if the player collides with other players and add a score of 5 to the player collided with
         {
             foreach (var PLAYER in Players)
             {
@@ -49,7 +49,7 @@ namespace Snake
                     {
                         if (PLAYER.snakeBody[i].matrixPoint.Equals(player.snakeBody.First().matrixPoint))
                         {
-                            Players.Remove(player);
+                            player.Remove(this);
                             PLAYER.Score += Settings.CollisionScore;
                             break;
                         }
@@ -60,7 +60,7 @@ namespace Snake
             }
         }
 
-        public void Collide(Food food)
+        public void Collide(Food food)      //Check if anyplayer in the matrix is colliding with the food
         {
             for (int i = 0; i < Players.Count; i++)
             {
@@ -77,7 +77,7 @@ namespace Snake
             }
         }
 
-        public bool CheckFood(Food food)
+        public bool CheckFood(Food food)        //Used to check if the food is on the same coordinates as any other type of food
         {
             if (Eatables == null)
                 return false;
@@ -91,7 +91,7 @@ namespace Snake
             return false;
         }
 
-        public void Remove(Player player)
+        public void Remove(Player player)       //Removing the player from the list of players
         {
             Players.Remove(player);
         }

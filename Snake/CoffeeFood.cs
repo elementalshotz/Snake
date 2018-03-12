@@ -14,8 +14,8 @@ namespace Snake
             //icon = new Icon("CoffieCup.ico");
         }
 
-        internal override void AddEffect(ref List<Player> playerList)
-        {
+        internal override void AddEffect(ref List<Player> playerList)   //Adds the speedup effect to the snake 
+        {                                                               //that either ate it if it is one or adding to a random if it exists more than one
             if (playerList.Count > 1)
             {
                 int player = new Random().Next(playerList.Count);
