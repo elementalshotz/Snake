@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Snake
 {
-    public class MatrixPoint
+    public class MatrixPoint    //A class to disguise everything as a matrix while not really using a matrix
     {
-        int x;
-        int y;
+        int x;      //The X point in the matrix
+        int y;      //The Y point in the matrix
 
         public MatrixPoint(int x, int y)
         {
@@ -30,7 +30,7 @@ namespace Snake
         }
 
         public override bool Equals(object obj)
-        {
+        {                                           //A function to check the point against other points, it is required to check both x and y.
             MatrixPoint matrix = (MatrixPoint)obj;
 
             bool xEquals = matrix.x == this.x;
