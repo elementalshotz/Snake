@@ -103,7 +103,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Derezzed.wav" />
-    <Content Include="Ideas.txt" />
     <Content Include="Onemoretime.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

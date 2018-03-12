@@ -50,6 +50,7 @@ namespace Snake
                         if (PLAYER.snakeBody[i].matrixPoint.Equals(player.snakeBody.First().matrixPoint))
                         {
                             Players.Remove(player);
+                            PLAYER.Score += Settings.CollisionScore;
                             break;
                         }
                     }

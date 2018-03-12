@@ -35,15 +35,20 @@ namespace Snake
         {
             lock (syncLock)
             {
-                Type food = (Type)_r.Next(4);
+                int foodType = _r.Next(10);
 
-                switch (food)
+                if (0 <= foodType && 4 >= foodType)
                 {
-                    case Type.Standard: return new StandardFood();
-                    case Type.Valuable: return new ValuableFood();
-                    case Type.Coffee: return new CoffeeFood();
-                    case Type.MagicMushroom: return new MagicMushroom();
-                    default: return CreateFood();
+                    return new StandardFood();
+                } else if (5 <= foodType && 6 >= foodType)
+                {
+                    return new ValuableFood();
+                } else if (7 <= foodType && 8 >= foodType)
+                {
+                    return new CoffeeFood();
+                } else
+                {
+                    return new MagicMushroom();
                 }
             }
         }
