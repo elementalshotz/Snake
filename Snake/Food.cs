@@ -53,17 +53,17 @@ namespace Snake
             }
         }
 
+        public void Update(Point point)
+        {
+            Position = point;
+            Rect = new Rectangle(Position, new Size(Settings.size, Settings.size));
+            Matrix = new MatrixPoint(Pos.X / 15, Pos.Y / 15);
+        }
+
         internal abstract void Draw(Graphics g);
         internal abstract void Hit(Collider collider);
         internal abstract void AddEffect(ref List<Player> playerList);
         internal abstract void IncreaseLength(ref Player player);
         internal abstract void IncreaseScore(ref Player player);
-
-        public void Update(Point point)
-        {
-            Position = point;
-            Rect = new Rectangle(Position, new Size(Settings.size, Settings.size));
-            Matrix = new MatrixPoint(Pos.X/15, Pos.Y/15);
-        }
     }
 }
