@@ -24,7 +24,7 @@ namespace Snake
             //Any constructor that we can use to initialize the collider class with
         }
 
-        public void updateMatrix()
+        public void UpdateMatrix()
         {
             collidables = new ICollidable[Settings.Width / Settings.size, Settings.Height / Settings.size];
 

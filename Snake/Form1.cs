@@ -169,7 +169,7 @@ namespace Snake
                 food.Hit(collider);
             }
 
-            collider.updateMatrix();
+            collider.UpdateMatrix();
             Refresh();
         }
 
