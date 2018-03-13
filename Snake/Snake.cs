@@ -13,8 +13,9 @@ namespace Snake
         protected enum Direction { Up, Left, Down, Right }
         protected Direction moveDirection { get; set; }
         protected Point startPoint;
+        Collider collider;
 
-        public Snake(Point point)
+        public Snake(Point point, Collider c)
         {
             snakeBody = new List<MatrixPoint>();
             snakeBody.Clear();
@@ -23,6 +24,7 @@ namespace Snake
             snakeBody.Add(new MatrixPoint(startPoint.X / Settings.size, startPoint.Y / Settings.size));
 
             moveDirection = Direction.Right;
+            collider = c;
         }
 
         public void MoveSnake()
@@ -54,23 +56,10 @@ namespace Snake
                     snakeBody[i].Y = snakeBody[i - 1].Y;
                 }
 
-                //Transports the snake to the otherside so if travelling outside in x axis it will be reset to 0
-                if (snakeBody[i].X > Settings.Width / Settings.size)
-                {
-                    snakeBody[i].X = 0;
-                }
-                else if (snakeBody[i].X < 0)
-                {
-                    snakeBody[i].X = Settings.Width / Settings.size;
-                }
-                else if (snakeBody[i].Y > Settings.Height / Settings.size)
-                {
-                    snakeBody[i].Y = 0;
-                }
-                else if (snakeBody[i].Y < 0)
-                {
-                    snakeBody[i].Y = Settings.Height / Settings.size;
-                }
+                if (snakeBody[i].X > Settings.Width / Settings.size) collider.Remove(this);
+                else if (snakeBody[i].X < 0) collider.Remove(this);
+                else if (snakeBody[i].Y > Settings.Height / Settings.size) collider.Remove(this);
+                else if (snakeBody[i].Y < 0) collider.Remove(this);
             }
         }
     }

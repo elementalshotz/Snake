@@ -30,7 +30,7 @@ namespace Snake
             }
         }
 
-        public Player(Keys[] keys, Brush brush, Point startPoint, int ID) : base(startPoint)    //Initializes the player and adds a body that only has a head
+        public Player(Keys[] keys, Brush brush, Point startPoint, int ID, Collider c) : base(startPoint, c)    //Initializes the player and adds a body that only has a head
         {
             playerKeys = keys;
             this.brush = brush;
@@ -66,7 +66,7 @@ namespace Snake
 
         internal void AddParts(int length)  //Adds parts to the snake in the opposite direction of the movement of the snake.
         {                                   //Adds so many parts that is defined in the int length
-            MatrixPoint point = snakeBody.Last();
+            MatrixPoint point = new MatrixPoint(snakeBody.Last().X, snakeBody.Last().Y);
 
             for (int i = 0; i < length; i++)
             {

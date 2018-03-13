@@ -112,7 +112,7 @@ namespace Snake
 
             for (int i = 0; i < v; i++)
             {
-                playerList.Add(new Player(Settings.playerKeys[i], Settings.playerColor[i], Settings.startLocations[i], i+1));
+                playerList.Add(new Player(Settings.playerKeys[i], Settings.playerColor[i], Settings.startLocations[i], i+1, collider));
                 scoreDictionary[i + 1] = 0;
             }
 
@@ -158,18 +158,18 @@ namespace Snake
 
                 if (player.snakeBody.Count < 8) player.snakeBody.Add(new MatrixPoint(player.snakeBody.Last().X-1, player.snakeBody.Last().Y));
 
-                //collider.Collide(player);
-                //collider.CollideWithPlayers(player);
+                collider.Collide(player);
             }
 
-            /*Food[] foods = new Food[foodList.Count];
+            Food[] foods = new Food[foodList.Count];
             foodList.CopyTo(foods);
 
             foreach (var food in foods)
             {
                 food.Hit(collider);
-            }*/
+            }
 
+            collider.updateMatrix();
             Refresh();
         }
 

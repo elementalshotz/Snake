@@ -14,50 +14,52 @@ namespace Snake
         public delegate void GameOverDelegate(int id);
         public event GameOverDelegate GameOverEvent;
 
+        ICollidable[,] collidables;
+
         public Collider(List<Player> playerList, List<Food> foodList)
         {
-
+            collidables = new ICollidable[Settings.Width / Settings.size, Settings.Height / Settings.size];
             Players = playerList;
             Eatables = foodList;
             //Any constructor that we can use to initialize the collider class with
         }
 
-        public void Collide(Player player)          //Check if the player collides with itself.
+        public void updateMatrix()
         {
-            for (int i = 1; i < player.snakeBody.Count; i++)
+            collidables = new ICollidable[Settings.Width / Settings.size, Settings.Height / Settings.size];
+
+            foreach (var player in Players)
             {
-                var head = player.snakeBody.First();
-                if (head.Equals(player.snakeBody[i]))
+                foreach (var part in player.snakeBody)
                 {
-                    Players.Remove(player);
-
-                    if (Players.Count < 1)
-                        GameOverEvent?.Invoke(player.playerID);
-
-                    break;
+                    collidables[part.X, part.Y] = player;
                 }
             }
         }
 
-        public void CollideWithPlayers(Player player)       //Check if the player collides with other players and add a score of 5 to the player collided with
+        public void Collide(Player player)          //Check if the player collides with itself.
         {
-            foreach (var PLAYER in Players)
+            if (collidables[player.snakeBody.First().X, player.snakeBody.First().Y] != null)
             {
-                if (PLAYER != player)
+                if (collidables[player.snakeBody.First().X, player.snakeBody.First().Y] is Player)
                 {
-                    for (int i = 0; i < PLAYER.snakeBody.Count; i++)
-                    {
-                        if (PLAYER.snakeBody[i].Equals(player.snakeBody.First()))
-                        {
-                            player.Remove(this);
-                            PLAYER.Score += Settings.CollisionScore;
-                            break;
-                        }
-                    }
+                    player.Remove(this);
 
-                    break;
+                    Player playerFromMatrix = (Player)collidables[player.snakeBody.First().X, player.snakeBody.First().Y];
+
+                    if (playerFromMatrix.playerID != player.playerID)
+                        playerFromMatrix.Score += 5;
+
+                    if (Players.Count < 1)
+                        GameOverEvent.Invoke(player.playerID);
                 }
             }
+        }
+
+        internal void Remove(Snake snake)
+        {
+            Player p = (Player)collidables[snake.snakeBody.First().X, snake.snakeBody.First().Y];
+            p?.Remove(this);
         }
 
         internal void Remove(Food food)
@@ -67,18 +69,15 @@ namespace Snake
 
         public void Collide(Food food)      //Check if anyplayer in the matrix is colliding with the food
         {
-            for (int i = 0; i < Players.Count; i++)
+            if (collidables[food.Matrix.X, food.Matrix.Y] != null)
             {
-                if (Players[i].snakeBody.First().Equals(food.Matrix))
-                {
-                    Player player = Players[i];
-                    food.IncreaseLength(player);
-                    food.IncreaseScore(player);
-                    food.AddEffect(Players);
-                    Players[i] = player;
+                Player player = (Player)collidables[food.Matrix.X, food.Matrix.Y];
 
-                    food.Remove(this);
-                }
+                food.IncreaseLength(player);
+                food.IncreaseScore(player);
+                food.AddEffect(Players);
+
+                food.Remove(this);
             }
         }
 
