@@ -50,7 +50,7 @@ namespace Snake
                 } else
                 {
                     //Controls the movement of the rest of the body
-                    snakeBody[i] = snakeBody[i - 1];
+                    snakeBody[i - 1] = snakeBody[i];
                 }
 
                 //Transports the snake to the otherside so if travelling outside in x axis it will be reset to 0
