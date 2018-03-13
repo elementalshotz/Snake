@@ -37,13 +37,8 @@ namespace Snake
 
         private Timer foodSpawnTimer;
         Timer _timer;
-        
-        Dictionary<int, int> scoreDictionary = new Dictionary<int, int>()
-        {
-            {1, 0},
-            {2, 0},
-            {3, 0}
-        };
+
+        Dictionary<int, int> scoreDictionary = new Dictionary<int, int>();
 
         public static readonly Random rnd = new Random(DateTime.MaxValue.Millisecond);
 
@@ -102,7 +97,7 @@ namespace Snake
         private void Form1_Resize(object sender, EventArgs e)
         {
             Settings.Width = panel2.Width;
-            Settings.Height = panel2.Height;
+            //Settings.Height = panel2.Height;
         }
 
         internal Form1 ResetComponents()
@@ -118,6 +113,7 @@ namespace Snake
             for (int i = 0; i < v; i++)
             {
                 playerList.Add(new Player(Settings.playerKeys[i], Settings.playerColor[i], Settings.startLocations[i], i+1));
+                scoreDictionary[i + 1] = 0;
             }
 
             foreach (var player in playerList)
