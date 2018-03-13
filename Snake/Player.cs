@@ -21,7 +21,7 @@ namespace Snake
         public delegate void ScoreChangeDelegate(int id, int score);
         public event ScoreChangeDelegate scoreChangeEvent;
 
-        public int Score
+        public int Score        //When the score changes send the id and score to a function that uses the get and updates the score on screen.
         {
             get => score;
             set {
@@ -30,7 +30,7 @@ namespace Snake
             }
         }
 
-        public Player(Keys[] keys, Brush brush, Point startPoint, int ID) : base(startPoint)
+        public Player(Keys[] keys, Brush brush, Point startPoint, int ID) : base(startPoint)    //Initializes the player and adds a body that only has a head
         {
             playerKeys = keys;
             this.brush = brush;
@@ -38,7 +38,7 @@ namespace Snake
             _timer = new Timer();
         }
 
-        public void Player_KeyDown(object sender, KeyEventArgs e)
+        public void Player_KeyDown(object sender, KeyEventArgs e)       //Controlls what happens when the player presses a key on the keyboard
         {
             Direction oldDirection = moveDirection;
 
@@ -64,8 +64,8 @@ namespace Snake
             }
         }
 
-        internal void AddParts(int length)
-        {
+        internal void AddParts(int length)  //Adds parts to the snake in the opposite direction of the movement of the snake.
+        {                                   //Adds so many parts that is defined in the int length
             BodyPart bodyPart = default(BodyPart);
             Point point = new Point(snakeBody.Last().Part.X, snakeBody.Last().Part.Y);
 
@@ -121,7 +121,7 @@ namespace Snake
             AddTimer(mushroom);     //Used to create a timer with a reasonable length that removes itself and reverts the effect on timer end
         }
 
-        public void ActivateEffect(CoffeeFood coffee)
+        public void ActivateEffect(CoffeeFood coffee)   //Adds a timer for speeding up the snake during that time
         {
             _timer = new Timer {Interval = 1000 / (Settings.FPS / 2)};
             _timer.Tick += _timer_Tick;
@@ -130,7 +130,7 @@ namespace Snake
             AddTimer(coffee);
         }
 
-        private void _timer_Tick(object sender, EventArgs e)
+        private void _timer_Tick(object sender, EventArgs e)    //runs the moveSnake while Ticks is less than 50 else we stop even if the other timer has not ended
         {
             Timer t = (Timer) sender;
             Ticks++;
@@ -146,7 +146,7 @@ namespace Snake
             }
         }
 
-        public void AddTimer(Food food)
+        public void AddTimer(Food food)                 //Adds a timer with the correct function and length depending on if it is MagicMushroom or CoffeeFood else we just throw an exception
         {
             Timer t = new Timer();
 
@@ -169,7 +169,7 @@ namespace Snake
             t.Start();
         }
 
-        private void mushroom_TimerEvent(object sender, EventArgs e)
+        private void mushroom_TimerEvent(object sender, EventArgs e)    //Reset keys to their original state and remove the timer from the list of timers
         {
             playerKeys = Settings.playerKeys[playerID - 1];
 
@@ -178,7 +178,7 @@ namespace Snake
             timerList.Remove(t);
         }
 
-        private void coffee_TimerEvent(object sender, EventArgs e)
+        private void coffee_TimerEvent(object sender, EventArgs e)      //Stop the speedup effect and remove the timer that is controlling the speed timer
         {
             _timer.Stop();
             _timer = new Timer();
