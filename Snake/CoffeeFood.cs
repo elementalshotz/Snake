@@ -16,15 +16,8 @@ namespace Snake
 
         internal override void AddEffect(List<Player> playerList)   //Adds the speedup effect to the snake 
         {                                                               //that either ate it if it is one or adding to a random if it exists more than one
-            if (playerList.Count > 1)
-            {
-                int player = new Random().Next(playerList.Count);
-                playerList[player].ActivateEffect(this);
-            }
-            else
-            {
-                playerList.First().ActivateEffect(this);
-            }
+            int player = new Random().Next(playerList.Count);
+            playerList[player].ActivateEffect(this);
         }
 
         internal override void Draw(Graphics g)
@@ -35,10 +28,7 @@ namespace Snake
             g.FillRectangle(new SolidBrush(Color.RosyBrown), new Rectangle(point, size));
         }
 
-        internal override void Hit(Collider collider)
-        {
-            collider.Collide(this);
-        }
+        internal override void Hit(Collider collider) => collider.Collide(this);
 
         internal override void IncreaseLength(Player player)
         {
@@ -49,5 +39,7 @@ namespace Snake
         {
             return; //Implemented on the other food types but since coffee food is just gonna speed up a snake we just return this call
         }
+
+        internal override void Remove(Collider collider) => collider.Remove(this);
     }
 }

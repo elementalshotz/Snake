@@ -35,22 +35,23 @@ namespace Snake
                     switch (moveDirection)
                     {
                         case Direction.Up:
-                            snakeBody[i].Y -= 1;
+                            snakeBody[0].Y -= 1;
                             break;
                         case Direction.Left:
-                            snakeBody[i].X -= 1;
+                            snakeBody[0].X -= 1;
                             break;
                         case Direction.Down:
-                            snakeBody[i].Y += 1;
+                            snakeBody[0].Y += 1;
                             break;
                         case Direction.Right:
-                            snakeBody[i].X += 1;
+                            snakeBody[0].X += 1;
                             break;
                     }
                 } else
                 {
                     //Controls the movement of the rest of the body
-                    snakeBody[i - 1] = snakeBody[i];
+                    snakeBody[i].X = snakeBody[i - 1].X;
+                    snakeBody[i].Y = snakeBody[i - 1].Y;
                 }
 
                 //Transports the snake to the otherside so if travelling outside in x axis it will be reset to 0

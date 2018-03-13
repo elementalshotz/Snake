@@ -158,17 +158,17 @@ namespace Snake
 
                 if (player.snakeBody.Count < 8) player.snakeBody.Add(new MatrixPoint(player.snakeBody.Last().X-1, player.snakeBody.Last().Y));
 
-                collider.Collide(player);
-                collider.CollideWithPlayers(player);
+                //collider.Collide(player);
+                //collider.CollideWithPlayers(player);
             }
 
-            Food[] foods = new Food[foodList.Count];
+            /*Food[] foods = new Food[foodList.Count];
             foodList.CopyTo(foods);
 
             foreach (var food in foods)
             {
                 food.Hit(collider);
-            }
+            }*/
 
             Refresh();
         }

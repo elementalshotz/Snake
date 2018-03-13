@@ -22,16 +22,12 @@ namespace Snake
             g.FillRectangle(new SolidBrush(Color.DarkGray), new Rectangle(point, size));
         }
 
-        internal override void Hit(Collider collider)
-        {
-            collider.Collide(this);
-        }
+        internal override void Hit(Collider collider) => collider.Collide(this);
 
-        internal override void IncreaseLength(Player player)
-        {
-            player.AddParts(Settings.valuableLength);
-        }
+        internal override void IncreaseLength(Player player) => player.AddParts(Settings.valuableLength);
 
         internal override void IncreaseScore(Player player) => player.Score += Settings.valueableFood;
+
+        internal override void Remove(Collider collider) => collider.Remove(this);
     }
 }

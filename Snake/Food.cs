@@ -53,6 +53,7 @@ namespace Snake
         /*The class is abstract due to we never use it in initialization and therefore never need to implement following methods */
         internal abstract void Draw(Graphics g);
         internal abstract void Hit(Collider collider);
+        internal abstract void Remove(Collider collider);
         internal abstract void AddEffect(List<Player> playerList);
         internal abstract void IncreaseLength(Player player);
         internal abstract void IncreaseScore(Player player);
@@ -62,14 +63,14 @@ namespace Snake
             throw new NotImplementedException();
         }
 
-        public void Remove(Collider collider)
+        void ICollidable.Remove(Collider collider)
         {
-            throw new NotImplementedException();
+            this.Remove(collider);
         }
 
         void IDrawable.Draw(Graphics g)
         {
-            throw new NotImplementedException();
+            this.Draw(g);
         }
     }
 }

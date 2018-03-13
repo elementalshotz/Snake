@@ -34,5 +34,6 @@ namespace Snake
         }
 
         internal override void IncreaseScore(Player player) => player.Score += Settings.standardFood;
+        internal override void Remove(Collider collider) => collider.Remove(this);
     }
 }

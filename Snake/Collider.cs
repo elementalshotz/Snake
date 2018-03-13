@@ -60,6 +60,11 @@ namespace Snake
             }
         }
 
+        internal void Remove(Food food)
+        {
+            Eatables.Remove(food);
+        }
+
         public void Collide(Food food)      //Check if anyplayer in the matrix is colliding with the food
         {
             for (int i = 0; i < Players.Count; i++)
@@ -72,7 +77,7 @@ namespace Snake
                     food.AddEffect(Players);
                     Players[i] = player;
 
-                    Eatables.Remove(food);
+                    food.Remove(this);
                 }
             }
         }

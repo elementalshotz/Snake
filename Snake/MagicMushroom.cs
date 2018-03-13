@@ -22,21 +22,12 @@ namespace Snake
             g.FillRectangle(new SolidBrush(Color.Purple), new Rectangle(point, size));
         }
 
-        internal override void Hit(Collider collider)
-        {
-            collider.Collide(this);
-        }
+        internal override void Hit(Collider collider) => collider.Collide(this);
 
         internal override void AddEffect(List<Player> playerList)       //Call the player and activate the effect using a dynamic dispatch
         {
-            if (playerList.Count > 1)
-            {
-                int player = new Random().Next(playerList.Count);
-                playerList[player].ActivateEffect(this);
-            } else
-            {
-                playerList.First().ActivateEffect(this);
-            }
+            int player = new Random().Next(playerList.Count);
+            playerList[player].ActivateEffect(this);
         }
 
         internal override void IncreaseLength(Player player)        //Adding parts to the snake is necessary since this doesn't spawn that often
@@ -45,5 +36,6 @@ namespace Snake
         }
 
         internal override void IncreaseScore(Player player) => player.Score += Settings.magicMushroom;
+        internal override void Remove(Collider collider) => collider.Remove(this);
     }
 }
