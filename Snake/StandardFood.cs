@@ -10,7 +10,7 @@ namespace Snake
     public class StandardFood : Food
     {
 
-        internal override void AddEffect(ref List<Player> playerList)
+        internal override void AddEffect(List<Player> playerList)
         {
             return;                 //Absolutely do nothing about this code, no effect is supposed to be added from the standard type
         }
@@ -26,11 +26,11 @@ namespace Snake
             collider.Collide(this);
         }
 
-        internal override void IncreaseLength(ref Player player)
+        internal override void IncreaseLength(Player player)
         {
             player.AddParts(Settings.standardLength);
         }
 
-        internal override void IncreaseScore(ref Player player) => player.Score += Settings.standardFood;
+        internal override void IncreaseScore(Player player) => player.Score += Settings.standardFood;
     }
 }

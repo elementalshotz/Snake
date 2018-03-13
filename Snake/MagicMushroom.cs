@@ -25,7 +25,7 @@ namespace Snake
             collider.Collide(this);
         }
 
-        internal override void AddEffect(ref List<Player> playerList)       //Call the player and activate the effect using a dynamic dispatch
+        internal override void AddEffect(List<Player> playerList)       //Call the player and activate the effect using a dynamic dispatch
         {
             if (playerList.Count > 1)
             {
@@ -37,11 +37,11 @@ namespace Snake
             }
         }
 
-        internal override void IncreaseLength(ref Player player)        //Adding parts to the snake is necessary since this doesn't spawn that often
+        internal override void IncreaseLength(Player player)        //Adding parts to the snake is necessary since this doesn't spawn that often
         {                                                               // so it will add 5 parts beginning from the end of the snake
             player.AddParts(Settings.mushroomLength);
         }
 
-        internal override void IncreaseScore(ref Player player) => player.Score += Settings.magicMushroom;
+        internal override void IncreaseScore(Player player) => player.Score += Settings.magicMushroom;
     }
 }

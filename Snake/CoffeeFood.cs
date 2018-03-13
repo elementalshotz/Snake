@@ -14,7 +14,7 @@ namespace Snake
             //icon = new Icon("CoffieCup.ico");
         }
 
-        internal override void AddEffect(ref List<Player> playerList)   //Adds the speedup effect to the snake 
+        internal override void AddEffect(List<Player> playerList)   //Adds the speedup effect to the snake 
         {                                                               //that either ate it if it is one or adding to a random if it exists more than one
             if (playerList.Count > 1)
             {
@@ -38,12 +38,12 @@ namespace Snake
             collider.Collide(this);
         }
 
-        internal override void IncreaseLength(ref Player player)
+        internal override void IncreaseLength(Player player)
         {
             return; //Implemented on the other food types but since coffee food is just gonna speed up a snake we just return this call
         }
 
-        internal override void IncreaseScore(ref Player player)
+        internal override void IncreaseScore(Player player)
         {
             return; //Implemented on the other food types but since coffee food is just gonna speed up a snake we just return this call
         }

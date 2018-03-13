@@ -62,8 +62,8 @@ namespace Snake
         /*The class is abstract due to we never use it in initialization and therefore never need to implement following methods */
         internal abstract void Draw(Graphics g);
         internal abstract void Hit(Collider collider);
-        internal abstract void AddEffect(ref List<Player> playerList);
-        internal abstract void IncreaseLength(ref Player player);
-        internal abstract void IncreaseScore(ref Player player);
+        internal abstract void AddEffect(List<Player> playerList);
+        internal abstract void IncreaseLength(Player player);
+        internal abstract void IncreaseScore(Player player);
     }
 }

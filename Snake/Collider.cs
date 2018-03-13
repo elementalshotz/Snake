@@ -67,9 +67,9 @@ namespace Snake
                 if (Players[i].snakeBody.First().matrixPoint.Equals(food.Matrix))
                 {
                     Player player = Players[i];
-                    food.IncreaseLength(ref player);
-                    food.IncreaseScore(ref player);
-                    food.AddEffect(ref Players);
+                    food.IncreaseLength(player);
+                    food.IncreaseScore(player);
+                    food.AddEffect(Players);
                     Players[i] = player;
 
                     Eatables.Remove(food);
