@@ -56,13 +56,21 @@ namespace Snake
             }
         }
 
-        internal void Remove(Snake snake)
+        internal void Remove(Snake snake, Player.Direction direction)      //Only happens if the snake is crashing into the wall...
         {
+            switch (direction)
+            {
+                case Player.Direction.Down: snake.snakeBody.First().Y -= 1; break;
+                case Player.Direction.Up: snake.snakeBody.First().Y += 1; break;
+                case Player.Direction.Left: snake.snakeBody.First().X += 1; break;
+                case Player.Direction.Right: snake.snakeBody.First().X -= 1; break;
+            }
+
             Player p = (Player)collidables[snake.snakeBody.First().X, snake.snakeBody.First().Y];
             p?.Remove(this);
         }
 
-        internal void Remove(Food food)
+        internal void Remove(Food food)         //Remove the food from the list of eatables which is a reference to the list found in Form1
         {
             Eatables.Remove(food);
         }

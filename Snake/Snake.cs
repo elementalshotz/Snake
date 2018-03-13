@@ -10,7 +10,7 @@ namespace Snake
     public class Snake
     {
         public List<MatrixPoint> snakeBody;
-        protected enum Direction { Up, Left, Down, Right }
+        public enum Direction { Up, Left, Down, Right }
         protected Direction moveDirection { get; set; }
         protected Point startPoint;
         Collider collider;
@@ -56,10 +56,11 @@ namespace Snake
                     snakeBody[i].Y = snakeBody[i - 1].Y;
                 }
 
-                if (snakeBody[i].X > Settings.Width / Settings.size) collider.Remove(this);
-                else if (snakeBody[i].X < 0) collider.Remove(this);
-                else if (snakeBody[i].Y > Settings.Height / Settings.size) collider.Remove(this);
-                else if (snakeBody[i].Y < 0) collider.Remove(this);
+                //If we move towards the wall and crashes into the wall get the player 
+                if (snakeBody[i].X > Settings.Width / Settings.size) collider.Remove(this, moveDirection);
+                else if (snakeBody[i].X < 0) collider.Remove(this, moveDirection);
+                else if (snakeBody[i].Y > Settings.Height / Settings.size) collider.Remove(this, moveDirection);
+                else if (snakeBody[i].Y < 0) collider.Remove(this, moveDirection);
             }
         }
     }
