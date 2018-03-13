@@ -56,14 +56,14 @@ namespace Snake
             }
         }
 
-        internal void Remove(Snake snake, Player.Direction direction)      //Only happens if the snake is crashing into the wall...
+        internal void Remove(Snake snake, Snake.Direction direction)      //Only happens if the snake is crashing into the wall...
         {
             switch (direction)
             {
-                case Player.Direction.Down: snake.snakeBody.First().Y -= 1; break;
-                case Player.Direction.Up: snake.snakeBody.First().Y += 1; break;
-                case Player.Direction.Left: snake.snakeBody.First().X += 1; break;
-                case Player.Direction.Right: snake.snakeBody.First().X -= 1; break;
+                case Snake.Direction.Down: snake.snakeBody.First().Y -= 1; break;
+                case Snake.Direction.Up: snake.snakeBody.First().Y += 1; break;
+                case Snake.Direction.Left: snake.snakeBody.First().X += 1; break;
+                case Snake.Direction.Right: snake.snakeBody.First().X -= 1; break;
             }
 
             Player p = (Player)collidables[snake.snakeBody.First().X, snake.snakeBody.First().Y];
