@@ -156,7 +156,7 @@ namespace Snake
             {
                 player.MoveSnake();
 
-                if (player.snakeBody.Count < 8) player.snakeBody.Add(new BodyPart(player.snakeBody.Last().PartPoint));
+                if (player.snakeBody.Count < 8) player.snakeBody.Add(player.snakeBody.Last());
 
                 collider.Collide(player);
                 collider.CollideWithPlayers(player);
@@ -197,7 +197,7 @@ namespace Snake
             while (y % 15 != 0)
                 y = rnd.Next(Settings.Height - Settings.size);
 
-            food.Update(new Point(x, y));
+            food.Update(new Point(x / 15, y / 15));
         }
     }
 }

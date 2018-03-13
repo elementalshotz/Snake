@@ -9,86 +9,67 @@ namespace Snake
 {
     public class Snake
     {
-        public List<BodyPart> snakeBody;
+        public List<MatrixPoint> snakeBody;
         protected enum Direction { Up, Left, Down, Right }
         protected Direction moveDirection { get; set; }
         protected Point startPoint;
 
         public Snake(Point point)
         {
-            snakeBody = new List<BodyPart>();
+            snakeBody = new List<MatrixPoint>();
             snakeBody.Clear();
 
             startPoint = point;
-            snakeBody.Add(new BodyPart(startPoint));
+            snakeBody.Add(new MatrixPoint(startPoint.X / Settings.size, startPoint.Y / Settings.size));
 
             moveDirection = Direction.Right;
         }
 
         public void MoveSnake()
         {
-            Rectangle part;
-            Rectangle secondPart;
-
             for (int i = snakeBody.Count-1; i >= 0; i--)
             {
-                part = snakeBody[i].Part;
-
                 if (i == 0)
                 {
                     //Controls the movement of the head
                     switch (moveDirection)
                     {
                         case Direction.Up:
-                            part.Y -= part.Height;
+                            snakeBody[i].Y -= 1;
                             break;
                         case Direction.Left:
-                            part.X -= part.Width;
+                            snakeBody[i].X -= 1;
                             break;
                         case Direction.Down:
-                            part.Y += part.Height;
+                            snakeBody[i].Y += 1;
                             break;
                         case Direction.Right:
-                            part.X += part.Width;
+                            snakeBody[i].X += 1;
                             break;
                     }
-
-                    snakeBody[i].matrixPoint = new MatrixPoint(part.X / 15, part.Y / 15);
                 } else
                 {
                     //Controls the movement of the rest of the body
-                    secondPart = snakeBody[i - 1].Part;
-                    
-                    part.X = secondPart.X;
-                    part.Y = secondPart.Y;
-                    snakeBody[i].matrixPoint = snakeBody[i - 1].matrixPoint;
-
-                    snakeBody[i - 1].Part = secondPart;
+                    snakeBody[i] = snakeBody[i - 1];
                 }
 
                 //Transports the snake to the otherside so if travelling outside in x axis it will be reset to 0
-                if (part.X > Settings.Width)
+                if (snakeBody[i].X > Settings.Width / Settings.size)
                 {
-                    part.X = 0;
-                    snakeBody[i].matrixPoint.X = 0;
+                    snakeBody[i].X = 0;
                 }
-                else if (part.X < 0)
+                else if (snakeBody[i].X < 0)
                 {
-                    part.X = Settings.Width;
-                    snakeBody[i].matrixPoint.X = Settings.Width / 15;
+                    snakeBody[i].X = Settings.Width / Settings.size;
                 }
-                else if (part.Y > Settings.Height)
+                else if (snakeBody[i].Y > Settings.Height / Settings.size)
                 {
-                    part.Y = 0;
-                    snakeBody[i].matrixPoint.Y = 0;
+                    snakeBody[i].Y = 0;
                 }
-                else if (part.Y < 0)
+                else if (snakeBody[i].Y < 0)
                 {
-                    part.Y = Settings.Height;
-                    snakeBody[i].matrixPoint.Y = Settings.Height / 15;
+                    snakeBody[i].Y = Settings.Height / Settings.size;
                 }
-
-                snakeBody[i].Part = part;
             }
         }
     }

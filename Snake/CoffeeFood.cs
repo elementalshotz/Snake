@@ -30,7 +30,9 @@ namespace Snake
         internal override void Draw(Graphics g)
         {
             //g.DrawIcon(icon, Pos.X, Pos.Y);
-            g.FillRectangle(new SolidBrush(Color.RosyBrown), Rect);
+            Point point = new Point(Matrix.X * Settings.size, Matrix.Y * Settings.size);
+            Size size = new Size(Settings.size, Settings.size);
+            g.FillRectangle(new SolidBrush(Color.RosyBrown), new Rectangle(point, size));
         }
 
         internal override void Hit(Collider collider)

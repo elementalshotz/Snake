@@ -66,33 +66,28 @@ namespace Snake
 
         internal void AddParts(int length)  //Adds parts to the snake in the opposite direction of the movement of the snake.
         {                                   //Adds so many parts that is defined in the int length
-            BodyPart bodyPart = default(BodyPart);
-            Point point = new Point(snakeBody.Last().Part.X, snakeBody.Last().Part.Y);
+            MatrixPoint point = snakeBody.Last();
 
             for (int i = 0; i < length; i++)
             {
                 switch (moveDirection)
                 {
                     case Direction.Up:
-                        point.Y += Settings.size;
-                        bodyPart = new BodyPart(point);
+                        point.Y += 1;
                         break;
                     case Direction.Down:
-                        point.Y -= Settings.size;
-                        bodyPart = new BodyPart(point);
+                        point.Y -= 1;
                         break;
                     case Direction.Left:
-                        point.X += Settings.size;
-                        bodyPart = new BodyPart(point);
+                        point.X += 1;
                         break;
                     case Direction.Right:
-                        point.X -= Settings.size;
-                        bodyPart = new BodyPart(point);
+                        point.X -= 1;
                         break;
                     default: break;
                 }
 
-                snakeBody.Add(bodyPart);
+                snakeBody.Add(point);
             }
         }
 
@@ -110,7 +105,10 @@ namespace Snake
         {
             foreach (var bodyPart in snakeBody)
             {
-                g.FillRectangle(brush, bodyPart.Part);
+                Size size = new Size(Settings.size, Settings.size);
+                Point point = new Point(bodyPart.X * Settings.size, bodyPart.Y * Settings.size);
+                Rectangle r = new Rectangle(point, size);
+                g.FillRectangle(brush, r);
             }
         }
 

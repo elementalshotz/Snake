@@ -27,7 +27,7 @@ namespace Snake
             for (int i = 1; i < player.snakeBody.Count; i++)
             {
                 var head = player.snakeBody.First();
-                if (head.matrixPoint.Equals(player.snakeBody[i].matrixPoint))
+                if (head.Equals(player.snakeBody[i]))
                 {
                     Players.Remove(player);
 
@@ -47,7 +47,7 @@ namespace Snake
                 {
                     for (int i = 0; i < PLAYER.snakeBody.Count; i++)
                     {
-                        if (PLAYER.snakeBody[i].matrixPoint.Equals(player.snakeBody.First().matrixPoint))
+                        if (PLAYER.snakeBody[i].Equals(player.snakeBody.First()))
                         {
                             player.Remove(this);
                             PLAYER.Score += Settings.CollisionScore;
@@ -64,7 +64,7 @@ namespace Snake
         {
             for (int i = 0; i < Players.Count; i++)
             {
-                if (Players[i].snakeBody.First().matrixPoint.Equals(food.Matrix))
+                if (Players[i].snakeBody.First().Equals(food.Matrix))
                 {
                     Player player = Players[i];
                     food.IncreaseLength(player);
@@ -84,7 +84,7 @@ namespace Snake
 
             foreach (var eatable in Eatables)
             {
-                if (eatable.GetRectangle.IntersectsWith(food.GetRectangle))
+                if (eatable.Matrix.Equals(food.Matrix))
                     return true;
             }
 
