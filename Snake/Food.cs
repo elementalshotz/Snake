@@ -10,7 +10,7 @@ using Snake;
 
 namespace Snake
 {
-    public abstract class Food
+    public abstract class Food : ICollidable
     {
         private static readonly Random _r = new Random();   //Used to spawn food at a random location
 
@@ -56,5 +56,20 @@ namespace Snake
         internal abstract void AddEffect(List<Player> playerList);
         internal abstract void IncreaseLength(Player player);
         internal abstract void IncreaseScore(Player player);
+
+        void ICollidable.Hit(Collider collider)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Remove(Collider collider)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IDrawable.Draw(Graphics g)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

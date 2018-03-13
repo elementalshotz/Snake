@@ -156,7 +156,7 @@ namespace Snake
             {
                 player.MoveSnake();
 
-                if (player.snakeBody.Count < 8) player.snakeBody.Add(player.snakeBody.Last());
+                if (player.snakeBody.Count < 8) player.snakeBody.Add(new MatrixPoint(player.snakeBody.Last().X-1, player.snakeBody.Last().Y));
 
                 collider.Collide(player);
                 collider.CollideWithPlayers(player);
